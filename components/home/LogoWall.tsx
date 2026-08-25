@@ -1,0 +1,44 @@
+import React from 'react';
+
+export const LogoWall: React.FC = () => {
+  const logoTiers = [
+    {
+      category: 'INVESTED BY',
+      logos: ['ANIMOCA BRANDS', 'THE SANDBOX', 'BRINC', 'EARLY ADVISORY'],
+    },
+    {
+      category: 'PARTNERED WITH',
+      logos: ['MEDIACORP', 'SG ENABLE', 'CLAY NATION', 'CITY OF AUSTIN', 'POLYGON LABS'],
+    },
+    {
+      category: 'FEATURED IN',
+      logos: ['FORBES ASIA', 'VENTUREBEAT', 'TECH IN ASIA', 'COINDESK', 'BLOOMBERG'],
+    },
+  ];
+
+  return (
+    <section className="bg-[var(--snowfield)] py-12 border-b border-[var(--line-light)]">
+      <div className="buildplate-container">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-[var(--line-light)]">
+          {logoTiers.map((tier, idx) => (
+            <div key={idx} className={`${idx > 0 ? 'pt-8 lg:pt-0 lg:pl-8' : ''}`}>
+              <div className="text-label text-[var(--sun-700)] mb-4 font-mono font-bold">
+                ▸ {tier.category}
+              </div>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                {tier.logos.map((logo, lIdx) => (
+                  <span
+                    key={lIdx}
+                    className="font-mono text-xs tracking-wider text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-b-2 hover:border-[var(--sun-500)] transition-all cursor-default select-none py-1 font-semibold"
+                  >
+                    {logo}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

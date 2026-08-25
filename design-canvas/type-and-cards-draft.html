@@ -1,0 +1,566 @@
+<title>Pragati Draft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=Pragati+Narrow:wght@400;700&family=Instrument+Serif:ital@0;1&family=Bebas+Neue&family=Familjen+Grotesk:wght@400..700&family=Martian+Mono:wght@300;400;600&display=swap">
+
+<style>
+  :root{
+    /* smobler tokens, unchanged — this draft borrows, it does not redefine */
+    --sun:#FFD100; --sun-700:#B38F00; --sun-100:#FFF9D6;
+    --ground:#F8F9F7; --surface:#FFFFFF; --surface-2:#EEF0EC;
+    --ink:#0B0E12; --ink-mute:#555E68; --ink-light:#828C96;
+    --line:rgba(11,14,18,.10); --line-soft:rgba(11,14,18,.06);
+    --lift:8px 8px 0 rgba(11,14,18,.06);
+    --lift-hover:3px 3px 0 rgba(11,14,18,.12);
+    --shadow-soft:0 2px 4px rgba(11,14,18,.04), 0 12px 28px -12px rgba(11,14,18,.14);
+    --shadow-soft-hover:0 4px 8px rgba(11,14,18,.05), 0 24px 48px -16px rgba(11,14,18,.20);
+
+    /* Lazarev radius scale, measured from la26.shared.min.css */
+    --r-2:2px; --r-4:4px; --r-8:8px; --r-12:12px;
+    --r-16:16px; --r-24:24px; --r-32:32px; --r-80:80px;
+
+    --pragati:"Pragati Narrow",Impact,"Haettenschweiler","Arial Narrow",sans-serif;
+    --archivo:"Archivo",Arial,Helvetica,sans-serif;
+    --instrument:"Instrument Serif","Times New Roman",Georgia,serif;
+    --bebas:"Bebas Neue",Impact,sans-serif;
+    --familjen:"Familjen Grotesk",-apple-system,"Segoe UI",sans-serif;
+    --mono:"Martian Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0B0E12; --surface:#14181F; --surface-2:#1C222B;
+      --ink:#F2F4F1; --ink-mute:#A3ACB6; --ink-light:#79838E;
+      --line:rgba(255,255,255,.14); --line-soft:rgba(255,255,255,.08);
+      --sun-700:#FFD100; --sun-100:rgba(255,209,0,.12);
+      --lift:8px 8px 0 rgba(0,0,0,.5);
+      --lift-hover:3px 3px 0 rgba(0,0,0,.6);
+      --shadow-soft:0 2px 4px rgba(0,0,0,.3), 0 12px 28px -12px rgba(0,0,0,.7);
+      --shadow-soft-hover:0 4px 8px rgba(0,0,0,.35), 0 24px 48px -16px rgba(0,0,0,.85);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0B0E12; --surface:#14181F; --surface-2:#1C222B;
+    --ink:#F2F4F1; --ink-mute:#A3ACB6; --ink-light:#79838E;
+    --line:rgba(255,255,255,.14); --line-soft:rgba(255,255,255,.08);
+    --sun-700:#FFD100; --sun-100:rgba(255,209,0,.12);
+    --lift:8px 8px 0 rgba(0,0,0,.5);
+    --lift-hover:3px 3px 0 rgba(0,0,0,.6);
+    --shadow-soft:0 2px 4px rgba(0,0,0,.3), 0 12px 28px -12px rgba(0,0,0,.7);
+    --shadow-soft-hover:0 4px 8px rgba(0,0,0,.35), 0 24px 48px -16px rgba(0,0,0,.85);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:var(--archivo); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px 120px}
+  .label{
+    font-family:var(--mono); font-size:11px; font-weight:400;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--ink-light);
+  }
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--sun-700); outline-offset:3px; border-radius:2px}
+
+  /* ── masthead ─────────────────────────────── */
+  header.top{border-bottom:1px solid var(--line); padding:56px 0 32px; margin-bottom:8px}
+  header.top h1{
+    font-family:var(--pragati); font-weight:400;
+    font-size:clamp(46px,8vw,92px); line-height:.92; letter-spacing:-.02em;
+    margin:14px 0 18px; text-wrap:balance; max-width:16ch;
+  }
+  header.top p{max-width:62ch; color:var(--ink-mute); font-size:18px; margin:0}
+  .sourceline{
+    display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:24px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ink-light);
+  }
+  .sourceline b{color:var(--ink); font-weight:400}
+  .note{
+    margin-top:28px; padding:14px 18px; border-left:3px solid var(--sun);
+    background:var(--sun-100); color:var(--ink); font-size:15px; max-width:70ch;
+  }
+
+  /* ── section chrome ───────────────────────── */
+  section{padding-top:76px}
+  .sechead{display:flex; align-items:baseline; gap:16px; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:32px}
+  .sechead h2{
+    font-family:var(--pragati); font-weight:400; font-size:34px;
+    line-height:1.1; letter-spacing:-.01em; margin:0; flex:1;
+  }
+  .sechead .num{font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:var(--sun-700)}
+  .lede{color:var(--ink-mute); max-width:68ch; margin:-14px 0 32px; font-size:17px}
+
+  /* ── measurement table ────────────────────── */
+  .tablewrap{overflow-x:auto; border:1px solid var(--line); background:var(--surface)}
+  table{border-collapse:collapse; width:100%; min-width:720px; font-size:14px}
+  th,td{text-align:left; padding:11px 16px; border-bottom:1px solid var(--line-soft)}
+  thead th{
+    font-family:var(--mono); font-size:10px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--ink-light); font-weight:400;
+    background:var(--surface-2); border-bottom:1px solid var(--line);
+  }
+  tbody tr:last-child td{border-bottom:0}
+  td.fam{font-family:var(--mono); font-size:12px}
+  td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
+  .pill{
+    display:inline-block; padding:2px 8px; border-radius:999px; font-family:var(--mono);
+    font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    background:var(--sun-100); color:var(--sun-700); border:1px solid var(--line);
+  }
+
+  /* ── specimen card ────────────────────────── */
+  .spec{
+    background:var(--surface); border:1px solid var(--line);
+    margin-bottom:28px; overflow:hidden;
+  }
+  .spec > .bar{
+    display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px;
+    padding:12px 24px; border-bottom:1px solid var(--line); background:var(--surface-2);
+  }
+  .spec .bar .name{font-family:var(--mono); font-size:12px; letter-spacing:.06em; margin-right:auto}
+  .spec .bar .name b{color:var(--ink)}
+  .spec .bar .stack{font-family:var(--mono); font-size:10.5px; color:var(--ink-light); letter-spacing:.04em}
+  .spec .body{padding:34px 24px 30px}
+  .verdict{
+    padding:14px 24px 18px; border-top:1px dashed var(--line);
+    color:var(--ink-mute); font-size:14.5px; max-width:78ch;
+  }
+  .verdict b{color:var(--ink); font-weight:600}
+  .rec{border-color:var(--sun); box-shadow:var(--lift)}
+  .rec > .bar{background:var(--sun); border-bottom-color:rgba(11,14,18,.22)}
+  .rec > .bar .name, .rec > .bar .name b, .rec > .bar .stack{color:#0B0E12}
+
+  /* specimen typography — each option scoped by class */
+  .sp-hero{font-size:clamp(40px,6.4vw,80px); line-height:.94; letter-spacing:-.015em; margin:0 0 6px; text-wrap:balance}
+  .sp-h2{font-size:clamp(30px,3.6vw,46px); line-height:1.04; margin:26px 0 4px}
+  .sp-h5{font-size:20px; line-height:1.3; margin:24px 0 6px}
+  .sp-p{font-size:18px; line-height:1.65; max-width:64ch; color:var(--ink-mute); margin:0 0 14px}
+  .sp-q{font-size:clamp(24px,2.6vw,34px); line-height:1.3; max-width:26ch; margin:26px 0 6px}
+  .sp-c{font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-light); margin:0}
+
+  /* A — Lazarev port */
+  .optA .sp-hero,.optA .sp-h2{font-family:var(--pragati); font-weight:400; letter-spacing:-.01em}
+  .optA .sp-h5{font-family:var(--archivo); font-weight:500; letter-spacing:-.01em}
+  .optA .sp-p{font-family:var(--archivo); font-weight:400}
+  .optA .sp-q{font-family:var(--instrument); font-weight:400; font-style:italic; color:var(--ink)}
+  .optA .sp-c{font-family:var(--pragati); font-size:15px; text-transform:none; letter-spacing:.02em}
+
+  /* B — Archivo superfamily */
+  .optB .sp-hero,.optB .sp-h2{font-family:var(--archivo); font-weight:700; font-stretch:66%; letter-spacing:-.02em}
+  .optB .sp-h5{font-family:var(--archivo); font-weight:600; letter-spacing:-.01em}
+  .optB .sp-p{font-family:var(--archivo); font-weight:400}
+  .optB .sp-q{font-family:var(--archivo); font-weight:500; font-stretch:112%; letter-spacing:-.02em; color:var(--ink)}
+  .optB .sp-c{font-family:var(--mono); font-size:11px; letter-spacing:.14em}
+
+  /* C — serif-led */
+  .optC .sp-hero,.optC .sp-h2{font-family:var(--instrument); font-weight:400; letter-spacing:-.01em}
+  .optC .sp-h5{font-family:var(--archivo); font-weight:600; letter-spacing:-.01em}
+  .optC .sp-p{font-family:var(--archivo); font-weight:400}
+  .optC .sp-q{font-family:var(--archivo); font-weight:400; color:var(--ink)}
+  .optC .sp-c{font-family:var(--mono); font-size:11px; letter-spacing:.14em}
+
+  /* D — Bebas */
+  .optD .sp-hero,.optD .sp-h2{font-family:var(--bebas); font-weight:400; letter-spacing:.005em}
+  .optD .sp-hero{font-size:clamp(44px,7vw,92px); line-height:.9}
+  .optD .sp-h5{font-family:var(--archivo); font-weight:600; letter-spacing:-.01em}
+  .optD .sp-p{font-family:var(--archivo); font-weight:400}
+  .optD .sp-q{font-family:var(--archivo); font-weight:400; color:var(--ink)}
+  .optD .sp-c{font-family:var(--mono); font-size:11px; letter-spacing:.14em}
+
+  /* E — current smobler, as control */
+  .optE .sp-hero,.optE .sp-h2,.optE .sp-h5{font-family:var(--familjen); font-weight:700; letter-spacing:-.03em}
+  .optE .sp-p{font-family:var(--familjen); font-weight:400}
+  .optE .sp-q{font-family:var(--familjen); font-weight:700; letter-spacing:-.03em; color:var(--ink)}
+  .optE .sp-c{font-family:var(--mono); font-size:11px; letter-spacing:.14em}
+
+  /* ── radius ruler ─────────────────────────── */
+  .ruler{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:36px}
+  .ruler figure{margin:0; width:96px; text-align:center}
+  .ruler .swatch{
+    height:76px; background:var(--surface); border:1px solid var(--line);
+    box-shadow:var(--lift); display:block;
+  }
+  .ruler figcaption{font-family:var(--mono); font-size:10px; letter-spacing:.06em; color:var(--ink-light); margin-top:9px}
+  .ruler b{display:block; color:var(--ink); font-weight:400; font-size:11px}
+
+  /* ── card gallery ─────────────────────────── */
+  .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:26px}
+  .slot{display:flex; flex-direction:column; gap:12px}
+  .slotcap{display:flex; align-items:baseline; gap:10px}
+  .slotcap .k{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--sun-700)}
+  .slotcap .d{font-size:13px; color:var(--ink-mute)}
+
+  .card{
+    background:var(--surface); border:1px solid var(--line); overflow:hidden;
+    display:flex; flex-direction:column; text-decoration:none; color:inherit;
+    transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s cubic-bezier(.2,.7,.3,1), border-color .22s;
+  }
+  .card .well{
+    aspect-ratio:16/10; display:grid; place-items:center;
+    background:linear-gradient(135deg,var(--sun) 0%,#FFE04D 52%,#FFF3B0 100%);
+    color:#0B0E12; font-family:var(--pragati); font-size:40px; line-height:1;
+  }
+  .card .copy{padding:20px 22px 22px; display:flex; flex-direction:column; gap:8px; flex:1}
+  .card .kick{font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-light)}
+  .card h3{font-family:var(--pragati); font-weight:400; font-size:26px; line-height:1.1; margin:0; letter-spacing:-.005em}
+  .card p{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink-mute)}
+  .card .foot{
+    margin-top:auto; padding-top:14px; display:flex; align-items:center; gap:10px;
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-light);
+  }
+  .chip{
+    padding:4px 11px; border-radius:999px; border:1px solid var(--line);
+    background:var(--surface-2); color:var(--ink-mute);
+    font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+  }
+  .arrow{margin-left:auto; color:var(--ink)}
+
+  /* 01 — snow, r8, hard offset lift (closest to what smobler ships today) */
+  .c-snow{border-radius:var(--r-8); box-shadow:var(--lift)}
+  .c-snow:hover{transform:translate(4px,4px); box-shadow:var(--lift-hover); border-color:var(--sun)}
+
+  /* 02 — r16, soft ambient shadow, media bleeds to the corner */
+  .c-soft{border-radius:var(--r-16); box-shadow:var(--shadow-soft); border-color:var(--line-soft)}
+  .c-soft:hover{transform:translateY(-5px); box-shadow:var(--shadow-soft-hover)}
+
+  /* 03 — r24 outer with an inset r16 media well, 8px padding ring */
+  .c-nested{border-radius:var(--r-24); padding:8px; box-shadow:var(--shadow-soft); background:var(--surface-2)}
+  .c-nested .well{border-radius:var(--r-16)}
+  .c-nested .copy{padding:16px 14px 12px}
+  .c-nested:hover{transform:translateY(-5px); box-shadow:var(--shadow-soft-hover); border-color:var(--sun)}
+
+  /* 04 — r32 feature card on sunlight, ink type */
+  .c-sun{
+    border-radius:var(--r-32); background:var(--sun); border-color:rgba(11,14,18,.18);
+    box-shadow:6px 6px 0 rgba(11,14,18,.22);
+  }
+  .c-sun .well{background:rgba(11,14,18,.9); color:var(--sun); border-radius:var(--r-24)}
+  .c-sun .copy{padding:22px 26px 26px}
+  .c-sun h3,.c-sun .arrow{color:#0B0E12}
+  .c-sun .kick,.c-sun .foot{color:rgba(11,14,18,.68)}
+  .c-sun p{color:rgba(11,14,18,.82)}
+  .c-sun .chip{background:rgba(11,14,18,.08); border-color:rgba(11,14,18,.22); color:rgba(11,14,18,.82)}
+  .c-sun:hover{transform:translate(3px,3px); box-shadow:3px 3px 0 rgba(11,14,18,.22)}
+
+  /* 05 — r80 stadium, horizontal, for testimonial / provenance rows */
+  .c-stadium{
+    border-radius:var(--r-80); flex-direction:row; align-items:center; gap:20px;
+    padding:14px 30px 14px 14px; box-shadow:var(--shadow-soft);
+  }
+  .c-stadium .avatar{
+    width:88px; height:88px; flex:none; border-radius:999px; display:grid; place-items:center;
+    background:linear-gradient(135deg,var(--sun),#FFF3B0); color:#0B0E12;
+    font-family:var(--pragati); font-size:32px;
+  }
+  .c-stadium .copy{padding:0}
+  .c-stadium h3{font-size:21px}
+  .c-stadium:hover{box-shadow:var(--shadow-soft-hover); border-color:var(--sun)}
+
+  /* 06 — r12 stat tile, no media */
+  .c-stat{border-radius:var(--r-12); box-shadow:var(--lift); padding:24px 24px 20px; gap:4px}
+  .c-stat .fig{
+    font-family:var(--pragati); font-size:68px; line-height:.9; letter-spacing:-.01em;
+    font-variant-numeric:tabular-nums; margin:6px 0 2px;
+  }
+  .c-stat .fig em{font-style:normal; color:var(--sun-700)}
+  .c-stat:hover{transform:translate(4px,4px); box-shadow:var(--lift-hover); border-color:var(--sun)}
+
+  /* ── code block ───────────────────────────── */
+  pre{
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--sun);
+    padding:20px 22px; overflow-x:auto; font-family:var(--mono); font-size:12px;
+    line-height:1.85; margin:0; color:var(--ink);
+  }
+  pre .cm{color:var(--ink-light)}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important; animation:none !important}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 18px 80px}
+    .c-stadium{flex-direction:column; align-items:flex-start; border-radius:var(--r-32); padding:20px}
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="top">
+    <span class="label">Option D shipped · corners rounded</span>
+    <h1>Bebas, Archivo, and eight rounded corners</h1>
+    <p>Everything below is measured from lazarev.agency's live stylesheet, then re-set in smobler's own palette. <b>Option D is live</b>, and cards are rounded on the <b>12 / 8 pairing</b> — studies 01 and 06 below. The rounder studies stay proposals; the note under §Cards says why.</p>
+    <div class="sourceline">
+      <span>Source <b>la26.shared.min.css</b></span>
+      <span>Read <b>25 Aug 2026</b></span>
+      <span>Faces <b>3</b></span>
+      <span>Card studies <b>6</b></span>
+    </div>
+    <p class="note">The two faces Lazarev actually serves are both free on Google Fonts — Archivo and Pragati Narrow — so a port costs nothing in licensing. Instrument Serif carries their pull-quotes and accent headings.</p>
+  </header>
+
+  <!-- 1 ───────────────────────────────────── -->
+  <section id="measured">
+    <div class="sechead"><span class="num">Measured</span><h2>What lazarev.agency is actually running</h2></div>
+    <p class="lede">Their Webflow build resolves every text style through a two-layer variable system — a raw scale, then semantic roles. Flattened, it comes to three families and a strikingly narrow set of weights: 400, 500, 700. No display cut heavier than regular.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Role</th><th>Family</th><th>Weight</th><th>Size · desktop</th><th>Line height</th><th>Tracking</th></tr></thead>
+        <tbody>
+          <tr><td>h1</td><td class="fam">Pragati Narrow</td><td class="num">400</td><td class="num">80px</td><td class="num">72px</td><td class="num">−1.5px</td></tr>
+          <tr><td>h2</td><td class="fam">Pragati Narrow</td><td class="num">400</td><td class="num">56px</td><td class="num">56px</td><td class="num">−0.5px</td></tr>
+          <tr><td>h3</td><td class="fam">Pragati Narrow</td><td class="num">400</td><td class="num">46px</td><td class="num">48px</td><td class="num">−0.5px</td></tr>
+          <tr><td>h4</td><td class="fam">Pragati Narrow</td><td class="num">400</td><td class="num">36px</td><td class="num">40px</td><td class="num">−0.5px</td></tr>
+          <tr><td>h5 / h6</td><td class="fam">Archivo</td><td class="num">500</td><td class="num">24 / 20px</td><td class="num">32 / 28px</td><td class="num">−0.5px</td></tr>
+          <tr><td>Accent heading</td><td class="fam">Instrument Serif</td><td class="num">400</td><td class="num">64px</td><td class="num">64px</td><td class="num">−0.5px</td></tr>
+          <tr><td>Body p1 – p4</td><td class="fam">Archivo</td><td class="num">400 / 500</td><td class="num">20 → 14px</td><td class="num">32 → 20px</td><td class="num">0</td></tr>
+          <tr><td>Pull-quote q1</td><td class="fam">Instrument Serif</td><td class="num">400</td><td class="num">88px</td><td class="num">72px</td><td class="num">−1.5px</td></tr>
+          <tr><td>Caption c1</td><td class="fam">Pragati Narrow</td><td class="num">400</td><td class="num">16px</td><td class="num">16px</td><td class="num">0</td></tr>
+          <tr><td>Caption c2</td><td class="fam">Archivo</td><td class="num">400 / 500</td><td class="num">12px</td><td class="num">16px</td><td class="num">0</td></tr>
+          <tr><td>Big number</td><td class="fam">Pragati Narrow</td><td class="num">400</td><td class="num">up to 140px</td><td class="num">140px</td><td class="num">−1.5px</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede" style="margin-top:22px">The move worth stealing: <b>a condensed face at regular weight, scaled up</b>. Pragati Narrow at 80px/400 reads as loud as a grotesk at 700, but sets far more words per line — which is why their stat blocks and case titles fit without truncating. Radius, meanwhile, sits almost entirely on <span class="pill">8px</span> and <span class="pill">4px</span>, with 32px and 80px reserved for feature surfaces.</p>
+  </section>
+
+  <!-- 2 ───────────────────────────────────── -->
+  <section id="options">
+    <div class="sechead"><span class="num">Option A</span><h2>The direct port</h2></div>
+    <p class="lede">Lazarev's exact triad, set in smobler copy. Same specimen text runs through every option below, so the comparison is like-for-like.</p>
+
+    <article class="spec optA">
+      <div class="bar">
+        <span class="name"><b>A · Pragati Narrow + Archivo + Instrument Serif</b> — not taken</span>
+        <span class="stack">display 400 · body 400/500 · quote 400 italic</span>
+      </div>
+      <div class="body">
+        <p class="sp-c">Worlds, AI systems, live operations</p>
+        <p class="sp-hero">Twenty persistent worlds taught us what breaks when generated content meets real players.</p>
+        <h3 class="sp-h2">What we build</h3>
+        <p class="sp-p">Smobler ships AI-native worlds for studios, brands, and governments — from the Sandbox and Roblox builds behind Singapore's national projects to Clay Nation's first cross-chain release.</p>
+        <h4 class="sp-h5">Judgment, not just throughput</h4>
+        <p class="sp-p">A model can generate a thousand assets. Knowing which nine hundred to throw away is the part clients are paying for.</p>
+        <p class="sp-q">"They were the only team that had already broken this in production."</p>
+        <p class="sp-c">Mediacorp · Executive Producer · 28 Jul 26</p>
+      </div>
+      <p class="verdict"><b>The case that was made for it — kept for the record.</b> The condensed display gives long case-study titles room to breathe at large sizes — the exact problem the current Familjen Grotesk hero has, where two-clause headlines wrap to four lines. Archivo is a workhorse with a genuine 400–700 range and a variable width axis you can borrow later. The Instrument Serif quote is the one warm note in an otherwise industrial system, and it keeps testimonials from reading as body copy in a box. <b>Risk:</b> Pragati Narrow has a single 400 and 700 cut and a small character set — it will not carry CJK, so keep the Noto fallbacks in the body stack.</p>
+    </article>
+
+    <div class="sechead" style="margin-top:56px"><span class="num">Alternatives</span><h2>Three other ways to read the same reference</h2></div>
+
+    <article class="spec optB">
+      <div class="bar">
+        <span class="name"><b>B · Archivo, one superfamily</b></span>
+        <span class="stack">display 700 @ width 66 · body 400 @ width 100 · quote 500 @ width 112</span>
+      </div>
+      <div class="body">
+        <p class="sp-c">Worlds, AI systems, live operations</p>
+        <p class="sp-hero">Twenty persistent worlds taught us what breaks when generated content meets real players.</p>
+        <h3 class="sp-h2">What we build</h3>
+        <p class="sp-p">Smobler ships AI-native worlds for studios, brands, and governments — from the Sandbox and Roblox builds behind Singapore's national projects to Clay Nation's first cross-chain release.</p>
+        <h4 class="sp-h5">Judgment, not just throughput</h4>
+        <p class="sp-p">A model can generate a thousand assets. Knowing which nine hundred to throw away is the part clients are paying for.</p>
+        <p class="sp-q">"They were the only team that had already broken this in production."</p>
+        <p class="sp-c">Mediacorp · Executive Producer · 28 Jul 26</p>
+      </div>
+      <p class="verdict"><b>One font file, every voice.</b> Archivo is variable on both weight and width, so the condensed hero, the normal body, and the expanded quote are the same family at three width settings. Cheapest to load, most self-consistent, and the width axis becomes a real design tool — condense a stat, expand a section opener. <b>Cost:</b> less character than A. Nothing on the page tells you who made it.</p>
+    </article>
+
+    <article class="spec optC">
+      <div class="bar">
+        <span class="name"><b>C · Instrument Serif display + Archivo body</b></span>
+        <span class="stack">display 400 serif · body 400/600 · quote 400</span>
+      </div>
+      <div class="body">
+        <p class="sp-c">Worlds, AI systems, live operations</p>
+        <p class="sp-hero">Twenty persistent worlds taught us what breaks when generated content meets real players.</p>
+        <h3 class="sp-h2">What we build</h3>
+        <p class="sp-p">Smobler ships AI-native worlds for studios, brands, and governments — from the Sandbox and Roblox builds behind Singapore's national projects to Clay Nation's first cross-chain release.</p>
+        <h4 class="sp-h5">Judgment, not just throughput</h4>
+        <p class="sp-p">A model can generate a thousand assets. Knowing which nine hundred to throw away is the part clients are paying for.</p>
+        <p class="sp-q">"They were the only team that had already broken this in production."</p>
+        <p class="sp-c">Mediacorp · Executive Producer · 28 Jul 26</p>
+      </div>
+      <p class="verdict"><b>Inverts the reference.</b> Promotes Lazarev's accent face to the lead and drops the condensed entirely. Reads institutional — closer to a research lab or a government contractor than a build shop, which suits the Singapore and Mediacorp side of the portfolio and undersells the Roblox side. <b>Watch:</b> Instrument Serif has one weight and thin strokes; it needs size and dark ink to hold up, and it will look fragile on the yellow surfaces.</p>
+    </article>
+
+    <article class="spec optD rec">
+      <div class="bar">
+        <span class="name"><b>D · Bebas Neue display + Archivo body</b> — chosen, now live</span>
+        <span class="stack">display 400 all-caps · body 400/600</span>
+      </div>
+      <div class="body">
+        <p class="sp-c">Worlds, AI systems, live operations</p>
+        <p class="sp-hero">Twenty persistent worlds taught us what breaks when generated content meets real players.</p>
+        <h3 class="sp-h2">What we build</h3>
+        <p class="sp-p">Smobler ships AI-native worlds for studios, brands, and governments — from the Sandbox and Roblox builds behind Singapore's national projects to Clay Nation's first cross-chain release.</p>
+        <h4 class="sp-h5">Judgment, not just throughput</h4>
+        <p class="sp-p">A model can generate a thousand assets. Knowing which nine hundred to throw away is the part clients are paying for.</p>
+        <p class="sp-q">"They were the only team that had already broken this in production."</p>
+        <p class="sp-c">Mediacorp · Executive Producer · 28 Jul 26</p>
+      </div>
+      <p class="verdict"><b>The loudest option — and the one that shipped.</b> Bebas is caps-only, so the "sentence case strictly" rule in the old type spec no longer describes what renders. Four things had to change on the way in. <b>One:</b> weight dropped from 700 to 400 everywhere — Bebas has a single cut, and the site's markup pairs <code>.font-display</code> with <code>.font-bold</code> in about thirty places, which would have handed the browser a 700 to synthesise. A doubled-class guard in <code>typography.css</code> out-specifies it without touching a component. <b>Two:</b> tracking flipped from −0.03em to positive — condensed caps need opening up, not closing. <b>Three:</b> the display steps of the scale went up ~10%, because Bebas sets much narrower and headlines were under-filling their measure. <b>Four:</b> line-heights tightened (h1 to 0.88), since caps carry no descenders. Headings stay authored in sentence case so a failed webfont load degrades to Impact quietly instead of shouting the page.</p>
+    </article>
+
+    <article class="spec optE">
+      <div class="bar">
+        <span class="name"><b>E · Familjen Grotesk + Switzer</b> — what ships today, as control</span>
+        <span class="stack">display 700 · body 400</span>
+      </div>
+      <div class="body">
+        <p class="sp-c">Worlds, AI systems, live operations</p>
+        <p class="sp-hero">Twenty persistent worlds taught us what breaks when generated content meets real players.</p>
+        <h3 class="sp-h2">What we build</h3>
+        <p class="sp-p">Smobler ships AI-native worlds for studios, brands, and governments — from the Sandbox and Roblox builds behind Singapore's national projects to Clay Nation's first cross-chain release.</p>
+        <h4 class="sp-h5">Judgment, not just throughput</h4>
+        <p class="sp-p">A model can generate a thousand assets. Knowing which nine hundred to throw away is the part clients are paying for.</p>
+        <p class="sp-q">"They were the only team that had already broken this in production."</p>
+        <p class="sp-c">Mediacorp · Executive Producer · 28 Jul 26</p>
+      </div>
+      <p class="verdict"><b>For comparison only.</b> Note that <code>typography.css</code> declares <code>--font-body: 'Switzer'</code> but the <code>@import</code> only fetches Familjen Grotesk, Martian Mono, and Plus Jakarta Sans — Switzer never loads, so body copy is silently falling back through to the system UI face. Worth fixing regardless of which option you pick.</p>
+    </article>
+  </section>
+
+  <!-- 3 ───────────────────────────────────── -->
+  <section id="radius">
+    <div class="sechead"><span class="num">Radius</span><h2>Rounded corners, on a scale</h2></div>
+    <p class="lede">smobler currently ships <code>--radius-none: 0px</code> and a pill — corners are either square or fully round, with nothing between. Lazarev's scale fills that gap. These are their exact steps; the last two are for feature surfaces only.</p>
+    <div class="ruler">
+      <figure><span class="swatch" style="border-radius:2px"></span><figcaption><b>2px</b>inputs, tags</figcaption></figure>
+      <figure><span class="swatch" style="border-radius:4px"></span><figcaption><b>4px</b>chips, thumbs</figcaption></figure>
+      <figure><span class="swatch" style="border-radius:8px"></span><figcaption><b>8px</b>default card</figcaption></figure>
+      <figure><span class="swatch" style="border-radius:12px"></span><figcaption><b>12px</b>stat tile</figcaption></figure>
+      <figure><span class="swatch" style="border-radius:16px"></span><figcaption><b>16px</b>media card</figcaption></figure>
+      <figure><span class="swatch" style="border-radius:24px"></span><figcaption><b>24px</b>nested shell</figcaption></figure>
+      <figure><span class="swatch" style="border-radius:32px"></span><figcaption><b>32px</b>feature</figcaption></figure>
+      <figure><span class="swatch" style="border-radius:80px"></span><figcaption><b>80px</b>stadium row</figcaption></figure>
+      <figure><span class="swatch" style="border-radius:999px"></span><figcaption><b>full</b>avatar, pill</figcaption></figure>
+    </div>
+    <p class="lede">One rule that keeps a rounded system from going soft: <b>nested radii step down by the padding between them.</b> A 24px shell with 8px of padding takes a 16px well. Study 03 below is built that way; get it wrong and the inner corner reads as a mistake.</p>
+  </section>
+
+  <!-- 4 ───────────────────────────────────── -->
+  <section id="cards">
+    <div class="sechead"><span class="num">Cards</span><h2>Six card studies</h2></div>
+    <p class="lede">All six hover. Each pairs a radius step with a shadow model — the hard offset lift smobler already uses, or a soft ambient one. They don't mix: a rounded card with a hard 8px offset shadow reads as a sticker, a square card with a soft blur reads as unfinished. Pick one per surface.</p>
+    <p class="note"><b>What shipped: 01 and 06, at 12px.</b> Every <code>.card-lift-snow</code> surface — about twenty across the site — now takes <code>--radius-card: 12px</code>, and image wells nested inside them take <code>--radius-media: 8px</code>, one step down for the padding between. Buttons and inputs take 8px, the person drawer 16px on its leading edge only, since it sits flush to the viewport. <b>What did not ship, and why:</b> studies 02–05 all pair a larger radius with the soft ambient shadow. That combination is a different design thesis from §3's "sunlight on snow" — the hard down-right offset reads as cast light against a tight corner and as a sticker against a soft one. Going rounder than 16px means giving up the directional shadow, which is a bigger call than a corner.</p>
+
+    <div class="gallery">
+
+      <div class="slot">
+        <div class="slotcap"><span class="k">01 · r8</span><span class="d">Hard offset lift — closest to today</span></div>
+        <a class="card c-snow" href="#cards">
+          <span class="well">A11Y</span>
+          <span class="copy">
+            <span class="kick">Roblox · Live</span>
+            <h3>A11Y Park</h3>
+            <p>An accessibility-first public world, co-designed with the players it was built for.</p>
+            <span class="foot"><span class="chip">Case study</span><span class="arrow">↗</span></span>
+          </span>
+        </a>
+      </div>
+
+      <div class="slot">
+        <div class="slotcap"><span class="k">02 · r16</span><span class="d">Soft ambient shadow, media to the corner</span></div>
+        <a class="card c-soft" href="#cards">
+          <span class="well">CLAY</span>
+          <span class="copy">
+            <span class="kick">Cross-chain · Shipped</span>
+            <h3>Clay Nation</h3>
+            <p>The first cross-chain build of its kind, from Cardano into the Sandbox.</p>
+            <span class="foot"><span class="chip">Case study</span><span class="arrow">↗</span></span>
+          </span>
+        </a>
+      </div>
+
+      <div class="slot">
+        <div class="slotcap"><span class="k">03 · r24 → r16</span><span class="d">Nested shell, 8px padding ring</span></div>
+        <a class="card c-nested" href="#cards">
+          <span class="well">SG</span>
+          <span class="copy">
+            <span class="kick">Government · Multi-year</span>
+            <h3>Singapore national worlds</h3>
+            <p>Public-sector builds with the procurement trail to prove it.</p>
+            <span class="foot"><span class="chip">Case study</span><span class="arrow">↗</span></span>
+          </span>
+        </a>
+      </div>
+
+      <div class="slot">
+        <div class="slotcap"><span class="k">04 · r32</span><span class="d">Feature card on sunlight, ink type</span></div>
+        <a class="card c-sun" href="#cards">
+          <span class="well">AI</span>
+          <span class="copy">
+            <span class="kick">Capability</span>
+            <h3>AI-native world systems</h3>
+            <p>Generation pipelines that hold up when a live population is standing in them.</p>
+            <span class="foot"><span class="chip">What we build</span><span class="arrow">↗</span></span>
+          </span>
+        </a>
+      </div>
+
+      <div class="slot">
+        <div class="slotcap"><span class="k">05 · r80</span><span class="d">Stadium row — testimonials, provenance</span></div>
+        <a class="card c-stadium" href="#cards">
+          <span class="avatar">M</span>
+          <span class="copy">
+            <span class="kick">Mediacorp</span>
+            <h3>"Already broken it in production."</h3>
+            <p>Executive Producer · 28 Jul 26</p>
+          </span>
+        </a>
+      </div>
+
+      <div class="slot">
+        <div class="slotcap"><span class="k">06 · r12</span><span class="d">Stat tile, hard lift, no media</span></div>
+        <div class="card c-stat">
+          <span class="kick">Since 2021</span>
+          <span class="fig">20<em>+</em></span>
+          <p>Persistent worlds shipped and still running — not prototypes, not pitches.</p>
+          <span class="foot"><span class="chip">Provenance</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5 ───────────────────────────────────── -->
+  <section id="tokens">
+    <div class="sechead"><span class="num">Applied</span><h2>What landed for Option D</h2></div>
+    <p class="lede">This is in <code>styles/tokens.css</code> and <code>styles/typography.css</code> now; <code>next build</code> passes. Originals are kept at <code>design-canvas/_pre-option-d/</code> — this repo isn't under version control, so that copy is the only way back. The card studies above are <b>not</b> applied: no radius has been picked yet.</p>
+    <pre><span class="cm">/* styles/typography.css — the @import */</span>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Archivo:wght@400;500;600;700&amp;family=Martian+Mono:wght@300;400;500;700&amp;display=swap');
+
+<span class="cm">/* styles/tokens.css — font families */</span>
+--font-display: 'Bebas Neue', Impact, 'Haettenschweiler', 'Arial Narrow', sans-serif;
+--font-body:    'Archivo', -apple-system, 'Segoe UI', 'Noto Sans SC', 'Noto Sans JP', sans-serif;
+--font-mono:    'Martian Mono', ui-monospace, Consolas, monospace;  <span class="cm">/* unchanged */</span>
+
+<span class="cm">/* tracking runs positive now — condensed caps open up, they don't close */</span>
+--track-display: 0.005em;  --track-h1: 0.008em;
+--track-h2: 0.012em;       --track-h3: 0.02em;
+
+<span class="cm">/* display steps up ~10%: Bebas sets narrower, headlines were under-filling */</span>
+--t-hero:    clamp(3rem, 9.6vw, 9rem);       <span class="cm">/* was 2.75 / 9vw / 8.25 */</span>
+--t-display: clamp(3.5rem, 7.8vw, 7.5rem);
+--t-h1:      clamp(2.75rem, 5vw, 4.5rem);
+--t-h2:      clamp(1.875rem, 2.8vw, 2.75rem);
+--t-h3:      1.375rem;
+
+<span class="cm">/* the guard: .font-bold is one class, so two beat it — no !important,
+   no edits to the ~30 components that pair the two classes */</span>
+.font-display.font-display { font-weight: 400; letter-spacing: var(--track-h2); }
+
+<span class="cm">/* ── corners ───────────────────────────────────────────────────
+   Semantic aliases over the raw scale, so a corner retunes in one
+   place. 41 inline `borderRadius: 0` styles were removed first —
+   inline wins over any class, so nothing would have rounded. */</span>
+--radius-card:    var(--radius-12);   <span class="cm">/* every .card-lift-snow + .person-card */</span>
+--radius-media:   var(--radius-8);    <span class="cm">/* .media-well, nested one step down */</span>
+--radius-control: var(--radius-8);    <span class="cm">/* buttons, inputs, selects */</span>
+--radius-panel:   var(--radius-16);   <span class="cm">/* drawers — leading edge only */</span></pre>
+    <p class="lede" style="margin-top:24px">Two things to watch now that it's live. <b>One:</b> Bebas carries no CJK at all — any heading in those scripts falls straight through to the system sans, a much wider break than the old grotesk made. Body copy is safe; the Noto fallbacks are still in the stack. <b>Two:</b> headings must keep being <i>authored</i> in sentence case. The font draws caps by itself, so nothing is gained by an explicit <code>text-transform</code>, and if the webfont ever fails to load, Impact would shout the entire page instead of degrading quietly.</p>
+  </section>
+
+</div>

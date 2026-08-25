@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600;700&family=Martian+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #F8F9F7; font-family: 'Plus Jakarta Sans', -apple-system, 'Segoe UI', sans-serif; color: #0B0E12; -webkit-font-smoothing: antialiased; }
+    a { color: #B38F00; text-decoration: none; } a:hover { color: #0B0E12; }
+    .mono { font-family: 'Martian Mono', ui-monospace, Menlo, monospace; letter-spacing: 0.14em; text-transform: uppercase; }
+    .disp { font-family: 'Familjen Grotesk', -apple-system, 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -0.03em; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #FFFFFF;">
+
+  <!-- Signal strip: raises the whole nav block to 122px of presence -->
+  <div style="display: flex; align-items: center; gap: 28px; height: 34px; background: #0B0E12; color: #FFFFFF; padding: 0 40px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <div style="width: 6px; height: 6px; background: #FFD100;"></div>
+      <span class="mono" style="font-size: 10px; font-weight: 700; color: #FFD100;">The Wire</span>
+    </div>
+    <span class="mono" style="font-size: 10px; color: rgba(255,255,255,0.62);">Sandbox × Smobler ship persistent agent NPCs</span>
+    <span style="width: 1px; height: 12px; background: rgba(255,255,255,0.18);"></span>
+    <span class="mono" style="font-size: 10px; color: rgba(255,255,255,0.62);">Studio opens Ho Chi Minh City floor</span>
+    <span style="flex-grow: 1;"></span>
+    <span class="mono" style="font-size: 10px; color: rgba(255,255,255,0.45);">SGT 14:20</span>
+  </div>
+
+  <!-- Global nav: 88px tall, 15px links, weighted lockup -->
+  <div style="display: flex; align-items: center; justify-content: space-between; height: 88px; padding: 0 40px; background: #FFFFFF; border-bottom: 1px solid rgba(11,14,18,0.08); box-shadow: 0 2px 10px rgba(11,14,18,0.04);">
+
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="width: 22px; height: 22px; background: #FFD100; box-shadow: 3px 3px 0 rgba(11,14,18,0.15);"></div>
+      <span class="disp" style="font-size: 26px; letter-spacing: -0.02em;">SMOBLER</span>
+      <span style="width: 1px; height: 22px; background: rgba(11,14,18,0.12);"></span>
+      <span class="mono" style="font-size: 10px; font-weight: 700; color: #B38F00; line-height: 1.3; max-width: 84px;">AI World Studio</span>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 34px;">
+      <div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 27px;">
+        <span style="font-size: 15px; font-weight: 700;">What we build</span>
+        <span style="position: absolute; bottom: -33px; left: -14px; right: -14px; height: 3px; background: #FFD100;"></span>
+      </div>
+      <span style="font-size: 15px; font-weight: 500; color: #555E68;">Work</span>
+      <span style="font-size: 15px; font-weight: 500; color: #555E68;">Worlds</span>
+      <span style="font-size: 15px; font-weight: 500; color: #555E68;">Studio</span>
+      <span style="font-size: 15px; font-weight: 500; color: #555E68;">Newsroom</span>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="display: flex; align-items: center; padding: 14px 20px; border: 1px solid #0B0E12; font-size: 14px; font-weight: 600;">Contact</div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 15px 24px; background: #FFD100; box-shadow: 6px 6px 0 rgba(11,14,18,0.12); font-size: 14px; font-weight: 700;">
+        Start a project
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0B0E12" stroke-width="2.4" stroke-linecap="square"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div style="position: relative; padding: 76px 40px 68px; background: #FFFFFF; border-bottom: 1px solid rgba(11,14,18,0.08); overflow: hidden;">
+
+    <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(11,14,18,0.055) 1px, transparent 1px), linear-gradient(to bottom, rgba(11,14,18,0.055) 1px, transparent 1px); background-size: 48px 48px; -webkit-mask-image: radial-gradient(ellipse 75% 65% at 62% 8%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 75% 65% at 62% 8%, #000 55%, transparent 100%);"></div>
+    <div style="position: absolute; top: -180px; left: -140px; width: 520px; height: 520px; background: #FFE04D; opacity: 0.42; filter: blur(90px);"></div>
+    <div style="position: absolute; top: 40px; right: 300px; width: 300px; height: 300px; background: #FFD100; opacity: 0.2; filter: blur(80px);"></div>
+
+    <div style="position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 560px; gap: 56px; align-items: start;">
+
+      <!-- Left: the message -->
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0;">
+
+        <div style="display: flex; align-items: center; gap: 10px; padding: 9px 14px 9px 10px; background: #FFF9D6; border: 1px solid rgba(255,209,0,0.6); margin-bottom: 30px;">
+          <div style="width: 8px; height: 8px; background: #FFD100;"></div>
+          <span class="mono" style="font-size: 10px; font-weight: 700; color: #B38F00;">Singapore · Global AI World Studio</span>
+        </div>
+
+        <h1 class="disp" style="font-size: 94px; line-height: 0.9; letter-spacing: -0.038em; margin: 0 0 30px; max-width: 13ch;">
+          We build worlds that <span style="position: relative; display: inline-block;"><span style="position: absolute; left: -6px; right: -6px; bottom: 6px; height: 26px; background: #FFD100;"></span><span style="position: relative;">think back</span></span>.
+        </h1>
+
+        <p style="font-size: 19px; line-height: 1.6; color: #555E68; margin: 0 0 36px; max-width: 46ch;">
+          20+ persistent worlds shipped for global brands, governments and IP holders — now running deterministic intelligence models inside them.
+        </p>
+
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px; padding: 19px 30px; background: #FFD100; box-shadow: 10px 10px 0 rgba(11,14,18,0.10); font-size: 17px; font-weight: 700;">
+            Start a project
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0B0E12" stroke-width="2.4" stroke-linecap="square"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 18px 28px; border: 1px solid #0B0E12; font-size: 17px; font-weight: 600;">
+            See the work
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0B0E12" stroke-width="2.2" stroke-linecap="square"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: a world, actually shown -->
+      <div style="background: #FFFFFF; border: 1px solid rgba(11,14,18,0.08); box-shadow: 10px 10px 0 rgba(11,14,18,0.07);">
+
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid rgba(11,14,18,0.08);">
+          <div style="display: flex; align-items: center; gap: 9px;">
+            <div style="width: 8px; height: 8px; background: #0E8EA8;"></div>
+            <span class="mono" style="font-size: 10px; font-weight: 700;">World 014 · Live</span>
+          </div>
+          <span class="mono" style="font-size: 10px; color: #828C96;">Agents 3,204</span>
+        </div>
+
+        <div style="position: relative; height: 372px; background: linear-gradient(180deg, #FFFDF0 0%, #FFFFFF 62%); overflow: hidden;">
+          <svg width="560" height="372" viewBox="0 0 560 372" style="display: block;">
+            <circle cx="404" cy="66" r="46" fill="#FFD100" opacity="0.22"/>
+            <circle cx="404" cy="66" r="21" fill="#FFD100"/>
+            <g transform="translate(-52, 34)" stroke="rgba(11,14,18,0.13)" stroke-width="1" fill="none">
+              <path d="M340 90 L112 204"/><path d="M378 109 L150 223"/><path d="M416 128 L188 242"/>
+              <path d="M454 147 L226 261"/><path d="M492 166 L264 280"/><path d="M530 185 L302 299"/><path d="M568 204 L340 318"/>
+              <path d="M340 90 L568 204"/><path d="M302 109 L530 223"/><path d="M264 128 L492 242"/>
+              <path d="M226 147 L454 261"/><path d="M188 166 L416 280"/><path d="M150 185 L378 299"/><path d="M112 204 L340 318"/>
+            </g>
+            <g transform="translate(-52, 34)" stroke="rgba(11,14,18,0.14)" stroke-width="1">
+              <polygon points="340,18 378,37 340,56 302,37" fill="#FFFFFF"/>
+              <polygon points="302,37 340,56 340,166 302,147" fill="#E2E5DF"/>
+              <polygon points="378,37 340,56 340,166 378,147" fill="#EEF0EC"/>
+              <polygon points="416,102 454,121 416,140 378,121" fill="#FFFFFF"/>
+              <polygon points="378,121 416,140 416,204 378,185" fill="#E2E5DF"/>
+              <polygon points="454,121 416,140 416,204 454,185" fill="#EEF0EC"/>
+              <polygon points="302,35 340,54 302,73 264,54" fill="#FFFFFF"/>
+              <polygon points="264,54 302,73 302,223 264,204" fill="#E2E5DF"/>
+              <polygon points="340,54 302,73 302,223 340,204" fill="#EEF0EC"/>
+              <polygon points="378,175 416,194 378,213 340,194" fill="#FFFFFF"/>
+              <polygon points="340,194 378,213 378,261 340,242" fill="#E2E5DF"/>
+              <polygon points="416,194 378,213 378,261 416,242" fill="#EEF0EC"/>
+              <polygon points="416,52 454,71 416,90 378,71" fill="#FFE04D"/>
+              <polygon points="378,71 416,90 416,280 378,261" fill="#E6BC00"/>
+              <polygon points="454,71 416,90 416,280 454,261" fill="#FFD100"/>
+            </g>
+            <g stroke="#0E8EA8" stroke-width="1.4" fill="none" opacity="0.85">
+              <path d="M196 236 L236 256 L276 236"/>
+              <circle cx="196" cy="236" r="4" fill="#FFFFFF"/>
+              <circle cx="276" cy="236" r="4" fill="#FFFFFF"/>
+              <circle cx="236" cy="256" r="4" fill="#0E8EA8"/>
+            </g>
+          </svg>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid rgba(11,14,18,0.08);">
+          <div style="padding: 16px 18px; border-right: 1px solid rgba(11,14,18,0.08);">
+            <div class="disp" style="font-size: 22px; font-variant-numeric: tabular-nums;">62ms</div>
+            <div class="mono" style="font-size: 9px; color: #828C96; margin-top: 6px;">Decision tick</div>
+          </div>
+          <div style="padding: 16px 18px; border-right: 1px solid rgba(11,14,18,0.08);">
+            <div class="disp" style="font-size: 22px; font-variant-numeric: tabular-nums;">100%</div>
+            <div class="mono" style="font-size: 9px; color: #828C96; margin-top: 6px;">Deterministic</div>
+          </div>
+          <div style="padding: 16px 18px;">
+            <div class="disp" style="font-size: 22px; font-variant-numeric: tabular-nums;">24/7</div>
+            <div class="mono" style="font-size: 9px; color: #828C96; margin-top: 6px;">Persistent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proof rail -->
+    <div style="position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 60px; padding: 32px 0 4px; border-top: 2px solid #FFD100;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="disp" style="font-size: 66px; line-height: 1; font-variant-numeric: tabular-nums;">20+</div>
+        <div class="mono" style="font-size: 10px; color: #555E68;">Persistent worlds shipped</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="disp" style="font-size: 66px; line-height: 1; font-variant-numeric: tabular-nums;">14</div>
+        <div class="mono" style="font-size: 10px; color: #555E68;">Countries activated</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="disp" style="font-size: 66px; line-height: 1; font-variant-numeric: tabular-nums;">1.4M+</div>
+        <div class="mono" style="font-size: 10px; color: #555E68;">Engaged players reached</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

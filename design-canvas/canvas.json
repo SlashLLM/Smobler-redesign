@@ -1,0 +1,15 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 1080 },
+    { "file": "OptionB.dc.html", "x": 1560, "y": 0, "w": 1440, "h": 1140 },
+    { "file": "NavStates.dc.html", "x": 0, "y": 1300, "w": 1440, "h": 700 },
+    { "file": "Mobile.dc.html", "x": 1560, "y": 1300, "w": 390, "h": 900 }
+  ],
+  "annotations": [
+    { "id": "note-main", "x": 0, "y": -180, "w": 620, "text": "OPTION A — Structured sunlight (recommended)\n\nNav grows 72px → 34px signal strip + 88px bar. Wordmark 20→26px, links 14→15px, active rule 2.5→3px, and a real secondary action (Contact) beside the yellow CTA.\n\nHero earns its screen: 94px display type with a yellow slab under 'think back', and a live world panel on the right so the page finally SHOWS a world instead of only claiming one." },
+    { "id": "note-optionb", "x": 1560, "y": -180, "w": 620, "text": "OPTION B — Flood sunlight (bolder)\n\nSame nav mass, but the hero is a full yellow flood with 132px ink type and the nav sitting on the colour. A voxel skyline is cut off by the fold to pull the reader down.\n\nTradeoff: unmistakable and very on-brand, but it spends the yellow all at once — the accent has less punch further down the page, and body copy on yellow is a slightly harder read." },
+    { "id": "note-nav", "x": 0, "y": 1200, "w": 620, "text": "NAV — today vs proposed, stacked for comparison, plus the condensed 64px state after scroll. The current bar hides rather than condenses; condensing keeps navigation reachable without stealing hero height." },
+    { "id": "note-mobile", "x": 1560, "y": 1200, "w": 390, "text": "MOBILE — Option A at 390px. 48px menu target, 56px stacked CTAs. No fake status bar: the real one renders on top." }
+  ],
+  "launch": { "view": "canvas" }
+}

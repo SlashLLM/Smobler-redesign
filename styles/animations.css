@@ -1,0 +1,141 @@
+/* Sun Sweep Page-Load Animation for Light/White Background */
+@keyframes sunSweepLight {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-sun-sweep {
+  background: linear-gradient(
+    90deg,
+    var(--ink) 0%,
+    var(--ink) 35%,
+    var(--sun-700) 48%,
+    var(--sun-500) 52%,
+    var(--ink) 65%,
+    var(--ink) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sunSweepLight var(--dur-sweep) var(--ease-sun) 1 forwards;
+}
+
+/* Marquee / The Wire Ticker (40px/sec right-to-left) */
+@keyframes tickerLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tickerLoop 35s linear infinite;
+}
+
+.ticker-track:hover,
+.ticker-track:focus-within {
+  animation-play-state: paused;
+}
+
+/* Hard-edged shadow cards on Light/White Surfaces */
+.card-lift-snow {
+  border-radius: var(--radius-card);
+  background-color: var(--white);
+  border: 1px solid var(--line-light);
+  box-shadow: var(--lift-card-snow);
+  transition: transform var(--dur-ui) var(--ease-ui), box-shadow var(--dur-ui) var(--ease-ui), border-color var(--dur-ui) var(--ease-ui);
+}
+
+.card-lift-snow:hover {
+  transform: translate(4px, 4px);
+  box-shadow: var(--lift-card-snow-hover);
+  border-color: var(--sun-500);
+}
+
+/* White card with top-left yellow rim */
+.card-glacier-rim {
+  border-radius: var(--radius-card);
+  background-color: var(--white);
+  border: 1px solid var(--line-light);
+  box-shadow: var(--lift-card-snow);
+  transition: transform var(--dur-ui) var(--ease-ui), box-shadow var(--dur-ui) var(--ease-ui), border-color var(--dur-ui) var(--ease-ui);
+}
+
+.card-glacier-rim:hover {
+  transform: translate(4px, 4px);
+  box-shadow: var(--lift-card-snow-hover);
+  border-color: var(--sun-500);
+}
+
+/* Clean portrait with yellow rim-light on hover */
+.duotone-portrait {
+  filter: contrast(102%) brightness(98%);
+  transition: transform var(--dur-reveal) var(--ease-ui), filter var(--dur-reveal) var(--ease-ui);
+}
+
+.person-card:hover .duotone-portrait {
+  transform: scale(1.03);
+  filter: contrast(105%) brightness(102%);
+}
+
+/* Background Ambient Sunlight Pulse */
+@keyframes ambientSunPulse {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-sun-pulse {
+  animation: ambientSunPulse 8s ease-in-out infinite;
+}
+
+/* Subtle Crosshair / HUD Marker Shimmer */
+@keyframes crosshairShimmer {
+  0%, 100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.animate-crosshair {
+  animation: crosshairShimmer 4s ease-in-out infinite;
+}
+
+/* Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  .animate-sun-sweep,
+  .animate-sun-pulse,
+  .animate-crosshair {
+    animation: none;
+    -webkit-text-fill-color: var(--ink);
+    background: none;
+  }
+
+  .ticker-track {
+    animation: none;
+    transform: none;
+  }
+
+  .card-lift-snow,
+  .card-glacier-rim,
+  .duotone-portrait {
+    transition: none;
+    transform: none !important;
+  }
+}

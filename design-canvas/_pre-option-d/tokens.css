@@ -1,0 +1,99 @@
+:root {
+  /* Brand — Sunlight Yellow & White Palette */
+  --sun-500: #FFD100;      /* Primary Sunlight Yellow */
+  --sun-400: #FFE04D;      /* Hover lift, bright highlight */
+  --sun-600: #E6BC00;      /* Deep accent yellow */
+  --sun-700: #B38F00;      /* Accessible yellow for text/accents on white */
+  --sun-100: #FFF9D6;      /* Very soft yellow wash / highlight background */
+  --sun-50:  #FFFDF0;      /* Subtle yellow-tinted white surface */
+
+  /* Light & White Surfaces (Replacing all dark/glacier themes) */
+  --white:       #FFFFFF;  /* Pure White surface */
+  --snowfield:   #F8F9F7;  /* Clean off-white background */
+  --snowfield-2: #EEF0EC;  /* Secondary light surface & table fills */
+  --snowfield-3: #E2E5DF;  /* Divider / card border light grey */
+  --glacier:     #FFFFFF;  /* Converted to pure white */
+  --glacier-2:   #F8F9F7;  /* Converted to light off-white */
+  --shade:       #F2F4F0;  /* Converted to clean light surface for footer */
+
+  /* Ink / Text Colors */
+  --ink:          #0B0E12;  /* Primary dark ink text */
+  --ink-mute:     #555E68;  /* Secondary text */
+  --ink-light:    #828C96;  /* Tertiary / placeholder text */
+  --snow-text:    #0B0E12;  /* Unified to dark ink */
+  --snow-mute:    #555E68;  /* Unified to secondary ink */
+
+  /* Machine Signal (AI states) */
+  --ice-400: #0E8EA8;      /* High contrast cyan for light backgrounds */
+  --ice-900: #E2F6FB;      /* Soft ice wash for light mode badges */
+
+  /* Ink on sunlight — the yellow surface needs its own ramp, the ink-mute
+     greys go muddy over --sun-500 */
+  --ink-on-sun:      rgba(11, 14, 18, 0.82);
+  --ink-on-sun-mute: rgba(11, 14, 18, 0.68);
+  --line-on-sun:     rgba(11, 14, 18, 0.22);
+  --grid-on-sun:     rgba(11, 14, 18, 0.07);
+
+  /* Structural lines & utility */
+  --line-light: rgba(11, 14, 18, 0.08);
+  --line-dark:  rgba(11, 14, 18, 0.08);
+  --line-yellow: rgba(255, 209, 0, 0.6);
+  --alert: #E5484D;
+
+  /* Typography scale */
+  --t-hero: clamp(2.75rem, 9vw, 8.25rem);
+  --t-display: clamp(3.25rem, 7.2vw, 6.75rem);
+  --t-h1: clamp(2.5rem, 4.6vw, 4rem);
+  --t-h2: clamp(1.75rem, 2.6vw, 2.5rem);
+  --t-h3: 1.25rem;
+  --t-body-lg: 1.125rem;
+  --t-body: 1rem;
+  --t-small: 0.875rem;
+  --t-label: 0.6875rem;
+
+  /* Font Families */
+  --font-display: 'Familjen Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+  --font-mono: 'Martian Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Layout & Grid */
+  --nav-h: 92px;
+  --container-max: 1440px;
+  --gutter: 24px;
+  --margin-desktop: 40px;
+  --margin-tablet: 24px;
+  --margin-mobile: 20px;
+
+  /* Physical Elevation & Sunlight Direction (Solid down-right shadows) */
+  --lift-rest: 10px 10px 0 rgba(11, 14, 18, 0.07);
+  --lift-hover: 4px 4px 0 rgba(11, 14, 18, 0.12);
+  --lift-card-snow: 8px 8px 0 rgba(11, 14, 18, 0.06);
+  --lift-card-snow-hover: 3px 3px 0 rgba(11, 14, 18, 0.12);
+
+  /* Ink units sitting on the sunlight surface cast a heavier shadow */
+  --lift-ink: 6px 6px 0 rgba(11, 14, 18, 0.22);
+  --lift-ink-hover: 3px 3px 0 rgba(11, 14, 18, 0.22);
+  --lift-ink-lg: 10px 10px 0 rgba(11, 14, 18, 0.22);
+
+  /* Yellow top-left lit rim */
+  --rim-rest: inset 1px 1px 0 rgba(255, 209, 0, 0.5);
+  --rim-hover: inset 2px 2px 0 var(--sun-500);
+
+  /* Motion & Timing */
+  --dur-fast: 120ms;
+  --dur-ui: 220ms;
+  --dur-reveal: 420ms;
+  --dur-sweep: 1400ms;
+  --ease-ui: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-sun: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Radii — strictly 0 on buildplate units, 999px for pills only */
+  --radius-none: 0px;
+  --radius-pill: 999px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 68px;
+  }
+}

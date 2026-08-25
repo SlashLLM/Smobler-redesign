@@ -1,0 +1,102 @@
+/* Import fonts from Google Fonts.
+   Bebas Neue (display) + Archivo (body) + Martian Mono (labels, data).
+   The previous import fetched Familjen Grotesk, Martian Mono and Plus Jakarta
+   Sans while --font-body asked for Switzer, which was never loaded — body copy
+   had been silently falling through to the system UI face. */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700&family=Martian+Mono:wght@300;400;500;700&display=swap');
+
+/* Typography Global Rules */
+body {
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: 1.65;
+  color: var(--ink);
+  background-color: var(--snowfield);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings.
+   Keep authoring headings in sentence case: Bebas draws every glyph as a
+   capital on its own, so an explicit text-transform buys nothing and costs
+   the fallback — if the webfont fails, Impact would then shout the whole
+   page in caps instead of degrading quietly. */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: var(--track-h2);
+  text-transform: none;
+}
+
+h1, .text-h1 {
+  font-size: var(--t-h1);
+  line-height: 0.88;
+  letter-spacing: var(--track-h1);
+}
+
+h2, .text-h2 {
+  font-size: var(--t-h2);
+  line-height: 0.94;
+  letter-spacing: var(--track-h2);
+}
+
+h3, .text-h3 {
+  font-size: var(--t-h3);
+  line-height: 1.16;
+  letter-spacing: var(--track-h3);
+}
+
+.text-display {
+  font-family: var(--font-display);
+  font-size: var(--t-display);
+  line-height: 0.86;
+  letter-spacing: var(--track-display);
+  font-weight: 400;
+}
+
+/* Bebas ships one 400 cut. Markup across the site pairs .font-display with
+   Tailwind's .font-bold and .tracking-tight, which would hand the browser a
+   700 it has to synthesise — smeared, uneven strokes at hero sizes. Both
+   utilities are single-class, so doubling the selector out-specifies them
+   without !important and without touching thirty component files. */
+.font-display.font-display {
+  font-weight: 400;
+  letter-spacing: var(--track-h2);
+}
+
+/* Then restore per-level tracking above that guard. */
+.text-display.text-display { letter-spacing: var(--track-display); }
+h1.font-display.font-display, .text-h1.text-h1 { letter-spacing: var(--track-h1); }
+h2.font-display.font-display, .text-h2.text-h2 { letter-spacing: var(--track-h2); }
+h3.font-display.font-display, .text-h3.text-h3 { letter-spacing: var(--track-h3); }
+h4.font-display.font-display { letter-spacing: var(--track-h3); }
+
+.text-lede {
+  font-size: var(--t-body-lg);
+  line-height: 1.6;
+  max-width: 34ch;
+}
+
+.text-body {
+  font-size: var(--t-body);
+  line-height: 1.65;
+  max-width: 68ch;
+}
+
+.text-small {
+  font-size: var(--t-small);
+  line-height: 1.5;
+}
+
+/* Mono utility & metadata labels */
+.text-label, .font-mono {
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}

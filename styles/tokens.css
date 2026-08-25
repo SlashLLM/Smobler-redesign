@@ -1,0 +1,141 @@
+:root {
+  /* Brand — Sunlight Yellow & White Palette */
+  --sun-500: #FFD100;      /* Primary Sunlight Yellow */
+  --sun-400: #FFE04D;      /* Hover lift, bright highlight */
+  --sun-600: #E6BC00;      /* Deep accent yellow */
+  --sun-700: #B38F00;      /* Accessible yellow for text/accents on white */
+  --sun-100: #FFF9D6;      /* Very soft yellow wash / highlight background */
+  --sun-50:  #FFFDF0;      /* Subtle yellow-tinted white surface */
+
+  /* Light & White Surfaces (Replacing all dark/glacier themes) */
+  --white:       #FFFFFF;  /* Pure White surface */
+  --snowfield:   #F8F9F7;  /* Clean off-white background */
+  --snowfield-2: #EEF0EC;  /* Secondary light surface & table fills */
+  --snowfield-3: #E2E5DF;  /* Divider / card border light grey */
+  --glacier:     #FFFFFF;  /* Converted to pure white */
+  --glacier-2:   #F8F9F7;  /* Converted to light off-white */
+  --shade:       #F2F4F0;  /* Converted to clean light surface for footer */
+
+  /* Ink / Text Colors */
+  --ink:          #0B0E12;  /* Primary dark ink text */
+  --ink-mute:     #555E68;  /* Secondary text */
+  --ink-light:    #828C96;  /* Tertiary / placeholder text */
+  --snow-text:    #0B0E12;  /* Unified to dark ink */
+  --snow-mute:    #555E68;  /* Unified to secondary ink */
+
+  /* Machine Signal (AI states) */
+  --ice-400: #0E8EA8;      /* High contrast cyan for light backgrounds */
+  --ice-900: #E2F6FB;      /* Soft ice wash for light mode badges */
+
+  /* Ink on sunlight — the yellow surface needs its own ramp, the ink-mute
+     greys go muddy over --sun-500 */
+  --ink-on-sun:      rgba(11, 14, 18, 0.82);
+  --ink-on-sun-mute: rgba(11, 14, 18, 0.68);
+  --line-on-sun:     rgba(11, 14, 18, 0.22);
+  --grid-on-sun:     rgba(11, 14, 18, 0.07);
+
+  /* Background Mesh & Spatial Grid Tokens */
+  --bg-sun-mesh: radial-gradient(circle at 12% 8%, var(--sun-400) 0%, var(--sun-500) 45%, var(--sun-600) 100%);
+  --bg-sun-ambient-wash: radial-gradient(ellipse 90% 60% at 15% -10%, rgba(255, 209, 0, 0.16) 0%, rgba(255, 224, 77, 0.06) 45%, transparent 75%);
+  --bg-header-wash: linear-gradient(180deg, var(--sun-50) 0%, #FFFFFF 100%);
+  --grid-line-yellow: rgba(255, 209, 0, 0.35);
+  --grid-dot-yellow: rgba(230, 188, 0, 0.4);
+
+  /* Structural lines & utility */
+  --line-light: rgba(11, 14, 18, 0.08);
+  --line-dark:  rgba(11, 14, 18, 0.08);
+  --line-yellow: rgba(255, 209, 0, 0.6);
+  --alert: #E5484D;
+
+  /* Typography scale. Display steps run ~10% larger than the grotesk they
+     replaced: Bebas sets far narrower at a given px, so the old values left
+     headlines under-filling their measure. Body steps are unchanged. */
+  --t-hero: clamp(3rem, 9.6vw, 9rem);
+  --t-display: clamp(3.5rem, 7.8vw, 7.5rem);
+  --t-h1: clamp(2.75rem, 5vw, 4.5rem);
+  --t-h2: clamp(1.875rem, 2.8vw, 2.75rem);
+  --t-h3: 1.375rem;
+  --t-body-lg: 1.125rem;
+  --t-body: 1rem;
+  --t-small: 0.875rem;
+  --t-label: 0.6875rem;
+
+  /* Font Families */
+  /* Bebas Neue is caps-only and ships a single 400 cut — never request a bold
+     from it, the browser synthesises one and it smears at display sizes.
+     The fallbacks are condensed too, so a failed load degrades in width
+     rather than collapsing the layout. Bebas carries no CJK: headings in
+     those scripts fall through to the system sans, body copy to the Notos. */
+  --font-display: 'Bebas Neue', Impact, 'Haettenschweiler', 'Arial Narrow', sans-serif;
+  --font-body: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+  --font-mono: 'Martian Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Display tracking. A condensed caps face needs its letters opened up, not
+     closed — the negative tracking the old grotesk wanted is actively wrong
+     here, and it tightens as the size grows, not the other way round. */
+  --track-display: 0.005em;
+  --track-h1: 0.008em;
+  --track-h2: 0.012em;
+  --track-h3: 0.02em;
+
+  /* Layout & Grid */
+  --nav-h: 92px;
+  --subnav-h: 64px;   /* newsroom filter bar: 32px py-4 + 30px year select + 2px border-y */
+  --container-max: 1440px;
+  --gutter: 24px;
+  --margin-desktop: 40px;
+  --margin-tablet: 24px;
+  --margin-mobile: 20px;
+
+  /* Physical Elevation & Sunlight Direction (Solid down-right shadows) */
+  --lift-rest: 10px 10px 0 rgba(11, 14, 18, 0.07);
+  --lift-hover: 4px 4px 0 rgba(11, 14, 18, 0.12);
+  --lift-card-snow: 8px 8px 0 rgba(11, 14, 18, 0.06);
+  --lift-card-snow-hover: 3px 3px 0 rgba(11, 14, 18, 0.12);
+
+  /* Ink units sitting on the sunlight surface cast a heavier shadow */
+  --lift-ink: 6px 6px 0 rgba(11, 14, 18, 0.22);
+  --lift-ink-hover: 3px 3px 0 rgba(11, 14, 18, 0.22);
+  --lift-ink-lg: 10px 10px 0 rgba(11, 14, 18, 0.22);
+
+  /* Yellow top-left lit rim */
+  --rim-rest: inset 1px 1px 0 rgba(255, 209, 0, 0.5);
+  --rim-hover: inset 2px 2px 0 var(--sun-500);
+
+  /* Motion & Timing */
+  --dur-fast: 120ms;
+  --dur-ui: 220ms;
+  --dur-reveal: 420ms;
+  --dur-sweep: 1400ms;
+  --ease-ui: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-sun: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Radii. The scale is lifted from lazarev.agency; the semantic aliases
+     below are what components should reference, so a corner is retuned in
+     one place rather than across forty inline styles.
+
+     Radius is capped at 16px on lifted surfaces on purpose. The hard
+     down-right offset shadow in §3 reads as depth against a tight corner
+     and as a sticker against a soft one — anything rounder than this needs
+     the ambient shadow instead, which is a different design thesis. */
+  --radius-none: 0px;
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-24: 24px;
+  --radius-32: 32px;
+  --radius-pill: 999px;
+
+  --radius-card: var(--radius-12);     /* every .card-lift-snow surface */
+  --radius-media: var(--radius-8);     /* image wells nested inside a card */
+  --radius-control: var(--radius-8);   /* buttons, inputs, selects */
+  --radius-panel: var(--radius-16);    /* drawers, modals, large sheets */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 68px;
+  }
+}
