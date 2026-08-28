@@ -5,9 +5,12 @@ import { World } from '@/types';
  *
  * Sources: smobler.io/origin-story ("proprietary GameFi properties: 3VEREST,
  * Yeti Realm, Cobbleland"), smobler.io/game-development, and the Sandbox and
- * Roblox experience links published on linktr.ee/smobler.io. Yeti Realm,
- * Cobbleland and Sephia have no published imagery or metrics, so those fields
- * are omitted rather than filled in.
+ * Roblox experience links published on linktr.ee/smobler.io. Yeti Realm and
+ * Cobbleland have no published imagery or metrics, so those fields are omitted
+ * rather than filled in.
+ *
+ * 3VEREST and Sephia also carry full case studies in data/projects.ts, built
+ * from their own pages on smobler.io; the first link on each points there.
  */
 export const worlds: World[] = [
   {
@@ -29,6 +32,7 @@ export const worlds: World[] = [
       { value: '5', label: 'Chapters from Base Camp to summit' }
     ],
     links: [
+      { label: 'Read the case study', url: '/work/3verest' },
       { label: 'Part 1 — Base Camp', url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20Base%20Camp/57bce89e-d7e4-4c07-881d-e6142c2ab6ec/page/' },
       { label: 'Part 2 — Icefall', url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20Icefall/9dc047d8-4cb4-412d-a6e5-471b5c79b8ab/page/' },
       { label: 'Part 3 — Camp 2', url: 'https://www.sandbox.game/en/experiences/3verest-camp-2/b43d27be-399e-4acf-8301-ad96af98a2e7/page/' },
@@ -42,16 +46,23 @@ export const worlds: World[] = [
     slug: 'sephia',
     name: 'Sephia',
     tagline: 'An original sci-fi action title with stylised art direction and companion creatures.',
-    status: 'In Production',
+    /* smobler.io/sephia now calls it "early release phase" and links a playable
+       Roblox build, so it is no longer in production only. */
+    status: 'Alpha',
+    heroMedia: '/projects/sephia/01-thumbnail-main.jpg',
+    thumbnail: '/projects/sephia/01-thumbnail-main.jpg',
     description:
-      'Smobler’s original science-fiction action IP, built on Roblox. Sephia pairs a stylised art direction with companion creatures that fight alongside the player.',
+      'Smobler’s original science-fiction action IP, built on Roblox. Set on the enigmatic Cirsephia Island, five clans — Titan, Diwata, Yaksha, Asura and Kami — fight for control of Synther, a mysterious energy crystal that shapes both environment and combat.',
     mechanics: [
       'Original Smobler IP',
-      'Stylised sci-fi art direction',
-      'Companion creature system'
+      'Five clans with class-based abilities and distinct fighting styles',
+      'Bold low-poly art direction, companion creatures and stylised effects'
     ],
     stats: [],
-    links: []
+    links: [
+      { label: 'Read the case study', url: '/work/sephia' },
+      { label: 'Play on Roblox', url: 'https://www.roblox.com/games/16814401402/SEPHIA-PvP-Shooting-Battle#!/' }
+    ]
   },
   {
     id: 'yeti-realm',

@@ -9,6 +9,12 @@ import { Project } from '@/types';
  * Reimagined, Metaverse for Good, Edu-tainment — alongside the four business
  * pillars. `outcomeStats` is populated only where a source publishes a figure,
  * so most entries carry none.
+ *
+ * The long-form copy, chapter cards, pull-quotes, galleries and `videoId`s come
+ * from the sixteen dedicated project pages on smobler.io — /3verest, /sephia,
+ * /teletubbies-custard-chaos and the rest. Regenerate the manifest they were
+ * read from with `node scripts/fetch-portfolio-sources.mjs`, and the imagery
+ * under public/projects/<slug>/ with `python scripts/import-portfolio-assets.py`.
  */
 export const projects: Project[] = [
   /* ─────────────────────────── World's Firsts ─────────────────────────── */
@@ -92,6 +98,28 @@ export const projects: Project[] = [
       'Druk Holding & Investments, the commercial arm of the Royal Government of Bhutan, wanted a digital gateway that could introduce the kingdom to global Web3 builders and artists without flattening the culture into decoration.',
     solution:
       'Smobler designed BHUTANVERSE around Bhutanese architecture, iconography and philosophy, releasing it as a pair of Sandbox experiences — Realm of the Sacred Guardians and The Hidden Ter — that ask players to learn the culture in order to progress.',
+    buildSections: [
+      {
+        title: 'The Hidden Tier',
+        description:
+          'An epic quest through immersive landscapes inspired by Bhutanese folklore, where players must recover lost treasures alongside monks, guides, and mythical beings in a richly woven world of ancient wisdom, puzzles, and adventure.',
+        mediaUrl: '/projects/bhutanverse/chapter-1.jpg',
+        link: {
+          label: 'Play now',
+          url: 'https://www.sandbox.game/en/experiences/BHUTANVERSE:%20The%20Hidden%20Ter/cf5bc557-ec15-4402-8c47-68d6237223f8/page/'
+        }
+      },
+      {
+        title: 'Realm of the Sacred Guardians',
+        description:
+          'An epic adventure where you, The Chosen One, journey through mythical realms, sacred relics, and iconic Bhutanese landmarks—battling ancient evil, solving trials, and uncovering the wisdom needed to save the realm.',
+        mediaUrl: '/projects/bhutanverse/chapter-2.jpg',
+        link: {
+          label: 'Play now',
+          url: 'https://www.sandbox.game/en/experiences/BHUTANVERSE:%20Realm%20of%20the%20Sacred%20Guardians/be115de8-4bd5-4d75-90a7-f6d6d7dfff28/page/'
+        }
+      }
+    ],
     credits: ['loretta-chen', 'rafaela-rizzi'],
     links: [
       {
@@ -495,6 +523,28 @@ export const projects: Project[] = [
       'A music-driven experience launched with Singapore rock icon Inch Chua, putting the working life of a musician into play.',
     solution:
       'Built with Inch Chua and the National Arts Council under the Music For Good banner, Sonik Satellitez turns the career obstacles young musicians actually face into game mechanics, and follows them out to a lunar sequel, Lunar Leap.',
+    buildSections: [
+      {
+        title: 'Sonik Satellitez',
+        description:
+          'Pick your musical weapon and blast off to the moon in a vibrant metaverse adventure—celebrating the power of music to unite, inspire, and create change through interactive challenges and stories of iconic artists.',
+        mediaUrl: '/projects/sonik-satellitez/chapter-1.jpg',
+        link: {
+          label: 'Play now',
+          url: 'https://www.sandbox.game/en/experiences/Sonik%20Satellitez/1850d6f1-2242-4744-b685-eb8a91954c23/page/'
+        }
+      },
+      {
+        title: 'Sonik Satellitez : Lunar Leap',
+        description:
+          'At the Moon Base of Sonik Satellitez, you’ll leap into a zero-gravity parkour challenge, race against time, hang out with Inch Chua, and vibe with a live band—all in your quest to become the ultimate space champion.',
+        mediaUrl: '/projects/sonik-satellitez/chapter-2.jpg',
+        link: {
+          label: 'Play now',
+          url: 'https://www.sandbox.game/en/experiences/Sonik%20Satellitez:%20Lunar%20Leap/d6e905c0-e3d5-4d98-9628-d62fd9ce434f/page/'
+        }
+      }
+    ],
     links: [
       {
         label: 'Play Sonik Satellitez',
@@ -916,8 +966,17 @@ export const projects: Project[] = [
     sector: 'IP & Gaming',
     platform: ['The Sandbox'],
     year: 2024,
+    /* The deck carries no Pomeverse plate, so the still is the first of the
+       screenshots the project's own page publishes. */
+    heroMedia: '/projects/pomeverse/01-captura-de-tela-2024-06-26-130950.jpg',
+    thumbnail: '/projects/pomeverse/01-captura-de-tela-2024-06-26-130950.jpg',
+    videoId: '_gq2g3Un__0',
+    videoTitle: 'Pomeverse Trailer',
+    videoPoster: '/projects/pomeverse/poster.jpg',
     oneLineOutcome:
       'A virtual world built on the Korean Pome Village IP, home to its dog-villager community.',
+    solution:
+      'Created by Smobler with Pomerium and The Sandbox, this idyllic vacation village brings to life an original experience where a cast of cheerful, dog-inspired characters teach valuable lessons in teamwork, cooperation, and community spirit. When the main portal connecting Pome Village to the larger metaverse goes offline, players must join forces with their furry friends to restore connectivity — collecting energy shards across quests and mini-games that emphasise collaboration, communication and creative problem-solving.',
     links: [
       {
         label: 'Play in The Sandbox',
@@ -936,6 +995,159 @@ export const projects: Project[] = [
       { src: '/projects/pomeverse/09-captura-de-tela-2024-06-26-192917.jpg' },
       { src: '/projects/pomeverse/10-captura-de-tela-2024-06-26-131053.jpg' },
       { src: '/projects/pomeverse/11-captura-de-tela-2024-06-26-131007.jpg' },
+    ],
+    isFeatured: false,
+  },
+  /* ────────────────────────── Smobler original IP ──────────────────────────
+     Owned properties, which smobler.io files under Portfolio → Gaming beside
+     the client work. They also appear in data/worlds.ts, which holds the
+     property itself; these are the case studies it links out to. */
+  {
+    id: '3verest',
+    slug: '3verest',
+    title: '3VEREST',
+    client: 'Smobler (proprietary IP)',
+    sector: 'IP & Gaming',
+    platform: ['The Sandbox'],
+    year: 2024,
+    heroMedia: '/projects/3verest.jpg',
+    thumbnail: '/projects/3verest.jpg',
+    videoId: 'dOJ417POvq4',
+    videoTitle: '3VEREST Chapter Two: The Summit Trailer | The Sandbox Game',
+    videoPoster: '/projects/3verest/poster.jpg',
+    outcomeStats: [
+      { value: '40,000+', label: 'Visits since launch' },
+      { value: '17,000', label: 'Unique players' },
+      { value: '5,000+', label: 'Hours played' },
+      { value: '1,953', label: 'Avatars minted' }
+    ],
+    oneLineOutcome:
+      'The ascent of Mount Everest as a five-chapter climb, built with real mountaineers and named Best Sports Experience by The Sandbox.',
+    problem:
+      '3VEREST invites players to experience the thrill of summiting Mount Everest from the comfort of their homes. This Metaverse experience offers a breathtaking and gamified journey that captures the essence of the climb while educating players about the history, culture, and environmental challenges of the Himalayan region.',
+    solution:
+      'The game’s first chapter, Khumbu Icefall, saw a remarkable collaboration with Kenton Cool, a British adventurer renowned for his impressive expeditions including 16 summits of Mount Everest. Building on this momentum, the second chapter, The Summit, is further enhanced by Wasfia Nazreen’s appointment and ambassadorship — a choice candidate given her dedication to empowering local communities, crediting Sherpa and other high-altitude guides from different ethnicities of Nepal, and her advocacy for environmental conservation.',
+    buildSections: [
+      {
+        title: 'Chapter 1-1: Base Camp',
+        description:
+          'Welcome to Base Camp, where your 3VEREST journey begins. Feel the chill in the air, hear the crackle of campfires, and meet the unsung heroes—the Sherpas—who make this expedition possible. Learn Everest’s stories, study its legends, and prepare for the ascent of a lifetime.',
+        mediaUrl: '/projects/3verest/chapter-1.jpg',
+        link: {
+          label: 'Play now',
+          url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20Base%20Camp/57bce89e-d7e4-4c07-881d-e6142c2ab6ec/page/'
+        }
+      },
+      {
+        title: 'Chapter 1-2: Icefall',
+        description:
+          'The Khumbu Icefall is your first true test. Navigate through a labyrinth of ice towers and crevasses where every ladder crossing counts. Trust your guide, Tashi, and stay alert—this is where even the bravest falter.',
+        mediaUrl: '/projects/3verest/chapter-2.jpg',
+        link: {
+          label: 'Play now',
+          url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20Icefall/9dc047d8-4cb4-412d-a6e5-471b5c79b8ab/page/'
+        }
+      },
+      {
+        title: 'Chapter 1-3: Camp 2',
+        description:
+          'Welcome to Camp 2—the edge of the known. Take a breath. Rest. But stay sharp. In these heights, legends sleep and shadows stir. The summit still whispers, but here you’ll learn that the mountain watches too.',
+        mediaUrl: '/projects/3verest/chapter-3.jpg',
+        link: {
+          label: 'Play now',
+          url: 'https://www.sandbox.game/en/experiences/3verest-camp-2/b43d27be-399e-4acf-8301-ad96af98a2e7/page/'
+        }
+      },
+      {
+        title: 'Chapter 2-1: The Wall',
+        description:
+          'This is The Wall, a multiplayer challenge where oxygen thins, and every step could be your last. Work as a team. Trust your instincts. And don’t look down—because one wrong move sends you sliding into history.',
+        mediaUrl: '/projects/3verest/chapter-4.jpg',
+        link: {
+          label: 'Play now',
+          url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20The%20Wall%20ver.%2010.9/7e489076-fa4e-4923-a52e-f47cf2685e07/page/'
+        }
+      },
+      {
+        title: 'Chapter 2-2: The Edge',
+        description:
+          'This is The Edge. Your final challenge. One last push through thin air, steep climbs, and sheer willpower. Few reach this point. Fewer return. But if you make it—you’ll stand where the world ends… and the sky begins.',
+        mediaUrl: '/projects/3verest/chapter-5.jpg',
+        link: {
+          label: 'Play now',
+          url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20The%20Edge%20ver.%2010.9/c7498aee-ef43-4e87-9704-34301bebcbb6/page/'
+        }
+      }
+    ],
+    links: [
+      {
+        label: 'Play Chapter 1 — Base Camp',
+        url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20Base%20Camp/57bce89e-d7e4-4c07-881d-e6142c2ab6ec/page/'
+      },
+      {
+        label: 'Ambassador announcement',
+        url: 'https://medium.com/@smobler.io/world-renowned-mountaineer-wasfia-nazreen-appointed-ambassador-for-3verest-smoblers-landmark-953e683ea9cc'
+      }
+    ],
+    pullQuote: {
+      text:
+        'As someone who has considered Everest region a homebase for two decades, I am proud to see the cultural accuracy, representation of local values and traditions incorporated in the game, and awed at how educational the game is and so much fun at the same time!',
+      attribution: 'Wasfia Nazreen',
+      role: 'Mountaineer, Activist, Social Worker and Environmentalist',
+    },
+    gallery: [
+      { src: '/projects/3verest/01-basecamp-01.jpg' },
+      { src: '/projects/3verest/02-basecamp-04.jpg' },
+      { src: '/projects/3verest/03-basecamp-06.jpg' },
+      { src: '/projects/3verest/04-basecamp-02.jpg' },
+      { src: '/projects/3verest/05-icefall-12.jpg' },
+      { src: '/projects/3verest/06-icefall-10.jpg' },
+      { src: '/projects/3verest/07-camp02-02.jpg' },
+      { src: '/projects/3verest/08-camp02-08.jpg' },
+      { src: '/projects/3verest/09-the-wall-09.jpg' },
+      { src: '/projects/3verest/10-the-wall-08.jpg' },
+      { src: '/projects/3verest/11-the-wall-03.jpg' },
+      { src: '/projects/3verest/12-the-edge-16.jpg' },
+      { src: '/projects/3verest/13-the-edge-13.jpg' },
+      { src: '/projects/3verest/14-the-wall-20.jpg' },
+    ],
+    isFeatured: true,
+  },
+  {
+    id: 'sephia',
+    slug: 'sephia',
+    title: 'Sephia',
+    client: 'Smobler (proprietary IP)',
+    sector: 'IP & Gaming',
+    platform: ['Roblox'],
+    /* The page does not date the release; 2025 is the year smobler.io published
+       it, and the year its screenshots were uploaded. */
+    year: 2025,
+    heroMedia: '/projects/sephia/01-thumbnail-main.jpg',
+    thumbnail: '/projects/sephia/01-thumbnail-main.jpg',
+    oneLineOutcome:
+      'An original PvP shooter on Roblox, where five clans fight for control of Synther on Cirsephia Island.',
+    problem:
+      'Smobler introduces Sephia, a visually distinctive PvP shooter built in Roblox, now in its early release phase. Set on the enigmatic Cirsephia Island, players step into an open battlefield where five powerful clans — Titan, Diwata, Yaksha, Asura, and Kami — fight for control over Synther, a mysterious energy crystal that shapes both environment and combat.',
+    solution:
+      'Sephia blends sci-fi action with strong art direction, featuring bold, low-poly characters, companion creatures, and stylized effects rarely seen in Roblox titles. Players engage in fast-paced multiplayer matches, each with unique class-based abilities, diverse fighting styles, and evolving clan identities. This first version lays the foundation for what will grow into a richer world — one where gameplay, visuals, and lore evolve together through community input and ongoing development.',
+    links: [
+      {
+        label: 'Play on Roblox',
+        url: 'https://www.roblox.com/games/16814401402/SEPHIA-PvP-Shooting-Battle#!/'
+      }
+    ],
+    gallery: [
+      { src: '/projects/sephia/02-thumbnail-character-fang.jpg' },
+      { src: '/projects/sephia/03-thumbnail-character-don.jpg' },
+      { src: '/projects/sephia/04-thumbnail-character-vibia.jpg' },
+      { src: '/projects/sephia/05-thumbnail-character-alex.jpg' },
+      { src: '/projects/sephia/06-thumbnail-character-iwan.jpg' },
+      { src: '/projects/sephia/07-sephiarecordings-00-00-05-cropped.jpg' },
+      { src: '/projects/sephia/08-sephiarecordings-00-01-33-cropped.jpg' },
+      { src: '/projects/sephia/09-sephia-landscape-02-00-00-04.jpg' },
+      { src: '/projects/sephia/10-sephia-landscape-02-00-00-29.jpg' },
+      { src: '/projects/sephia/11-sephia-cinematic-camera-inside-cave-00-01-02.jpg' },
     ],
     isFeatured: false,
   }
