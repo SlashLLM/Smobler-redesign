@@ -38,3 +38,6 @@ yarn-error.log*
 
 # scratch output from scripts/fetch-portfolio-sources.mjs
 /.portfolio-sources
+
+# PowerPoint owner-lock temp files, created whenever a deck is open
+decks/~$*
