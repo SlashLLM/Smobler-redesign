@@ -5,11 +5,23 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SpatialBackground } from '../ui/SpatialBackground';
 
-/* Slide 7 of the Smobler Global Master Deck (30 Dec 2025). */
-const stats = [
-  { value: '35', label: 'Published experiences' },
-  { value: '300K+', label: 'Plays' },
-  { value: '100+', label: 'Ecosystem partners' },
+/* The three offerings, stated in the order a client buys them. */
+const offerings = [
+  {
+    value: '01',
+    title: 'AI products',
+    label: 'We design and ship AI products end to end — from the first prototype to the thing your customers use every day.',
+  },
+  {
+    value: '02',
+    title: 'AI automation',
+    label: 'We automate the operations your teams repeat — support, back office, content, reporting — with agents that hold up in production.',
+  },
+  {
+    value: '03',
+    title: 'AI cost optimisation',
+    label: 'We audit what your AI actually costs and cut it — models, infrastructure, orchestration — without giving up quality.',
+  },
 ];
 
 /**
@@ -89,7 +101,7 @@ export const HeroSection: React.FC = () => {
             className="font-mono"
             style={{ fontSize: '11px', fontWeight: 700, color: 'var(--ink-on-sun)' }}
           >
-            Singapore · Global · Digital-First Agency
+            AI-First · Singapore · Built for Enterprise
           </span>
         </div>
 
@@ -104,7 +116,7 @@ export const HeroSection: React.FC = () => {
             margin: 0,
           }}
         >
-          Incubating phygital frontier tech with purpose.
+          We build AI that earns its keep.
         </h1>
 
         {/* Lede and actions share a baseline on desktop, stack on mobile */}
@@ -121,8 +133,9 @@ export const HeroSection: React.FC = () => {
               margin: 0,
             }}
           >
-            At the intersection of AI, blockchain and Web3. A digital-first agency doing great
-            while doing good — with brands, IPs and communities.
+            Three ways in: we build your AI products, we automate the operations that
+            slow your business down, and we cut what your AI costs to run. One team,
+            enterprise-grade, from first prototype to production bill.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 shrink-0">
@@ -141,7 +154,7 @@ export const HeroSection: React.FC = () => {
                   'transform var(--dur-ui) var(--ease-ui), box-shadow var(--dur-ui) var(--ease-ui)',
               }}
             >
-              Start a project
+              Talk to us
               <ArrowRight size={17} color="var(--sun-500)" strokeWidth={2.4} />
             </Link>
 
@@ -159,7 +172,7 @@ export const HeroSection: React.FC = () => {
                 transition: 'transform var(--dur-ui) var(--ease-ui)',
               }}
             >
-              See the work
+              See what we build
               <ArrowRight size={17} strokeWidth={2.2} />
             </Link>
           </div>
@@ -184,8 +197,8 @@ export const HeroSection: React.FC = () => {
           borderBottom: '1px solid var(--line-light)',
         }}
       >
-        {stats.map((stat) => (
-          <div key={stat.label} className="hero-stat-cell flex flex-col gap-3">
+        {offerings.map((offering) => (
+          <div key={offering.title} className="hero-stat-cell flex flex-col gap-3">
             <div
               className="font-display tabular-nums"
               style={{
@@ -195,11 +208,22 @@ export const HeroSection: React.FC = () => {
                 color: 'var(--ink)',
               }}
             >
-              {stat.value}
+              {offering.value}
             </div>
-            <div className="text-label" style={{ color: 'var(--ink-mute)' }}>
-              {stat.label}
+            <div className="text-label" style={{ color: 'var(--ink)' }}>
+              {offering.title}
             </div>
+            <p
+              style={{
+                fontSize: '15px',
+                lineHeight: 1.5,
+                color: 'var(--ink-mute)',
+                maxWidth: '34ch',
+                margin: 0,
+              }}
+            >
+              {offering.label}
+            </p>
           </div>
         ))}
       </div>
