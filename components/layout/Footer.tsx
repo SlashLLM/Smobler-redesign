@@ -105,11 +105,11 @@ export const Footer: React.FC = () => {
                 />
               </div>
               <p className="text-sm text-[var(--ink-mute)] max-w-md leading-relaxed mb-6">
-                Smobler is an AI world studio. We build persistent virtual worlds, agentic NPC characters, and spatial economies for brands, governments, and visionary IP holders.
+                Smobler is a digital-first agency doing great while doing good with brands, IPs and communities — incubating phygital frontier tech at the intersection of AI, blockchain and Web3.
               </p>
             </div>
             <div className="text-xs font-mono text-[var(--ink-mute)]">
-              SINGAPORE · AUSTIN · SÃO PAULO · LONDON
+              SINGAPORE · HONOLULU · SÃO PAULO
             </div>
           </div>
 
@@ -122,22 +122,22 @@ export const Footer: React.FC = () => {
               <ul className="space-y-2.5 text-sm">
                 <li>
                   <Link href="/what-we-build" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors">
-                    What we build
+                    What we do
                   </Link>
                 </li>
                 <li>
                   <Link href="/work" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors">
-                    Work
+                    Portfolio
                   </Link>
                 </li>
                 <li>
                   <Link href="/worlds" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors">
-                    Worlds
+                    Games
                   </Link>
                 </li>
                 <li>
                   <Link href="/studio" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors">
-                    Studio
+                    About
                   </Link>
                 </li>
                 <li>
@@ -147,7 +147,7 @@ export const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link href="/newsroom" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors">
-                    Newsroom
+                    News
                   </Link>
                 </li>
               </ul>
@@ -159,23 +159,38 @@ export const Footer: React.FC = () => {
               </div>
               <ul className="space-y-2.5 text-sm">
                 <li>
-                  <a href="https://twitter.com/smobler" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
-                    Twitter / X <ArrowUpRight size={12} />
+                  <a href="https://x.com/smoblerstudios" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
+                    X <ArrowUpRight size={12} />
                   </a>
                 </li>
                 <li>
-                  <a href="https://linkedin.com/company/smobler" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
+                  <a href="https://www.linkedin.com/company/smobler" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
                     LinkedIn <ArrowUpRight size={12} />
                   </a>
                 </li>
                 <li>
-                  <a href="https://discord.gg/smobler" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
-                    Discord <ArrowUpRight size={12} />
+                  <a href="https://instagram.com/smobler" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
+                    Instagram <ArrowUpRight size={12} />
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/smobler" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
-                    GitHub <ArrowUpRight size={12} />
+                  <a href="https://www.youtube.com/@smobler" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
+                    YouTube <ArrowUpRight size={12} />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tiktok.com/@smobler.io" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
+                    TikTok <ArrowUpRight size={12} />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/smoblerstudios" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
+                    Facebook <ArrowUpRight size={12} />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://medium.com/@smobler.io" target="_blank" rel="noopener noreferrer" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors flex items-center gap-1">
+                    Medium <ArrowUpRight size={12} />
                   </a>
                 </li>
               </ul>
@@ -188,7 +203,7 @@ export const Footer: React.FC = () => {
               THE DISPATCH
             </div>
             <p className="text-xs text-[var(--ink-mute)] leading-relaxed mb-4">
-              Bi-weekly field notes on spatial AI, voxel architecture, and live virtual telemetry. No marketing fluff.
+              Notes from the studio on educational gaming, AI for food security, digital bunkering and NOVA. Published to Medium first.
             </p>
 
             {newsletterSubscribed ? (

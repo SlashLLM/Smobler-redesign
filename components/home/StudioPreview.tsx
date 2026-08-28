@@ -13,9 +13,9 @@ export const StudioPreview: React.FC = () => {
     <section className="bg-white section-py-lg border-b border-[var(--line-light)]">
       <div className="buildplate-container">
         <SectionHeader
-          eyebrow="THE PEOPLE BEHIND THE WORLDS"
+          eyebrow="SMOBLER GLOBAL TEAM"
           title="The studio"
-          dek="A distributed collective of spatial engineers, neural researchers, and master voxel artists across four continents."
+          dek="An all-female leadership team and a board of advisors in blockchain, GameFi, digital bunkering and CPG AI."
           actionLink={{
             label: 'Meet the full team',
             href: '/studio',
@@ -35,18 +35,15 @@ export const StudioPreview: React.FC = () => {
             >
               {/* Natural Vibrant Portrait with 4:5 Aspect Ratio */}
               <div className="relative aspect-[4/5] w-full overflow-hidden mb-4 bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well">
-                <Image
-                  src={person.portrait}
-                  alt={person.portraitAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover duotone-portrait"
-                />
-                <div className="absolute top-2 right-2 z-10">
-                  <Chip variant="office" size="sm">
-                    {person.office}
-                  </Chip>
-                </div>
+                {person.portrait && (
+                  <Image
+                    src={person.portrait}
+                    alt={person.portraitAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover duotone-portrait"
+                  />
+                )}
               </div>
 
               {/* Details */}

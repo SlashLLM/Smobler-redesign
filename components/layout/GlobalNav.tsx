@@ -7,11 +7,11 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'What we build', href: '/what-we-build' },
-  { label: 'Work', href: '/work' },
-  { label: 'Worlds', href: '/worlds' },
-  { label: 'Studio', href: '/studio' },
-  { label: 'Newsroom', href: '/newsroom' },
+  { label: 'What we do', href: '/what-we-build' },
+  { label: 'Portfolio', href: '/work' },
+  { label: 'Games', href: '/worlds' },
+  { label: 'About', href: '/studio' },
+  { label: 'News', href: '/newsroom' },
 ];
 
 export const GlobalNav: React.FC = () => {

@@ -35,7 +35,7 @@ export default function NewsroomPage() {
           <SpatialBackground variant="header" />
           <div className="buildplate-container relative z-10">
             <div className="text-label text-[var(--sun-700)] mb-4 font-mono font-bold">
-              ▸ LEAD STORY & DISPATCH
+              ▸ LEAD STORY
             </div>
 
             <div
@@ -76,14 +76,16 @@ export default function NewsroomPage() {
               {/* Lead Image */}
               <div className="lg:col-span-6">
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well">
-                  <Image
-                    src={leadItem.heroImage || 'https://images.unsplash.com/photo-1531218150217-54595bc2b934?q=80&w=1200&auto=format&fit=crop'}
-                    alt={leadItem.title}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
+                  {leadItem.heroImage && (
+                    <Image
+                      src={leadItem.heroImage}
+                      alt={leadItem.title}
+                      fill
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -119,7 +121,7 @@ export default function NewsroomPage() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
-            {['FORBES ASIA', 'VENTUREBEAT', 'TECH IN ASIA', 'COINDESK', 'BLOOMBERG', 'THE STRAITS TIMES'].map((pub, idx) => (
+            {['FORBES', 'THE STRAITS TIMES', 'CNA', 'LIANHE ZAOBAO', 'VOGUE SINGAPORE', 'HER WORLD'].map((pub, idx) => (
               <div
                 key={idx}
                 className="p-4 bg-[var(--snowfield)] border border-[var(--line-light)] text-center font-mono text-xs text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[var(--sun-500)] transition-colors select-none font-bold card-lift-snow"

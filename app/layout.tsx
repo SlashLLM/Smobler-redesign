@@ -4,12 +4,26 @@ import { GlobalNav } from '@/components/layout/GlobalNav';
 import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: 'Smobler — AI World Studio',
-  description: 'Smobler is an AI world studio. We build persistent virtual worlds, agentic characters, and spatial economies for brands, governments, and visionary IP holders.',
-  keywords: ['AI world studio', 'spatial computing', 'voxel architecture', 'The Sandbox', 'metaverse studio', 'Singapore tech', 'agentic NPCs'],
+  // Resolves the relative og:image paths the newsroom articles set from `heroImage`.
+  metadataBase: new URL('https://smobler.io'),
+  title: 'Smobler — Building Worlds Together',
+  description:
+    'Smobler is a digital-first agency doing great while doing good with brands, IPs and communities — educational gaming, AI for food security, blockchain for maritime trade, and phygital events.',
+  keywords: [
+    'Smobler',
+    'educational gaming',
+    'The Sandbox',
+    'Roblox',
+    'AI for food security',
+    'digital bunkering',
+    'phygital',
+    'NOVA',
+    'Singapore',
+  ],
   openGraph: {
-    title: 'Smobler — AI World Studio',
-    description: 'We build worlds that think back. 20+ persistent worlds shipped with models inside them.',
+    title: 'Smobler — Building Worlds Together',
+    description:
+      'Incubating phygital frontier tech with purpose, at the intersection of AI, blockchain and Web3. 35 published experiences, 300K+ plays, 100+ ecosystem partners.',
     url: 'https://smobler.io',
     siteName: 'Smobler',
     type: 'website',

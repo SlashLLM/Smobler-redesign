@@ -1,0 +1,133 @@
+/* [project]/styles/animations.css [app-client] (css) */
+@keyframes sunSweepLight {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-sun-sweep {
+  background: linear-gradient(90deg,
+    var(--ink) 0%,
+    var(--ink) 35%,
+    var(--sun-700) 48%,
+    var(--sun-500) 52%,
+    var(--ink) 65%,
+    var(--ink) 100%);
+  -webkit-text-fill-color: transparent;
+  animation: sunSweepLight var(--dur-sweep) var(--ease-sun) 1 forwards;
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes tickerLoop {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  width: max-content;
+  animation: 35s linear infinite tickerLoop;
+  display: flex;
+}
+
+.ticker-track:hover, .ticker-track:focus-within {
+  animation-play-state: paused;
+}
+
+.card-lift-snow {
+  border-radius: var(--radius-card);
+  background-color: var(--white);
+  border: 1px solid var(--line-light);
+  box-shadow: var(--lift-card-snow);
+  transition: transform var(--dur-ui) var(--ease-ui), box-shadow var(--dur-ui) var(--ease-ui), border-color var(--dur-ui) var(--ease-ui);
+}
+
+.card-lift-snow:hover {
+  box-shadow: var(--lift-card-snow-hover);
+  border-color: var(--sun-500);
+  transform: translate(4px, 4px);
+}
+
+.card-glacier-rim {
+  border-radius: var(--radius-card);
+  background-color: var(--white);
+  border: 1px solid var(--line-light);
+  box-shadow: var(--lift-card-snow);
+  transition: transform var(--dur-ui) var(--ease-ui), box-shadow var(--dur-ui) var(--ease-ui), border-color var(--dur-ui) var(--ease-ui);
+}
+
+.card-glacier-rim:hover {
+  box-shadow: var(--lift-card-snow-hover);
+  border-color: var(--sun-500);
+  transform: translate(4px, 4px);
+}
+
+.duotone-portrait {
+  filter: contrast(102%) brightness(98%);
+  transition: transform var(--dur-reveal) var(--ease-ui), filter var(--dur-reveal) var(--ease-ui);
+}
+
+.person-card:hover .duotone-portrait {
+  filter: contrast(105%) brightness(102%);
+  transform: scale(1.03);
+}
+
+@keyframes ambientSunPulse {
+  0%, 100% {
+    opacity: .85;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-sun-pulse {
+  animation: 8s ease-in-out infinite ambientSunPulse;
+}
+
+@keyframes crosshairShimmer {
+  0%, 100% {
+    opacity: .45;
+  }
+
+  50% {
+    opacity: .9;
+  }
+}
+
+.animate-crosshair {
+  animation: 4s ease-in-out infinite crosshairShimmer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sun-sweep, .animate-sun-pulse, .animate-crosshair {
+    -webkit-text-fill-color: var(--ink);
+    background: none;
+    animation: none;
+  }
+
+  .ticker-track {
+    animation: none;
+    transform: none;
+  }
+
+  .card-lift-snow, .card-glacier-rim, .duotone-portrait {
+    transition: none;
+    transform: none !important;
+  }
+}
+
+/*# sourceMappingURL=styles_animations_css_1igg3k2._.single.css.map*/

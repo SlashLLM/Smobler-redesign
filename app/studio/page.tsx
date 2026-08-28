@@ -5,18 +5,22 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Chip } from '@/components/ui/Chip';
 import { Button } from '@/components/ui/Button';
 import { OfficesStrip } from '@/components/studio/OfficesStrip';
-import { TeamRoster } from '@/components/studio/TeamRoster';
 import { SpatialBackground } from '@/components/ui/SpatialBackground';
 import { people } from '@/data/people';
 import { ArrowUpRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Studio & Staff Roster | Smobler',
-  description: 'Meet the founders, neural architects, spatial engineers, and master voxel artists powering Smobler across Singapore, Austin, São Paulo, and London.',
+  title: 'About & Team | Smobler',
+  description: 'The origin story, leadership and board of directors behind Smobler — Singapore HQ, with presence in Honolulu and São Paulo.',
 };
 
 export default function StudioPage() {
-  const leadership = people.filter((p) => p.isLeadership);
+  const leadership = people.filter(
+    (p) => p.id === 'loretta-chen' || p.id === 'mridhul-pax'
+  );
+  const boardOfDirectors = people.filter((p) =>
+    p.disciplines.includes('Advisory')
+  );
 
   return (
     <div className="surface-snowfield">
@@ -29,11 +33,11 @@ export default function StudioPage() {
           </div>
 
           <h1 className="text-h1 font-display font-bold text-[var(--ink)] max-w-4xl mb-6">
-            A studio selling judgment has to show who has it.
+            People. Purpose. Possibilities.
           </h1>
 
           <p className="text-lede text-[var(--ink-mute)] max-w-3xl text-lg mb-12">
-            Founded in Singapore in 2020, Smobler is a distributed team of engineers, researchers, and world-builders across four continents. We combine deterministic spatial systems with emerging AI models to build virtual environments that stand up to real crowds.
+            Our story began during the pandemic, when three fault lines were exposed: creators were deemed non-essential, businesses had to digitise or risk obsolescence, and consumers wanted engagement they could actually trust. Out of that, Smobler — founded by Dr. Loretta Chen — emerged as a metaverse architect, and has since become a game studio and technology solutions provider working across blockchain, AI and immersive storytelling. Backed by Animoca Brands, The Sandbox, Brinc, Enterprise Singapore and IMDA.
           </p>
 
           {/* Global World Clocks */}
@@ -41,36 +45,33 @@ export default function StudioPage() {
         </div>
       </section>
 
-      {/* 2. Leadership Section */}
+      {/* 2. Leadership Section (Loretta Chen & Mridhul Pax) */}
       <section className="py-16 md:py-24 border-b border-[var(--line-light)]">
         <div className="buildplate-container">
           <SectionHeader
             eyebrow="STUDIO DIRECTION"
             title="Leadership"
-            dek="Guiding strategy, enterprise partnerships, and spatial architecture."
+            dek="Driven by visionary leadership and cutting-edge technology, guided by our board of directors in blockchain, GameFi, digital bunkering and CPG AI."
             theme="snowfield"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {leadership.map((leader) => (
               <div
                 key={leader.id}
                 className="p-8 bg-white border border-[var(--line-light)] card-lift-snow flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative aspect-[16/10] w-full overflow-hidden mb-6 bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well">
-                    <Image
-                      src={leader.portrait}
-                      alt={leader.portraitAlt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover duotone-portrait"
-                    />
-                    <div className="absolute top-3 right-3 z-10">
-                      <Chip variant="office" size="sm">
-                        {leader.office} · {leader.officeName}
-                      </Chip>
-                    </div>
+                  <div className="relative aspect-square w-full overflow-hidden mb-6 bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well">
+                    {leader.portrait && (
+                      <Image
+                        src={leader.portrait}
+                        alt={leader.portraitAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover duotone-portrait"
+                      />
+                    )}
                   </div>
 
                   <div className="flex items-center justify-between gap-2 mb-1">
@@ -83,9 +84,11 @@ export default function StudioPage() {
                     {leader.role}
                   </div>
 
-                  <p className="text-body text-[var(--ink-mute)] text-sm leading-relaxed mb-6">
-                    {leader.bio}
-                  </p>
+                  {leader.bio && (
+                    <p className="text-body text-[var(--ink-mute)] text-sm leading-relaxed mb-6">
+                      {leader.bio}
+                    </p>
+                  )}
                 </div>
 
                 <div className="pt-4 border-t border-[var(--line-light)] flex items-center justify-between">
@@ -120,21 +123,58 @@ export default function StudioPage() {
         </div>
       </section>
 
-      {/* 3. The Roster (4-Up Plot Grid with Visible Boundaries) */}
+      {/* 3. Board of Directors Section (No roster, no filters) */}
       <section className="bg-white py-16 md:py-24 border-b border-[var(--line-light)]">
         <div className="buildplate-container">
           <SectionHeader
-            eyebrow="DISTRIBUTED COLLECTIVE"
-            title="The roster"
-            dek="Interactive directory of spatial architects, voxel sculptors, and neural researchers."
-            actionLink={{
-              label: 'View careers',
-              href: '/studio/careers',
-            }}
+            eyebrow="ADVISORY BOARD"
+            title="Board of Directors"
+            dek="We are guided by industry leaders in blockchain, GameFi, and immersive tech."
             theme="white"
           />
 
-          <TeamRoster />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {boardOfDirectors.map((director) => (
+              <div
+                key={director.id}
+                className="p-8 bg-[var(--snowfield-2)] border border-[var(--line-light)] card-lift-snow flex flex-col justify-between"
+              >
+                <div>
+                  <div className="relative aspect-square w-full overflow-hidden mb-6 bg-white border border-[var(--line-light)] media-well">
+                    {director.portrait && (
+                      <Image
+                        src={director.portrait}
+                        alt={director.portraitAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover duotone-portrait"
+                      />
+                    )}
+                  </div>
+
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <h3 className="text-h3 font-display font-bold text-[var(--ink)]">
+                      {director.name}
+                    </h3>
+                  </div>
+
+                  <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-4">
+                    {director.role}
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-[var(--line-light)] flex items-center justify-between">
+                  <div className="flex flex-wrap gap-1.5">
+                    {director.disciplines.map((disc, idx) => (
+                      <Chip key={idx} variant="default" size="sm">
+                        {disc}
+                      </Chip>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -149,7 +189,7 @@ export default function StudioPage() {
               Claim a plot on our roster.
             </h2>
             <p className="text-sm text-[var(--ink)] mt-2 opacity-90 max-w-xl">
-              We’re expanding our engineering, voxel art, and AI systems teams across Singapore, North America, LATAM, and Europe.
+              Game design, AI engineering, studio production and communications — across the Singapore HQ and our Honolulu and São Paulo presence.
             </p>
           </div>
 

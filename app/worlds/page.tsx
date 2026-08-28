@@ -8,8 +8,8 @@ import { Button } from '@/components/ui/Button';
 import { SpatialBackground } from '@/components/ui/SpatialBackground';
 
 export const metadata: Metadata = {
-  title: 'Proprietary Worlds & IPs | Smobler',
-  description: 'Explore Smobler’s proprietary gaming universes, Himalayan folklore realms, creator sandboxes, and the SNOW token ecosystem.',
+  title: 'Games — Proprietary IP | Smobler',
+  description: 'Smobler’s own properties — 3VEREST, Sephia, Yeti Realm and Cobbleland — built and operated by the studio rather than commissioned.',
 };
 
 export default function WorldsPage() {
@@ -20,13 +20,13 @@ export default function WorldsPage() {
         <SpatialBackground variant="header" />
         <div className="buildplate-container relative z-10">
           <div className="text-label text-[var(--sun-700)] mb-4 font-mono font-bold">
-            ▸ PROPRIETARY REALMS & DIGITAL IP
+            ▸ PROPRIETARY IP
           </div>
           <h1 className="text-h1 font-display font-bold text-[var(--ink)] max-w-4xl mb-4">
-            Original worlds, built to endure.
+            The games we own.
           </h1>
           <p className="text-lede text-[var(--ink-mute)] max-w-2xl text-lg">
-            Beyond client commissions, Smobler conceives, funds, and operates sovereign gaming universes and decentralized creator infrastructure.
+            Beyond client commissions, Smobler conceives, funds and operates its own properties — starting with 3VEREST, named Best Sports Experience by The Sandbox.
           </p>
         </div>
       </section>
@@ -50,13 +50,15 @@ export default function WorldsPage() {
                   }`}
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well">
-                    <Image
-                      src={world.heroMedia}
-                      alt={world.name}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover"
-                    />
+                    {world.heroMedia && (
+                      <Image
+                        src={world.heroMedia}
+                        alt={world.name}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                    )}
                     <div className="absolute top-4 left-4 z-10">
                       <Chip
                         variant={world.status === 'Live' ? 'status-ice' : 'status-sun'}
@@ -91,47 +93,53 @@ export default function WorldsPage() {
                   </p>
 
                   {/* Core Mechanics */}
-                  <div className="mb-6 p-4 bg-[var(--snowfield)] border border-[var(--line-light)]">
-                    <div className="text-label text-[var(--ink-mute)] font-mono mb-2 font-bold">
-                      CORE SYSTEMS & GAMEPLAY MECHANICS
+                  {world.mechanics.length > 0 && (
+                    <div className="mb-6 p-4 rounded-sm bg-[var(--snowfield)] border border-[var(--line-light)]">
+                      <div className="text-label text-[var(--ink-mute)] font-bold mb-3">
+                        CORE SYSTEMS & GAMEPLAY MECHANICS
+                      </div>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[var(--ink)] leading-relaxed">
+                        {world.mechanics.map((mech, mIdx) => (
+                          <li key={mIdx} className="flex items-start gap-2 font-normal">
+                            <span className="text-[var(--sun-700)] font-bold text-xs mt-1 select-none">▸</span>
+                            <span>{mech}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono text-[var(--ink)]">
-                      {world.mechanics.map((mech, mIdx) => (
-                        <li key={mIdx} className="flex items-start gap-1.5 font-medium">
-                          <span className="text-[var(--sun-700)] font-bold">▸</span>
-                          <span>{mech}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  )}
 
                   {/* Stats Row */}
-                  <div className="grid grid-cols-3 gap-4 pb-6 border-b border-[var(--line-light)] mb-6">
-                    {world.stats.map((st, sIdx) => (
-                      <div key={sIdx}>
-                        <div className="font-display font-bold text-xl text-[var(--ink)] tabular-nums">
-                          {st.value}
+                  {world.stats.length > 0 && (
+                    <div className="grid grid-cols-3 gap-4 pb-6 border-b border-[var(--line-light)] mb-6">
+                      {world.stats.map((st, sIdx) => (
+                        <div key={sIdx}>
+                          <div className="font-display font-bold text-xl text-[var(--ink)] tabular-nums">
+                            {st.value}
+                          </div>
+                          <div className="text-xs text-[var(--ink-mute)] font-medium mt-0.5">
+                            {st.label}
+                          </div>
                         </div>
-                        <div className="text-[10px] font-mono text-[var(--ink-mute)]">
-                          {st.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Action Links */}
-                  <div className="flex flex-wrap gap-4">
-                    {world.links.map((link, lIdx) => (
-                      <Button
-                        key={lIdx}
-                        href={link.url}
-                        variant={lIdx === 0 ? 'primary' : 'ghost'}
-                        size="md"
-                      >
-                        {link.label}
-                      </Button>
-                    ))}
-                  </div>
+                  {world.links.length > 0 && (
+                    <div className="flex flex-wrap gap-4">
+                      {world.links.map((link, lIdx) => (
+                        <Button
+                          key={lIdx}
+                          href={link.url}
+                          variant={lIdx === 0 ? 'primary' : 'ghost'}
+                          size="md"
+                        >
+                          {link.label}
+                        </Button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             );
