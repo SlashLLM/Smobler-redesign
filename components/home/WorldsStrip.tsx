@@ -10,11 +10,11 @@ export const WorldsStrip: React.FC = () => {
       <SpatialBackground variant="ambient" />
       <div className="buildplate-container relative z-10">
         <SectionHeader
-          eyebrow="PROPRIETARY REALMS & IP"
-          title="Our worlds"
-          dek="Autonomous strategy realms, Himalayan folklore, creator sandboxes, and sovereign Web3 spatial economies."
+          eyebrow="PROPRIETARY IP"
+          title="Our games"
+          dek="The properties Smobler owns outright — 3VEREST, Sephia, Yeti Realm and Cobbleland."
           actionLink={{
-            label: 'Explore all worlds',
+            label: 'Explore all games',
             href: '/worlds',
           }}
           theme="snowfield"

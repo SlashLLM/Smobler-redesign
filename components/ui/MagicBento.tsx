@@ -48,45 +48,45 @@ const MOBILE_BREAKPOINT = 768;
 const defaultCardData: MagicBentoCardItem[] = [
   {
     color: '#141A23',
-    title: 'World Generation',
-    description: 'Text and reference to playable voxel space with deterministic physics.',
-    label: '01 / SYNTHESIS',
-    meta: 'VOXEL GEOMETRY · PROCEDURAL MESH'
+    title: 'Educational Gaming',
+    description: 'On-chain and off-chain worlds across The Sandbox and Roblox, where the lesson is the gameplay.',
+    label: '01 / EDUCATIONAL GAMING',
+    meta: 'THE SANDBOX · ROBLOX'
   },
   {
     color: '#141A23',
-    title: 'Agentic Characters',
-    description: 'Autonomous NPCs with persistent conversational memory and spatial audio.',
-    label: '02 / COGNITION',
-    meta: 'EPISODIC MEMORY · VOICE PARAMETERS'
+    title: 'AI for Food Security',
+    description: 'NUTRA and Robin AI compress a year of HACCP and nutrition-labelling work into hours.',
+    label: '02 / AI FOR FOOD SECURITY',
+    meta: 'META LLAMA · HACCP · FDA LABELS'
   },
   {
     color: '#141A23',
-    title: 'Creator Copilots',
-    description: 'Accelerating digital artisans with specialized rigging, texturing, and batch copilots.',
-    label: '03 / UGC TOOLING',
-    meta: 'RIGGING AUTOMATION · BATCH ASSETS'
+    title: 'Digital Humans',
+    description: 'Twinity — photorealistic avatars with authentic lip-sync in 40+ languages.',
+    label: '03 / DIGITAL HUMANS',
+    meta: '40+ LANGUAGES · BROADCAST QUALITY'
   },
   {
     color: '#141A23',
-    title: 'Brand AI Experiences',
-    description: 'Interactive broadcast activations and responsive narrative experiences for global brands.',
-    label: '04 / ENGAGEMENT',
-    meta: 'LIVE BROADCAST · TELEMETRY'
+    title: 'Phygital',
+    description: 'NOVA and 60+ activations, run in sync with the events the audience is already at.',
+    label: '04 / PHYGITAL',
+    meta: 'NOVA · NYSE · TOKEN2049 · SXSW'
   },
   {
     color: '#141A23',
-    title: 'Pipelines & Moderation',
-    description: 'Automated mesh optimization, draw-call reduction, and real-time content filtering.',
-    label: '05 / RELIABILITY',
-    meta: 'DRAW-CALL BATCHING · REAL-TIME SAFETY'
+    title: 'Blockchain for Bunkering',
+    description: 'Smart contracts and NFT verification replacing paper in a $120B maritime fuel industry.',
+    label: '05 / BLOCKCHAIN',
+    meta: 'SUI · SMART CONTRACTS · ESG'
   },
   {
     color: '#141A23',
-    title: 'Provenance & Ownership',
-    description: 'Cryptographic attribution for AI-generated and human-crafted assets with on-chain settlement.',
-    label: '06 / SOVEREIGNTY',
-    meta: 'ON-CHAIN ORACLES · ROYALTY SPLITS'
+    title: 'Ethical AI',
+    description: 'Traceable decisions, monitored bias, and a human override on every suggestion.',
+    label: '06 / ETHICAL AI',
+    meta: 'TRACEABLE · AUDITED · HUMAN OVERRIDE'
   }
 ];
 

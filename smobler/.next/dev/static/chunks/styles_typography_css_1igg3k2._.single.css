@@ -1,0 +1,95 @@
+/* [project]/styles/typography.css [app-client] (css) */
+body {
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  color: var(--ink);
+  background-color: var(--snowfield);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: var(--track-h2);
+  text-transform: none;
+  font-weight: 400;
+}
+
+h1, .text-h1 {
+  font-size: var(--t-h1);
+  letter-spacing: var(--track-h1);
+  line-height: .88;
+}
+
+h2, .text-h2 {
+  font-size: var(--t-h2);
+  letter-spacing: var(--track-h2);
+  line-height: .94;
+}
+
+h3, .text-h3 {
+  font-size: var(--t-h3);
+  letter-spacing: var(--track-h3);
+  line-height: 1.16;
+}
+
+.text-display {
+  font-family: var(--font-display);
+  font-size: var(--t-display);
+  letter-spacing: var(--track-display);
+  font-weight: 400;
+  line-height: .86;
+}
+
+.font-display.font-display {
+  letter-spacing: var(--track-h2);
+  font-weight: 400;
+}
+
+.text-display.text-display {
+  letter-spacing: var(--track-display);
+}
+
+h1.font-display.font-display, .text-h1.text-h1 {
+  letter-spacing: var(--track-h1);
+}
+
+h2.font-display.font-display, .text-h2.text-h2 {
+  letter-spacing: var(--track-h2);
+}
+
+h3.font-display.font-display, .text-h3.text-h3, h4.font-display.font-display {
+  letter-spacing: var(--track-h3);
+}
+
+.text-lede {
+  font-size: var(--t-body-lg);
+  max-width: 34ch;
+  line-height: 1.6;
+}
+
+.text-body {
+  font-size: var(--t-body);
+  max-width: 68ch;
+  line-height: 1.65;
+}
+
+.text-small {
+  font-size: var(--t-small);
+  line-height: 1.5;
+}
+
+.text-label, .font-mono {
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/*# sourceMappingURL=styles_typography_css_1igg3k2._.single.css.map*/

@@ -32,3 +32,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# scratch output from scripts/fetch-news-sources.mjs
+/.news-sources
+
+# scratch output from scripts/fetch-portfolio-sources.mjs
+/.portfolio-sources

@@ -6,31 +6,23 @@ export const offices: Office[] = [
     city: 'Singapore',
     country: 'Singapore (Global HQ)',
     timezone: 'Asia/Singapore',
-    address: '71 Ayer Rajah Crescent, #03-01, LaunchPad @ one-north, Singapore 139951',
-    email: 'sg@smobler.io'
+    address: '10 Anson Road #22-02, Singapore 079903',
+    email: 'hello@smobler.io'
   },
   {
     code: 'NA',
-    city: 'Austin',
-    country: 'United States',
-    timezone: 'America/Chicago',
-    address: '600 Congress Ave, 14th Floor, Austin, TX 78701',
-    email: 'na@smobler.io'
+    city: 'Honolulu',
+    country: 'Hawai‘i, United States',
+    timezone: 'Pacific/Honolulu',
+    address: 'Wahiawā Value-Added Product Development Center, in partnership with Leeward Community College and the State of Hawai‘i',
+    email: 'loretta@smobler.io'
   },
   {
     code: 'LATAM',
     city: 'São Paulo',
     country: 'Brazil',
     timezone: 'America/Sao_Paulo',
-    address: 'Av. Paulista, 1374 - Bela Vista, São Paulo - SP, 01310-100',
-    email: 'latam@smobler.io'
-  },
-  {
-    code: 'EU',
-    city: 'London',
-    country: 'United Kingdom',
-    timezone: 'Europe/London',
-    address: '1 Fore Street Ave, London EC2Y 9DT',
-    email: 'eu@smobler.io'
+    address: 'Latin America presence established through the Scale Up in Brazil programme',
+    email: 'veronica@smobler.io'
   }
 ];

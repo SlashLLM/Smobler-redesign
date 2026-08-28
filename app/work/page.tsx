@@ -31,13 +31,13 @@ export default function WorkPage() {
         <SpatialBackground variant="header" />
         <div className="buildplate-container relative z-10">
           <div className="text-label text-[var(--sun-700)] mb-4 font-mono font-bold">
-            ▸ CASE STUDIES & SHIPPED WORLDS
+            ▸ THE FULL PORTFOLIO
           </div>
           <h1 className="text-h1 font-display font-bold text-[var(--ink)] max-w-3xl mb-4">
             Proof of work.
           </h1>
           <p className="text-lede text-[var(--ink-mute)] max-w-2xl text-lg">
-            A verified catalogue of persistent virtual environments, live broadcast integrations, and sovereign digital assets built for international clients.
+            Every engagement across the four pillars — worlds in The Sandbox and Roblox, AI compliance platforms, blockchain settlement for maritime fuel, and the phygital activations in between.
           </p>
         </div>
       </section>
@@ -64,7 +64,7 @@ export default function WorkPage() {
                 title={project.title}
                 dek={project.oneLineOutcome}
                 meta={project.platform.join(' · ')}
-                stats={project.outcomeStats.slice(0, 2)}
+                stats={project.outcomeStats?.slice(0, 2)}
                 mediaUrl={project.thumbnail}
                 aspectRatio="16:10"
                 href={`/work/${project.slug}`}

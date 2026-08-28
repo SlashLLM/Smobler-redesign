@@ -3,16 +3,29 @@ import React from 'react';
 export const LogoWall: React.FC = () => {
   const logoTiers = [
     {
-      category: 'INVESTED BY',
-      logos: ['ANIMOCA BRANDS', 'THE SANDBOX', 'BRINC', 'EARLY ADVISORY'],
+      category: 'BACKED BY',
+      logos: ['ANIMOCA BRANDS', 'THE SANDBOX', 'BRINC', 'ENTERPRISE SINGAPORE', 'IMDA'],
     },
     {
       category: 'PARTNERED WITH',
-      logos: ['MEDIACORP', 'SG ENABLE', 'CLAY NATION', 'CITY OF AUSTIN', 'POLYGON LABS'],
+      logos: [
+        'WILDBRAIN',
+        'MEDIACORP',
+        'SINGAPORE AIRLINES',
+        'NTUC INCOME',
+        'STARHUB',
+        'SG ENABLE',
+        'DHI BHUTAN',
+        'NYSE',
+        'MYSTEN LABS / SUI',
+        'THE SINGAPORE MINT',
+        'CLAY NATION',
+        'CITY OF AUSTIN',
+      ],
     },
     {
       category: 'FEATURED IN',
-      logos: ['FORBES ASIA', 'VENTUREBEAT', 'TECH IN ASIA', 'COINDESK', 'BLOOMBERG'],
+      logos: ['FORBES', 'THE STRAITS TIMES', 'CNA', 'LIANHE ZAOBAO', 'VOGUE', 'HER WORLD'],
     },
   ];
 

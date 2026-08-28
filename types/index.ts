@@ -1,6 +1,19 @@
 export type NewsType = 'press' | 'coverage' | 'product' | 'field';
 export type NewsWeight = 'standard' | 'featured';
 
+/**
+ * A line actually written or spoken in a source. Absent means the page's
+ * pull-quote block stands down rather than echoing the surrounding copy.
+ */
+export interface PullQuote {
+  text: string;
+  attribution?: string;
+  /** Title and organisation, as the source prints it. */
+  role?: string;
+  /** Client logo, where the source sets one beside the quote. */
+  logo?: string;
+}
+
 export interface NewsItem {
   id: string;
   slug: string;
@@ -12,28 +25,39 @@ export interface NewsItem {
   excerpt: string;
   body: string;
   heroImage?: string;
-  publication?: string; // coverage only (e.g. "Tech in Asia", "VentureBeat", "Forbes")
+  publication?: string; // coverage only (e.g. "Forbes", "The Straits Times")
   sourceUrl?: string;
   weight: NewsWeight; // drives 3-col vs 6-col span
   onWire: boolean; // ticker inclusion
   tags: string[];
   readTime?: string;
+  pullQuote?: PullQuote;
 }
 
-export type OfficeCode = 'SG' | 'NA' | 'LATAM' | 'EU';
-export type Discipline = 'Leadership' | 'Engineering' | 'AI Systems' | 'Design' | 'Art & Voxels' | 'Production' | 'BD';
+export type OfficeCode = 'SG' | 'NA' | 'LATAM';
+export type Discipline =
+  | 'Leadership'
+  | 'Technology'
+  | 'Operations'
+  | 'Studio'
+  | 'Communications'
+  | 'Production'
+  | 'Design'
+  | 'Advisory';
 
 export interface Person {
   id: string;
   slug: string;
   name: string;
   role: string;
-  office: OfficeCode;
-  officeName: string;
+  /** Advisors sit outside the hubs, so a person need not belong to one. */
+  office?: OfficeCode;
+  officeName?: string;
   disciplines: Discipline[];
-  portrait: string;
+  portrait?: string;
   portraitAlt: string;
-  bio: string;
+  /** Only published where the person has a public biography. */
+  bio?: string;
   projects?: string[]; // Project slugs
   links?: { label: string; url: string }[];
   isLeadership?: boolean;
@@ -64,27 +88,47 @@ export interface Project {
   slug: string;
   title: string;
   client: string;
-  sector: string; // e.g. "Government", "Entertainment", "IP & Gaming", "Accessibility"
-  platform: string[]; // e.g. ["The Sandbox", "Custom Engine", "Roblox", "Web3"]
+  sector: string; // e.g. "World's Firsts", "Metaverse for Good", "AI", "Blockchain"
+  platform: string[]; // e.g. ["The Sandbox", "Roblox", "Sui", "IRL"]
   year: number;
-  heroMedia: string;
-  thumbnail: string;
-  outcomeStats: [OutcomeStat, OutcomeStat, OutcomeStat];
+  heroMedia?: string;
+  thumbnail?: string;
+  /**
+   * The trailer smobler.io sets on the project's own page. Held as a YouTube id
+   * rather than an embed URL because the player is only ever constructed after
+   * the visitor clicks — see components/ui/VideoEmbed.
+   */
+  videoId?: string;
+  /** The uploaded video's own title, used as the play control's label. */
+  videoTitle?: string;
+  /** Poster frame for that trailer, imported so the facade makes no third-party request. */
+  videoPoster?: string;
+  /**
+   * Published figures only. Most engagements have none in the public record, so
+   * this is frequently absent and the card simply omits its stat rail.
+   */
+  outcomeStats?: OutcomeStat[];
   oneLineOutcome: string;
-  problem: string;
-  solution: string;
-  aiRole: {
+  problem?: string;
+  solution?: string;
+  aiRole?: {
     modelRole: string; // What the model did
     humanRole: string; // What humans art-directed and built
     technicalHighlights: string[];
   };
-  buildSections: {
+  buildSections?: {
     title: string;
     description: string;
-    mediaUrl: string;
+    mediaUrl?: string;
     mediaCaption?: string;
+    /** Where a chapter is separately playable, the source's own action beside it. */
+    link?: { label: string; url: string };
   }[];
-  credits: string[]; // Person slugs
+  /** Screenshots published on the project's own page, in the order it sets them. */
+  gallery?: { src: string; alt?: string }[];
+  pullQuote?: PullQuote;
+  credits?: string[]; // Person slugs
+  links?: { label: string; url: string }[];
   isFeatured: boolean;
 }
 
@@ -94,8 +138,8 @@ export interface World {
   name: string;
   tagline: string;
   status: 'Live' | 'Alpha' | 'Beta' | 'In Production';
-  heroMedia: string;
-  thumbnail: string;
+  heroMedia?: string;
+  thumbnail?: string;
   description: string;
   mechanics: string[];
   stats: { value: string; label: string }[];
@@ -106,7 +150,7 @@ export interface Office {
   code: OfficeCode;
   city: string;
   country: string;
-  timezone: string; // e.g. "Asia/Singapore", "America/New_York"
+  timezone: string; // e.g. "Asia/Singapore", "Pacific/Honolulu"
   address: string;
   email: string;
 }

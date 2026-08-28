@@ -8,6 +8,8 @@ import { StatBlock } from '@/components/ui/StatBlock';
 import { Chip } from '@/components/ui/Chip';
 import { Button } from '@/components/ui/Button';
 import { SpatialBackground } from '@/components/ui/SpatialBackground';
+import { VideoEmbed } from '@/components/ui/VideoEmbed';
+import { ProjectGallery } from '@/components/work/ProjectGallery';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Sparkles, UserCheck } from 'lucide-react';
 
 interface CaseStudyPageProps {
@@ -31,9 +33,16 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const project = projects[projectIndex];
   const nextProject = projects[(projectIndex + 1) % projects.length];
 
-  const projectCredits = people.filter((person) =>
-    project.credits.includes(person.id) || project.credits.includes(person.slug)
+  const projectCredits = people.filter(
+    (person) =>
+      project.credits?.includes(person.id) || project.credits?.includes(person.slug)
   );
+
+  /* Most engagements publish no figures, no AI split and no build breakdown, so
+     each block below stands down rather than rendering an empty frame. */
+  const hasOutcomeStats = (project.outcomeStats?.length ?? 0) > 0;
+  const hasNarrative = !!(project.problem || project.solution || hasOutcomeStats);
+  const buildSections = (project.buildSections ?? []).filter((s) => s.mediaUrl);
 
   return (
     <article className="surface-snowfield">
@@ -81,69 +90,146 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             ))}
           </div>
 
-          {/* Full-bleed Hero Visual */}
-          <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] card-lift-snow">
-            <Image
-              src={project.heroMedia}
-              alt={project.title}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
+          {/* Where the work actually lives — same action row the Worlds page
+              uses, so a playable build or a press release is one click away. */}
+          {project.links && project.links.length > 0 && (
+            <div className="flex flex-wrap gap-4 mb-12">
+              {project.links.map((link, idx) => (
+                <Button
+                  key={idx}
+                  href={link.url}
+                  variant={idx === 0 ? 'primary' : 'ghost'}
+                  size="md"
+                >
+                  {link.label}
+                </Button>
+              ))}
+            </div>
+          )}
+
+          {/* Full-bleed Hero Visual — the trailer takes the slot where the
+              project publishes one, and the still stands in where it does not. */}
+          {project.videoId ? (
+            <VideoEmbed
+              videoId={project.videoId}
+              title={project.videoTitle ?? project.title}
+              poster={project.videoPoster ?? project.heroMedia}
+              caption={project.videoTitle}
             />
-          </div>
+          ) : (
+            project.heroMedia && (
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] card-lift-snow">
+                <Image
+                  src={project.heroMedia}
+                  alt={project.title}
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-cover"
+                />
+              </div>
+            )
+          )}
         </div>
       </header>
 
       {/* 2 & 3. The Problem & Outcome Stats */}
-      <section className="py-16 md:py-24 border-b border-[var(--line-light)]">
-        <div className="buildplate-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
-            {/* The Problem Statement */}
-            <div className="lg:col-span-4 border-l-3 border-[var(--sun-500)] pl-6">
-              <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-3">
-                01 / THE CHALLENGE
-              </div>
-              <h2 className="text-h3 font-display font-bold text-[var(--ink)] mb-4">
-                The problem
-              </h2>
-              <p className="text-body text-[var(--ink-mute)] text-sm leading-relaxed">
-                {project.problem}
-              </p>
+      {hasNarrative && (
+        <section className="py-16 md:py-24 border-b border-[var(--line-light)]">
+          <div className="buildplate-container">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+              {/* The Problem Statement */}
+              {project.problem && (
+                <div className="lg:col-span-4 border-l-3 border-[var(--sun-500)] pl-6">
+                  <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-3">
+                    01 / THE CHALLENGE
+                  </div>
+                  <h2 className="text-h3 font-display font-bold text-[var(--ink)] mb-4">
+                    The problem
+                  </h2>
+                  <p className="text-body text-[var(--ink-mute)] text-sm leading-relaxed">
+                    {project.problem}
+                  </p>
+                </div>
+              )}
+
+              {/* The Solution & Architecture */}
+              {project.solution && (
+                <div className="lg:col-span-8">
+                  <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-3">
+                    02 / ARCHITECTURAL APPROACH
+                  </div>
+                  <h2 className="text-h3 font-display font-bold text-[var(--ink)] mb-4">
+                    The solution
+                  </h2>
+                  <p className="text-lede text-[var(--ink)] text-base leading-relaxed">
+                    {project.solution}
+                  </p>
+                </div>
+              )}
             </div>
 
-            {/* The Solution & Architecture */}
-            <div className="lg:col-span-8">
-              <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-3">
-                02 / ARCHITECTURAL APPROACH
+            {/* Outcome Stats Block */}
+            {hasOutcomeStats && (
+              <div className="pt-8">
+                <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-4">
+                  MEASURED OUTCOMES
+                </div>
+                <StatBlock stats={project.outcomeStats!} theme="white" />
               </div>
-              <h2 className="text-h3 font-display font-bold text-[var(--ink)] mb-4">
-                The solution
-              </h2>
-              <p className="text-lede text-[var(--ink)] text-base leading-relaxed">
-                {project.solution}
-              </p>
-            </div>
-          </div>
+            )}
 
-          {/* Outcome Stats Block */}
-          <div className="pt-8">
-            <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-4">
-              MEASURED OUTCOMES
-            </div>
-            <StatBlock stats={project.outcomeStats} theme="white" />
+            {/* What the client said, where the record has them on it. */}
+            {project.pullQuote && (
+              <figure className="mt-16 m-0 border-l-3 border-[var(--sun-500)] pl-6 md:pl-8 max-w-4xl">
+                <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-4">
+                  ON THE RECORD
+                </div>
+                <blockquote className="text-h3 font-display font-medium text-[var(--ink)] leading-snug m-0">
+                  “{project.pullQuote.text}”
+                </blockquote>
+                {(project.pullQuote.attribution || project.pullQuote.logo) && (
+                  <figcaption className="flex items-center gap-4 mt-6">
+                    {project.pullQuote.logo && (
+                      <span className="relative block w-14 h-8 shrink-0">
+                        <Image
+                          src={project.pullQuote.logo}
+                          alt=""
+                          fill
+                          sizes="56px"
+                          className="object-contain"
+                        />
+                      </span>
+                    )}
+                    <span>
+                      {project.pullQuote.attribution && (
+                        <span className="block text-sm font-display font-bold text-[var(--ink)]">
+                          {project.pullQuote.attribution}
+                        </span>
+                      )}
+                      {project.pullQuote.role && (
+                        <span className="block text-[11px] font-mono text-[var(--ink-mute)]">
+                          {project.pullQuote.role}
+                        </span>
+                      )}
+                    </span>
+                  </figcaption>
+                )}
+              </figure>
+            )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 4. Build Sections (Alternating 6/6 Media and Copy) */}
+      {buildSections.length > 0 && (
       <section className="py-16 md:py-24 border-b border-[var(--line-light)] bg-white">
         <div className="buildplate-container space-y-20">
           <div className="text-label text-[var(--sun-700)] font-mono font-bold">
             03 / BUILD PROCESS & TECHNICAL MILESTONES
           </div>
 
-          {project.buildSections.map((section, idx) => {
+          {buildSections.map((section, idx) => {
             const isEven = idx % 2 === 0;
 
             return (
@@ -159,7 +245,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] card-lift-snow">
                     <Image
-                      src={section.mediaUrl}
+                      src={section.mediaUrl!}
                       alt={section.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -185,14 +271,24 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   <p className="text-body text-[var(--ink-mute)] leading-relaxed">
                     {section.description}
                   </p>
+                  {/* Chapters that ship separately carry their own entry point. */}
+                  {section.link && (
+                    <div className="mt-6">
+                      <Button href={section.link.url} variant="ghost" size="sm">
+                        {section.link.label}
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             );
           })}
         </div>
       </section>
+      )}
 
       {/* 5. Explicit AI Role Breakdown */}
+      {project.aiRole && (
       <section className="bg-[var(--snowfield)] py-20 border-b border-[var(--line-light)]">
         <div className="buildplate-container">
           <div className="flex items-center gap-2 mb-4">
@@ -239,8 +335,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {project.aiRole.technicalHighlights.map((highlight, hIdx) => (
-                <div key={hIdx} className="font-mono text-xs text-[var(--ink)] flex items-start gap-2 font-medium">
-                  <span className="text-[var(--sun-700)]">▸</span>
+                <div key={hIdx} className="text-sm text-[var(--ink)] flex items-start gap-2 font-normal leading-relaxed">
+                  <span className="text-[var(--sun-700)] font-bold text-xs mt-0.5 select-none">▸</span>
                   <span>{highlight}</span>
                 </div>
               ))}
@@ -248,8 +344,22 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           </div>
         </div>
       </section>
+      )}
 
-      {/* 6. Credits (Links to Studio Roster) */}
+      {/* 6. From the build — the stills the project's own page publishes. */}
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="py-16 md:py-24 border-b border-[var(--line-light)]">
+          <div className="buildplate-container">
+            <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-6">
+              04 / FROM THE BUILD
+            </div>
+            <ProjectGallery images={project.gallery} projectTitle={project.title} />
+          </div>
+        </section>
+      )}
+
+      {/* 7. Credits (Links to Studio Roster) */}
+      {projectCredits.length > 0 && (
       <section className="py-16 md:py-20 border-b border-[var(--line-light)] bg-white">
         <div className="buildplate-container">
           <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-6">
@@ -265,13 +375,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               >
                 <div className="flex items-center gap-4">
                   <div className="relative w-12 h-12 shrink-0 overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well">
-                    <Image
-                      src={member.portrait}
-                      alt={member.name}
-                      fill
-                      sizes="48px"
-                      className="object-cover duotone-portrait"
-                    />
+                    {member.portrait && (
+                      <Image
+                        src={member.portrait}
+                        alt={member.name}
+                        fill
+                        sizes="48px"
+                        className="object-cover duotone-portrait"
+                      />
+                    )}
                   </div>
                   <div>
                     <h4 className="text-sm font-display font-bold text-[var(--ink)] group-hover:text-[var(--sun-700)] transition-colors flex items-center gap-1">
@@ -288,8 +400,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           </div>
         </div>
       </section>
+      )}
 
-      {/* 7. Next Case Navigation */}
+      {/* 8. Next Case Navigation */}
       <section className="bg-[var(--sun-50)] py-20 border-b border-[var(--line-light)]">
         <div className="buildplate-container">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">

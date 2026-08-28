@@ -6,109 +6,114 @@ import { SpatialBackground } from '@/components/ui/SpatialBackground';
 import { CheckCircle2, Cpu, ShieldCheck, Sparkles, Workflow, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'What We Build — Capabilities & AI Systems | Smobler',
-  description: 'Explaining Smobler’s 6 spatial AI capabilities: World generation, Agentic characters, Creator copilots, Brand experiences, Production pipelines, and Provenance.',
+  title: 'What We Do — Four Pillars | Smobler',
+  description:
+    'Smobler’s four pillars: educational gaming on The Sandbox and Roblox, AI for food security with NUTRA and Robin AI, blockchain for maritime bunkering on Sui, and phygital activations led by NOVA.',
 };
 
 export default function WhatWeBuildPage() {
   const capabilities = [
     {
-      id: 'world-generation',
+      id: 'educational-gaming',
       number: '01',
-      title: 'World generation',
-      tagline: 'Text and reference to playable voxel space. Art-directed, topological sanitization, and deterministic multiplayer physics.',
+      title: 'Educational gaming',
+      tagline: 'Building future gamechangers. On-chain and off-chain worlds across The Sandbox and Roblox, where the lesson is the gameplay rather than a quiz bolted onto it.',
       icon: Cpu,
-      mediaUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
-      modelRole: 'Synthesizes initial voxel terrain topologies, procedural biome elevation maps, and lighting atmospheric parameters.',
-      humanRole: 'Performs topological manifold cleanup, collision boundary tuning, dynamic LOD batching, and artistic lore direction.',
+      mediaUrl: '/pillars/educational-gaming.jpg',
+      modelRole: 'Gaming is more than mechanics — it is storytelling, strategy and scalability in action. Smobler builds immersive, interactive experiences designed for sustained community engagement.',
+      humanRole: 'Narrative design, voxel art direction, QA and the cultural research that keeps a build faithful to the people it represents.',
       specs: [
-        'Deterministic multiplayer seed replication',
-        'Automated non-manifold internal void removal',
-        'Sub-second biome transition shaders',
-        'Multi-format export (VoxEdit, glTF, FBX, Unity/Unreal USD)',
+        'The Sandbox and Roblox, on-chain and off-chain',
+        'Meta Quest and Smobler XR for 3D commerce',
+        'Financial literacy: Bright Futures, Mimi’s Dream Builders',
+        'Accessibility-first design, as in the disability-led A11Y Park',
       ],
-      clientUse: 'Used in Clay Nation cross-chain realm and Singapore Govt 12x12 master estate.',
+      clientUse: 'Teletubbies: Custard Chaos with WildBrain, BHUTANVERSE with Druk Holding & Investments, 3VEREST, EQUAL-verse with StarHub, and A11Y Park with SG Enable.',
     },
     {
-      id: 'agentic-characters',
+      id: 'ai-food-security',
       number: '02',
-      title: 'Agentic characters',
-      tagline: 'Autonomous NPCs and companions with persistent conversational memory, spatial awareness, and brand-safe voice parameters running live in-engine.',
+      title: 'AI for food security',
+      tagline: 'Compliance and equity through augmented intelligence. NUTRA and Robin AI turn a year of regulatory work into an afternoon.',
       icon: Sparkles,
-      mediaUrl: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop',
-      modelRole: 'Runs real-time LLM inference for dialogue, long-term memory retrieval (vector memory store), and situational mood adjustments.',
-      humanRole: 'Defines character backstory, personality boundaries, hard ethical guardrails, and voice acting cadence calibration.',
+      mediaUrl: '/pillars/ai-food.jpg',
+      modelRole: 'AI-powered HACCP plans and FDA-compliant nutrition labels in 30 minutes, supplier matching and ranking, SOP generation tuned to local equipment, and real-time cost modelling — built on Meta Llama with retrieval-augmented generation.',
+      humanRole: 'The entrepreneur stays in charge: every AI suggestion can be reviewed, edited and overridden, and the platform is kept aligned with the food safety regulation it operates under.',
       specs: [
-        'Local / cloud hybrid inference streaming (< 180ms time-to-first-token)',
-        'Vector episodic memory retention per visiting player avatar',
-        'Spatial audio proximity localization and lip-sync phoneme generation',
-        'Strict brand safety and prompt injection firewall filters',
+        'Open architecture on Meta Llama — customisable, not a black box',
+        'Food-specific domain training and optimisation',
+        'APAC and Native Hawaiian cultural and religious context built in',
+        'End-to-end AI development, intelligent automation, scalable platforms',
       ],
-      clientUse: 'Deployed across Ichorium Wars tactical commanders and Yeti Realm mountain guides.',
+      clientUse: 'NUTRA, Smobler’s Food AI Operating System, and Robin AI with the Wahiawā Value-Added Product Development Center, Leeward Community College and the State of Hawai‘i.',
     },
     {
-      id: 'creator-copilots',
+      id: 'digital-humans',
       number: '03',
-      title: 'Creator copilots',
-      tagline: 'Tooling that lets UGC creators ship faster. Extends Smobler’s work creating sustainable livelihoods for digital artists.',
+      title: 'Digital humans',
+      tagline: 'Twinity — photorealistic digital avatars for teams that need to be in more places, and more languages, than a person can be.',
       icon: Workflow,
-      mediaUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
-      modelRole: 'Automates 2D-to-voxel trait synthesis, procedural rigging suggestions, and automated UV texture unwrapping.',
-      humanRole: 'Reviews character appeal, tunes squash-and-stretch animation curves, and ensures polygon budget adherence.',
+      mediaUrl: '/products/nutra-2.jpg',
+      modelRole: 'Generates broadcast-quality video with authentic lip-sync across more than forty languages, available around the clock.',
+      humanRole: 'Scripting, brand voice, and the editorial judgement about what should be said by a synthetic presenter and what should not.',
       specs: [
-        'Batch avatar generation up to 10,000 unique trait combinations',
-        'Automated bone weighting for humanoid and quadruped skeletons',
-        'Real-time polygon decimation and draw-call analyzer',
+        'Authentic lip-sync in 40+ languages',
+        'Broadcast-quality video output',
+        '24/7 engagement for marketing, training and support',
+        'Built for a digital human market accelerating toward $527B',
       ],
-      clientUse: 'Powered the Clay Nation 10,000 avatar conversion and Cobbleland creator asset marketplace.',
+      clientUse: 'Deployed with enterprise teams across marketing, training and customer support.',
     },
     {
-      id: 'brand-experiences',
+      id: 'phygital',
       number: '04',
-      title: 'Brand AI experiences',
-      tagline: 'Conversational activations, live broadcast synchronization, and interactive narrative worlds for enterprise clients.',
+      title: 'Phygital',
+      tagline: 'Where Wall Street, Main Street, Art Row and humanity converge. In-real-life activations, run in sync with the events the audience is already attending.',
       icon: Zap,
-      mediaUrl: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop',
-      modelRole: 'Coordinates dynamic audio-reactive visuals, synchronized live broadcast lighting cues, and multi-lingual user engagement tracking.',
-      humanRole: 'Directs virtual camera choreography, stage production design, and executive stakeholder narrative alignment.',
+      mediaUrl: '/pillars/phygital-events.jpg',
+      modelRole: 'NOVA is a Smobler proprietary IP and a celebration of the communities created by and connected with the Smobler ecosystem — an IRL festival hosted in sync with major crypto and Web3 events.',
+      humanRole: 'Programming, partnerships and production: five editions across Singapore, Austin and Honolulu, plus 60+ activations from Pop Toy Show to IMDA’s Digital for Life Festival.',
       specs: [
-        'Sub-80ms broadcast television synchronization bridge',
-        'High-density server clustering supporting 25K avatar instances per node',
-        'Dynamic sponsorship overlay and interactive minigame telemetry',
+        'NOVA 2023 Singapore — inaugural edition at TOKEN2049',
+        'NOVA 2024 Austin — official SXSW event',
+        'NOVA 2024 Singapore — TOKEN2049 and F1 night race',
+        'NOVA 2025 Singapore — the SG60 edition, presented by the NYSE',
       ],
-      clientUse: 'Live national countdown for Mediacorp Singapore and City of Austin interactive music district.',
+      clientUse: 'Presented with the New York Stock Exchange, Gemini, Nifty Gateway Studio, Skadden, Michigan Ross Executive Education, Unstoppable Domains and Ledger.',
     },
     {
-      id: 'pipelines-moderation',
+      id: 'blockchain-bunkering',
       number: '05',
-      title: 'Pipelines & moderation',
-      tagline: 'Automated asset pipelines, safety layers, and server load balancing — the unglamorous part that keeps a public world open.',
+      title: 'Blockchain for bunkering',
+      tagline: 'Trust in the open sea. Production-ready blockchain infrastructure for maritime fuel, where compliance and operational integrity are mission-critical.',
       icon: ShieldCheck,
-      mediaUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop',
-      modelRole: 'Scans text, voice, and uploaded 3D assets in real time for toxic behavior, hate speech, and malicious geometry.',
-      humanRole: 'Reviews edge-case escalation tickets, tunes moderation thresholds, and audits security compliance logs.',
+      mediaUrl: '/pillars/blockchain-maritime.jpg',
+      modelRole: 'Smart contracts and NFT-based verification replace manual, paper-based ship refuelling: a vessel requests 300MT, the supplier mints tokenised fuel, delivery is verified by GPS, the contract confirms and mints an NFT receipt, and settlement completes instantly.',
+      humanRole: 'Regulatory alignment with Singapore’s 2025 digital bunkering mandate, port operations integration, and the ESG and carbon reporting the industry is now held to.',
       specs: [
-        'Multi-lingual real-time toxicity classification in 32 languages',
-        'Automated geometry bounding box collision validation',
-        'Continuous automated performance profiling and crash telemetry',
+        'Built on Sui with Mysten Labs and the Sui Foundation',
+        '$120B maritime fuel bunkering market',
+        'ESG tracking, carbon metrics, transparent documentation',
+        'Expansion planned across APAC and the ARA ports',
       ],
-      clientUse: 'Enforces safety standards across all public Sandbox estates and civic charity activations.',
+      clientUse: 'Digital Bunkering with Mysten Labs and the Sui Foundation, with Walrus as logistics partner, and Posable for stablecoin settlement.',
     },
     {
-      id: 'provenance-ownership',
+      id: 'ethical-ai',
       number: '06',
-      title: 'Provenance & ownership',
-      tagline: 'On-chain cryptographic attribution for generated assets, automated creator revenue splits, and cross-world asset sovereignty.',
+      title: 'Ethical AI practice & safeguards',
+      tagline: 'The commitments that apply to every model Smobler puts in front of a user — written down, not implied.',
       icon: CheckCircle2,
-      mediaUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1200&auto=format&fit=crop',
-      modelRole: 'Generates deterministic cryptographic hashes and metadata fingerprints for all model-generated spatial outputs.',
-      humanRole: 'Authors legal licensing terms, sets smart-contract royalty allocation splits, and audits treasury distribution.',
+      mediaUrl: '/products/nutra.jpg',
+      modelRole: 'All AI decisions are traceable and clearly explained for users, and bias is actively monitored and minimised for fair outcomes.',
+      humanRole: 'Users can supervise, review and override AI suggestions at any time. Data is protected through secure encryption and strict access controls.',
       specs: [
-        'Instant multi-signature creator revenue distribution',
-        'Cross-chain asset verification oracle on Polygon and Ethereum',
-        'Gas-free player inventory staking protocol via SNOW dApp',
+        'Data protected by encryption and strict access control',
+        'Every AI decision traceable and explained',
+        'Bias actively monitored and minimised',
+        'Continuously updated to meet food safety and legal regulation',
       ],
-      clientUse: 'Powering the SNOW token ecosystem and decentralized creator economy.',
+      clientUse: 'Applied across NUTRA, Robin AI and every client-facing model Smobler ships.',
     },
   ];
 
@@ -119,13 +124,13 @@ export default function WhatWeBuildPage() {
         <SpatialBackground variant="header" />
         <div className="buildplate-container relative z-10">
           <div className="text-label text-[var(--sun-700)] mb-4 font-mono font-bold">
-            ▸ CAPABILITIES & TECHNICAL SYSTEMS
+            ▸ FOUR PILLARS & THE STANDARDS BEHIND THEM
           </div>
           <h1 className="text-h1 font-display font-bold text-[var(--ink)] max-w-4xl mb-6">
-            Spatial intelligence, engineered for production.
+            Doing great while doing good.
           </h1>
           <p className="text-lede text-[var(--ink-mute)] max-w-2xl">
-            Smobler’s advantage is not that we call a model. It’s that we’ve shipped 20+ persistent worlds and know exactly what breaks when you put generated content in front of real players.
+            Today, Smobler is a digital-first agency working with brands, IPs and communities across educational gaming, AI for food security, blockchain for maritime trade, and phygital events — 35 published experiences and 300K+ plays behind us.
           </p>
         </div>
       </section>
@@ -237,13 +242,13 @@ export default function WhatWeBuildPage() {
       <section className="bg-white py-20 border-t border-[var(--line-light)]">
         <div className="buildplate-container text-center max-w-2xl mx-auto">
           <h2 className="text-h2 font-display font-bold text-[var(--ink)] mb-4">
-            Need a tailored spatial pipeline?
+            Join us in shaping the future of ethical, immersive phygital tech.
           </h2>
           <p className="text-body text-[var(--ink-mute)] mb-8">
-            We collaborate with enterprise engineering teams to integrate custom AI world tools, character runtimes, and Web3 settlement layers.
+            Whether it’s a world, a compliance platform, a settlement layer or a festival — tell us what you’re trying to build and who it’s for.
           </p>
           <Button href="/contact" variant="primary" size="lg">
-            Start technical scoping
+            Start a conversation
           </Button>
         </div>
       </section>

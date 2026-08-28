@@ -17,20 +17,21 @@ export const TeamRoster: React.FC = () => {
 
   const disciplines: { label: string; value: string }[] = [
     { label: 'ALL DISCIPLINES', value: 'all' },
-    { label: 'ENGINEERING', value: 'Engineering' },
-    { label: 'AI SYSTEMS', value: 'AI Systems' },
-    { label: 'DESIGN', value: 'Design' },
-    { label: 'ART & VOXELS', value: 'Art & Voxels' },
+    { label: 'LEADERSHIP', value: 'Leadership' },
+    { label: 'TECHNOLOGY', value: 'Technology' },
+    { label: 'OPERATIONS', value: 'Operations' },
+    { label: 'STUDIO', value: 'Studio' },
+    { label: 'COMMUNICATIONS', value: 'Communications' },
     { label: 'PRODUCTION', value: 'Production' },
-    { label: 'BD', value: 'BD' },
+    { label: 'DESIGN', value: 'Design' },
+    { label: 'ADVISORY', value: 'Advisory' },
   ];
 
   const officeCodes: { label: string; value: string }[] = [
     { label: 'ALL HUBS', value: 'all' },
     { label: 'SG (SINGAPORE)', value: 'SG' },
-    { label: 'NA (AUSTIN)', value: 'NA' },
+    { label: 'NA (HONOLULU)', value: 'NA' },
     { label: 'LATAM (SÃO PAULO)', value: 'LATAM' },
-    { label: 'EU (LONDON)', value: 'EU' },
   ];
 
   const filteredPeople = people.filter((person) => {
@@ -107,20 +108,17 @@ export const TeamRoster: React.FC = () => {
               boxShadow: 'var(--lift-card-snow)',
             }}
           >
-            {/* Portrait (4:5 aspect) */}
-            <div className="relative aspect-[4/5] w-full overflow-hidden mb-4 bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well">
-              <Image
-                src={person.portrait}
-                alt={person.portraitAlt}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                className="object-cover duotone-portrait"
-              />
-              <div className="absolute top-2 right-2 z-10">
-                <Chip variant="office" size="sm">
-                  {person.office}
-                </Chip>
-              </div>
+            {/* Portrait (1:1 square aspect from smobler.io/team) */}
+            <div className="relative aspect-square w-full overflow-hidden mb-4 bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well">
+              {person.portrait && (
+                <Image
+                  src={person.portrait}
+                  alt={person.portraitAlt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  className="object-cover duotone-portrait"
+                />
+              )}
             </div>
 
             {/* Name & Role */}

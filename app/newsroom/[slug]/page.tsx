@@ -1,12 +1,15 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { newsItems } from '@/data/news';
+import { getSourceMeta, getYouTubeId, getRelatedItems, toIsoDate } from '@/lib/newsSource';
+import { Button } from '@/components/ui/Button';
 import { Chip } from '@/components/ui/Chip';
 import { PlotCard } from '@/components/ui/PlotCard';
 import { SpatialBackground } from '@/components/ui/SpatialBackground';
-import { ArrowLeft, Calendar, Clock } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Calendar, Clock } from 'lucide-react';
 
 interface NewsArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -18,6 +21,25 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: NewsArticlePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const item = newsItems.find((n) => n.slug === slug);
+
+  if (!item) return {};
+
+  return {
+    title: `${item.title} · Smobler Newsroom`,
+    description: item.excerpt,
+    openGraph: {
+      type: 'article',
+      title: item.title,
+      description: item.excerpt,
+      publishedTime: toIsoDate(item.publishedAt),
+      images: item.heroImage ? [item.heroImage] : undefined,
+    },
+  };
+}
+
 export default async function NewsArticlePage({ params }: NewsArticlePageProps) {
   const { slug } = await params;
   const item = newsItems.find((n) => n.slug === slug);
@@ -26,11 +48,14 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
     notFound();
   }
 
-  const relatedItems = newsItems
-    .filter((n) => n.id !== item.id)
-    .slice(0, 3);
+  const source = getSourceMeta(item);
+  const youTubeId = getYouTubeId(item.sourceUrl);
+  const relatedItems = getRelatedItems(item, newsItems, 3);
+  const paragraphs = item.body.split('\n\n').filter((p) => p.trim().length > 0);
 
-  const paragraphs = item.body.split('\n\n');
+  // The pull-quote breaks the body about a third of the way down, and only when the
+  // source actually gave us a line worth quoting.
+  const quoteAfterIndex = !item.pullQuote ? -1 : paragraphs.length >= 5 ? 2 : 0;
 
   return (
     <article className="surface-snowfield">
@@ -79,22 +104,48 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
             <p className="text-lede text-[var(--ink-mute)] text-lg leading-relaxed">
               {item.excerpt}
             </p>
+
+            {/* Straight to the original. Stands down for the one item whose source is gone. */}
+            {source && (
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <Button href={source.href} external variant="primary" size="md">
+                  <span>{source.ctaLabel}</span>
+                  <ArrowUpRight size={16} className="ml-2" />
+                </Button>
+                <span className="font-mono text-xs text-[var(--ink-mute)] uppercase tracking-wider font-bold">
+                  SOURCE · {source.host}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </header>
 
-      {/* Featured Hero Visual */}
-      {item.heroImage && (
+      {/* Featured visual — the video plays in place for filmed coverage, otherwise the
+          hero image; items with neither render no well at all. */}
+      {(youTubeId || item.heroImage) && (
         <div className="buildplate-container pt-12">
           <div className="max-w-4xl mx-auto relative aspect-[16/9] w-full overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] card-lift-snow">
-            <Image
-              src={item.heroImage}
-              alt={item.title}
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 800px"
-              className="object-cover"
-            />
+            {youTubeId ? (
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${youTubeId}`}
+                title={item.title}
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                className="absolute inset-0 w-full h-full"
+              />
+            ) : (
+              <Image
+                src={item.heroImage!}
+                alt={item.title}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 800px"
+                className="object-cover"
+              />
+            )}
           </div>
         </div>
       )}
@@ -103,30 +154,29 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
       <div className="buildplate-container py-16">
         <div className="max-w-3xl mx-auto">
           <div className="space-y-6 text-body leading-relaxed text-[var(--ink)] text-base">
-            {paragraphs.map((p, pIdx) => {
-              if (pIdx === 1) {
-                return (
-                  <React.Fragment key={pIdx}>
-                    <div
-                      className="my-10 p-8 border-l-4 border-[var(--sun-500)] text-[var(--ink)]"
-                      style={{
-                        backgroundColor: 'var(--sun-100)',
-                      }}
-                    >
-                      <blockquote className="font-display font-bold text-xl md:text-2xl text-[var(--ink)] leading-snug">
-                        “{item.excerpt}”
-                      </blockquote>
-                      <div className="text-label text-[var(--sun-700)] mt-4 font-mono font-bold">
-                        ▸ KEY TAKEAWAY · SMOBLER DISPATCH
-                      </div>
-                    </div>
-                    <p>{p}</p>
-                  </React.Fragment>
-                );
-              }
+            {paragraphs.map((p, pIdx) => (
+              <React.Fragment key={pIdx}>
+                <p className={pIdx === 0 ? 'text-lg leading-relaxed' : undefined}>{p}</p>
 
-              return <p key={pIdx}>{p}</p>;
-            })}
+                {pIdx === quoteAfterIndex && item.pullQuote && (
+                  <div
+                    className="my-10 p-8 border-l-4 border-[var(--sun-500)] text-[var(--ink)]"
+                    style={{
+                      backgroundColor: 'var(--sun-100)',
+                    }}
+                  >
+                    <blockquote className="font-display font-bold text-xl md:text-2xl text-[var(--ink)] leading-snug">
+                      “{item.pullQuote.text}”
+                    </blockquote>
+                    {item.pullQuote.attribution && (
+                      <div className="text-label text-[var(--sun-700)] mt-4 font-mono font-bold">
+                        ▸ {item.pullQuote.attribution.toUpperCase()}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
           </div>
 
           {/* Tags & Topics */}

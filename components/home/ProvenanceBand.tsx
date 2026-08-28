@@ -6,21 +6,21 @@ export const ProvenanceBand: React.FC = () => {
   const pillars = [
     {
       title: 'What the model does',
-      description: 'Synthesizes initial voxel terrain topologies, generates real-time audio-reactive particle variants, and powers autonomous NPC conversational voice and memory.',
+      description: 'Generates HACCP plans and FDA-compliant nutrition labels from a described process, identifies hazards, ranks suppliers, and drafts production SOPs. Every one of those decisions is traceable and clearly explained to the person using it.',
       icon: Sparkles,
       tag: 'MACHINE LAYER',
     },
     {
-      title: 'What humans art-direct',
-      description: 'Rigid bone rigging, level topology sanitization, multiplayer server load balancing, aesthetic coherence, and spatial accessibility compliance.',
+      title: 'What humans decide',
+      description: 'Users can supervise, review and override any AI suggestion at any time. Bias is actively monitored and minimised for fair outcomes, and cultural context — APAC, Native Hawaiian — is built in rather than assumed away.',
       icon: CheckCircle2,
       tag: 'HUMAN JUDGMENT',
     },
     {
-      title: 'Who owns the output',
-      description: 'Client IP sovereignty is absolute. Assets, models, and trained parameters are cryptographically anchored on-chain with deterministic royalty contracts.',
+      title: 'What we guarantee',
+      description: 'Data is protected through secure encryption and strict access controls, and the platform is kept current with every food safety regulation it operates under. Open architecture on Meta Llama, so it stays customisable rather than a black box.',
       icon: ShieldCheck,
-      tag: 'SOVEREIGNTY',
+      tag: 'SAFEGUARDS',
     },
   ];
 
@@ -38,24 +38,24 @@ export const ProvenanceBand: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-4 border-b border-[var(--line-light)]">
           <div className="flex items-center gap-3">
             <Chip variant="status-ice" size="md">
-              AI PROVENANCE & ATTRIBUTION
+              ETHICAL AI PRACTICE & SAFEGUARDS
             </Chip>
             <span className="text-label text-[var(--ink-mute)] font-mono hidden sm:inline font-bold">
-              ETHICAL SPATIAL AI STANDARDS
+              RESPONSIBLE AI FRAMEWORK
             </span>
           </div>
 
           <div className="text-xs font-mono text-[var(--ice-400)] font-bold">
-            [DETERMINISTIC VERIFICATION ORACLE v2.4]
+            [META LLAMA · OPEN ARCHITECTURE]
           </div>
         </div>
 
         <div className="max-w-3xl mb-10">
           <h2 className="text-h2 font-display text-[var(--ink)] font-bold mb-3">
-            Honest boundaries: What is generated, what is crafted, and who owns it.
+            Honest boundaries: what the model decides, and what you do.
           </h2>
           <p className="text-body text-[var(--ink-mute)]">
-            Vague AI claims ruin technical trust. At Smobler, we operate an explicit, auditable separation between stochastic generative models and deterministic spatial engineering.
+            Vague AI claims ruin trust — and in food safety and maritime compliance, they cost more than trust. So the split is written down, and the person using the tool always has the last word.
           </p>
         </div>
 

@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SpatialBackground } from '../ui/SpatialBackground';
 
+/* Slide 7 of the Smobler Global Master Deck (30 Dec 2025). */
 const stats = [
-  { value: '20+', label: 'Persistent worlds shipped' },
-  { value: '14', label: 'Countries activated' },
-  { value: '1.4M+', label: 'Engaged players reached' },
+  { value: '35', label: 'Published experiences' },
+  { value: '300K+', label: 'Plays' },
+  { value: '100+', label: 'Ecosystem partners' },
 ];
 
 /**
@@ -88,7 +89,7 @@ export const HeroSection: React.FC = () => {
             className="font-mono"
             style={{ fontSize: '11px', fontWeight: 700, color: 'var(--ink-on-sun)' }}
           >
-            Singapore · Global AI World Studio
+            Singapore · Global · Digital-First Agency
           </span>
         </div>
 
@@ -103,7 +104,7 @@ export const HeroSection: React.FC = () => {
             margin: 0,
           }}
         >
-          We build worlds that think back.
+          Incubating phygital frontier tech with purpose.
         </h1>
 
         {/* Lede and actions share a baseline on desktop, stack on mobile */}
@@ -120,8 +121,8 @@ export const HeroSection: React.FC = () => {
               margin: 0,
             }}
           >
-            20+ persistent worlds shipped for global brands, governments and IP holders — now
-            running deterministic intelligence models inside them.
+            At the intersection of AI, blockchain and Web3. A digital-first agency doing great
+            while doing good — with brands, IPs and communities.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 shrink-0">

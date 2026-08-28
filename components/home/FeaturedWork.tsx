@@ -12,11 +12,11 @@ export const FeaturedWork: React.FC = () => {
     <section className="bg-white section-py-lg border-b border-[var(--line-light)]">
       <div className="buildplate-container">
         <SectionHeader
-          eyebrow="SELECTED CASE STUDIES"
+          eyebrow="SELECTED WORK"
           title="Featured work"
-          dek="High-stakes spatial deployments for national broadcasters, iconic cultural IP, and civic inclusion councils."
+          dek="Global IP, national governments, a food AI operating system and a blockchain for maritime fuel — 35 published experiences and counting."
           actionLink={{
-            label: 'All case studies',
+            label: 'Full portfolio',
             href: '/work',
           }}
           theme="white"
@@ -30,7 +30,7 @@ export const FeaturedWork: React.FC = () => {
               title={leadProject.title}
               dek={leadProject.oneLineOutcome}
               meta={leadProject.platform.join(' · ')}
-              stats={leadProject.outcomeStats.slice(0, 2)}
+              stats={leadProject.outcomeStats?.slice(0, 2)}
               mediaUrl={leadProject.heroMedia}
               layout="split"
               href={`/work/${leadProject.slug}`}
@@ -50,7 +50,7 @@ export const FeaturedWork: React.FC = () => {
               title={project.title}
               dek={project.oneLineOutcome}
               meta={project.platform.join(' · ')}
-              stats={project.outcomeStats.slice(0, 2)}
+              stats={project.outcomeStats?.slice(0, 2)}
               mediaUrl={project.thumbnail}
               aspectRatio="16:9"
               href={`/work/${project.slug}`}

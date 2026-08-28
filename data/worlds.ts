@@ -1,102 +1,80 @@
 import { World } from '@/types';
 
+/**
+ * Smobler-owned properties only — client engagements live in data/projects.ts.
+ *
+ * Sources: smobler.io/origin-story ("proprietary GameFi properties: 3VEREST,
+ * Yeti Realm, Cobbleland"), smobler.io/game-development, and the Sandbox and
+ * Roblox experience links published on linktr.ee/smobler.io. Yeti Realm,
+ * Cobbleland and Sephia have no published imagery or metrics, so those fields
+ * are omitted rather than filled in.
+ */
 export const worlds: World[] = [
   {
-    id: 'ichorium-wars',
-    slug: 'ichorium-wars',
-    name: 'Ichorium Wars',
-    tagline: 'High-stakes tactical strategy realm with autonomous faction AI commanders.',
-    status: 'Alpha',
-    heroMedia: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600&auto=format&fit=crop',
-    thumbnail: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop',
-    description: 'Set in a post-cataclysmic world where rival factions battle for control of Ichorium, an exotic crystalline energy source. Features player-directed siege warfare governed by autonomous AI guild leaders that negotiate real-time alliances and retaliate dynamically against player aggression.',
+    id: '3verest',
+    slug: '3verest',
+    name: '3VEREST',
+    tagline: 'The ascent of Mount Everest, told in five chapters from Base Camp to The Edge.',
+    status: 'Live',
+    heroMedia: '/projects/3verest.jpg',
+    thumbnail: '/projects/3verest.jpg',
+    description:
+      'Smobler’s landmark mountaineering experience, built with world-renowned climbers Kenton Cool and Wasfia Nazreen — the latter appointed ambassador for the project. The climb is released as five sequential chapters in The Sandbox, and was named Best Sports Experience by the platform.',
     mechanics: [
-      'Autonomous AI Faction Generals',
-      'Dynamic Voxel Terrain Destruction & Fortification',
-      'Persistent Territorial Resource Economy',
-      'Cross-Chain Guild Asset Staking'
+      'Five-chapter progression: Base Camp, Icefall, Camp 2, The Wall, The Edge',
+      'Built with real mountaineers Kenton Cool and Wasfia Nazreen',
+      'Named Best Sports Experience by The Sandbox'
     ],
     stats: [
-      { value: '3', label: 'Rival sovereign factions' },
-      { value: '144', label: 'Territorial war zones' },
-      { value: '12K+', label: 'Registered alpha tacticians' }
+      { value: '5', label: 'Chapters from Base Camp to summit' }
     ],
     links: [
-      { label: 'Enter Alpha Waitlist', url: '/contact?inquiry=ichorium-alpha' },
-      { label: 'Read Game Lore', url: '/newsroom/ichorium-wars-season-3-alpha-launch' }
+      { label: 'Part 1 — Base Camp', url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20Base%20Camp/57bce89e-d7e4-4c07-881d-e6142c2ab6ec/page/' },
+      { label: 'Part 2 — Icefall', url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20Icefall/9dc047d8-4cb4-412d-a6e5-471b5c79b8ab/page/' },
+      { label: 'Part 3 — Camp 2', url: 'https://www.sandbox.game/en/experiences/3verest-camp-2/b43d27be-399e-4acf-8301-ad96af98a2e7/page/' },
+      { label: 'Part 4 — The Wall', url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20The%20Wall%20ver.%2010.9/7e489076-fa4e-4923-a52e-f47cf2685e07/page/' },
+      { label: 'Part 5 — The Edge', url: 'https://www.sandbox.game/en/experiences/3VEREST%20%7C%20The%20Edge%20ver.%2010.9/c7498aee-ef43-4e87-9704-34301bebcbb6/page/' },
+      { label: 'Ambassador announcement', url: 'https://medium.com/@smobler.io/world-renowned-mountaineer-wasfia-nazreen-appointed-ambassador-for-3verest-smoblers-landmark-953e683ea9cc' }
     ]
+  },
+  {
+    id: 'sephia',
+    slug: 'sephia',
+    name: 'Sephia',
+    tagline: 'An original sci-fi action title with stylised art direction and companion creatures.',
+    status: 'In Production',
+    description:
+      'Smobler’s original science-fiction action IP, built on Roblox. Sephia pairs a stylised art direction with companion creatures that fight alongside the player.',
+    mechanics: [
+      'Original Smobler IP',
+      'Stylised sci-fi art direction',
+      'Companion creature system'
+    ],
+    stats: [],
+    links: []
   },
   {
     id: 'yeti-realm',
     slug: 'yeti-realm',
     name: 'Yeti Realm',
-    tagline: 'Himalayan myth meets procedural glacial exploration and lore-driven quests.',
-    status: 'Live',
-    heroMedia: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&auto=format&fit=crop',
-    thumbnail: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop',
-    description: 'An expansive alpine sanctuary inspired by ancient Himalayan folklore. Players navigate sheer mountain ascents, uncover forgotten shrines, and interact with sentient yeti elders possessing dynamic conversational memory.',
-    mechanics: [
-      'Procedural Glacial Avalanche Hazards',
-      'Voice-Interactive Elder NPCs with Persistent Memory',
-      'Ancient Artifact Crafting Synthesizer',
-      'Cooperative Mountain Expedition Raids'
-    ],
-    stats: [
-      { value: '88,000+', label: 'Summits achieved' },
-      { value: '450+', label: 'Unique craftable artifacts' },
-      { value: '4.9/5', label: 'Player satisfaction rating' }
-    ],
-    links: [
-      { label: 'Play on The Sandbox', url: 'https://www.sandbox.game' },
-      { label: 'View Case Study', url: '/work/metaverse-for-good' }
-    ]
+    tagline: 'A proprietary Smobler GameFi property.',
+    status: 'In Production',
+    description:
+      'One of Smobler’s proprietary GameFi properties, developed alongside 3VEREST and Cobbleland as the studio moved from client commissions into owned IP.',
+    mechanics: [],
+    stats: [],
+    links: []
   },
   {
     id: 'cobbleland',
     slug: 'cobbleland',
     name: 'Cobbleland',
-    tagline: 'The premier social hangout and UGC builder sandbox for digital creators.',
-    status: 'Beta',
-    heroMedia: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop',
-    thumbnail: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop',
-    description: 'A vibrant creator hub where independent builders, musicians, and digital fashion designers publish interactive mini-games, host live listening parties, and trade modular voxel assets.',
-    mechanics: [
-      'Zero-Code In-World Event Staging',
-      'Creator AI Copilot Asset Generation',
-      'Instant Modular Plot Rental & Customization',
-      'Social Voice Proximity Chat Arenas'
-    ],
-    stats: [
-      { value: '250K+', label: 'Monthly active visitors' },
-      { value: '1,800+', label: 'Community-built mini games' },
-      { value: '$620K', label: 'Paid out directly to creators' }
-    ],
-    links: [
-      { label: 'Explore Cobbleland', url: '/contact?inquiry=cobbleland' }
-    ]
-  },
-  {
-    id: 'snow-ecosystem',
-    slug: 'snow-ecosystem',
-    name: 'SNOW Ecosystem & dApp',
-    tagline: 'The spatial economy infrastructure connecting worlds, creators, and assets.',
-    status: 'Live',
-    heroMedia: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1600&auto=format&fit=crop',
-    thumbnail: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=800&auto=format&fit=crop',
-    description: 'The native token and decentralized infrastructure powering cross-world provenance, automatic revenue sharing between multi-disciplinary creators, and gas-free player inventory interoperability across all Smobler environments.',
-    mechanics: [
-      'Automated Split Smart Contracts for Multi-Creator Builds',
-      'Universal Spatial Inventory Identity Protocol',
-      'Zero-Gas In-World Asset Staking & Governance',
-      'Deterministic Creator Attribution Oracles'
-    ],
-    stats: [
-      { value: '$14.8M', label: 'Total ecosystem volume' },
-      { value: '38,000+', label: 'Connected spatial wallets' },
-      { value: '< 1s', label: 'Cross-world transfer finality' }
-    ],
-    links: [
-      { label: 'Launch SNOW dApp', url: '/newsroom/snow-dapp-v2-protocol-release' }
-    ]
+    tagline: 'A proprietary Smobler GameFi property.',
+    status: 'In Production',
+    description:
+      'One of Smobler’s proprietary GameFi properties, developed alongside 3VEREST and Yeti Realm as the studio moved from client commissions into owned IP.',
+    mechanics: [],
+    stats: [],
+    links: []
   }
 ];

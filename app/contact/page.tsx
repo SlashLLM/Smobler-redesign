@@ -12,7 +12,7 @@ export default function ContactPage() {
     name: '',
     email: '',
     company: '',
-    projectType: 'world-generation',
+    projectType: 'educational-gaming',
     budget: '$50k-$150k',
     timeline: '1-3 months',
     message: '',
@@ -22,11 +22,11 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const projectTypes = [
-    { label: 'AI WORLD GENERATION', value: 'world-generation' },
-    { label: 'AGENTIC CHARACTERS & NPCS', value: 'agentic-npcs' },
-    { label: 'ENTERPRISE BRAND ACTIVATION', value: 'brand-activation' },
-    { label: 'PROPRIETARY IP & GAMING', value: 'gaming-ip' },
-    { label: 'WEB3 & SPATIAL ECONOMY', value: 'web3-economy' },
+    { label: 'EDUCATIONAL GAMING', value: 'educational-gaming' },
+    { label: 'AI FOR FOOD SECURITY', value: 'ai-food-security' },
+    { label: 'BLOCKCHAIN & DIGITAL BUNKERING', value: 'blockchain-bunkering' },
+    { label: 'PHYGITAL ACTIVATIONS', value: 'phygital' },
+    { label: 'NOVA PARTNERSHIP', value: 'nova-partnership' },
     { label: 'CAREERS / HIRING INQUIRY', value: 'careers' },
   ];
 
@@ -50,7 +50,7 @@ export default function ContactPage() {
             Start a project.
           </h1>
           <p className="text-lede text-[var(--ink-mute)] max-w-2xl text-lg">
-            Tell us about your spatial concept, platform targets, and timeline. Our systems architects will respond within 24 hours.
+            Tell us what you’re trying to build and who it’s for. For investment enquiries reach Dr. Loretta Chen at loretta@smobler.io; for partnerships, Veronica Ong at veronica@smobler.io.
           </p>
         </div>
       </section>
@@ -200,6 +200,15 @@ export default function ContactPage() {
               <div className="text-label text-[var(--sun-700)] font-mono font-bold">
                 DIRECT REGIONAL CONTACTS
               </div>
+
+              <a
+                href="https://calendly.com/lorettachen/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-[var(--ink)] font-semibold hover:text-[var(--sun-700)] transition-colors block"
+              >
+                ▸ Or book 30 minutes with Dr. Loretta Chen
+              </a>
 
               {offices.map((office) => (
                 <div

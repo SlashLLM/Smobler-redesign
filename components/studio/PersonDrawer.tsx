@@ -30,18 +30,24 @@ export const PersonDrawer: React.FC<PersonDrawerProps> = ({
     <Drawer
       isOpen={isOpen}
       onClose={onClose}
-      eyebrow={`OFFICE: ${person.office} · ${person.officeName.toUpperCase()}`}
+      eyebrow={
+        person.office
+          ? `OFFICE: ${person.office} · ${person.officeName?.toUpperCase()}`
+          : 'BOARD OF ADVISORS'
+      }
       title={person.name}
     >
       {/* Portrait */}
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well mb-6">
-        <Image
-          src={person.portrait}
-          alt={person.portraitAlt}
-          fill
-          sizes="480px"
-          className="object-cover"
-        />
+        {person.portrait && (
+          <Image
+            src={person.portrait}
+            alt={person.portraitAlt}
+            fill
+            sizes="480px"
+            className="object-cover"
+          />
+        )}
       </div>
 
       {/* Role & Office Chip */}
@@ -49,20 +55,25 @@ export const PersonDrawer: React.FC<PersonDrawerProps> = ({
         <span className="font-mono text-xs text-[var(--sun-700)] font-bold">
           {person.role}
         </span>
-        <Chip variant="office" size="sm">
-          {person.office}
-        </Chip>
+        {person.office && (
+          <Chip variant="office" size="sm">
+            {person.office}
+          </Chip>
+        )}
       </div>
 
-      {/* Bio */}
-      <div className="border-t border-[var(--line-light)] pt-4 mb-6">
-        <div className="text-label text-[var(--ink-mute)] mb-2 font-mono font-bold">
-          BIOGRAPHY
+      {/* Bio — published for Dr. Loretta Chen only; the block stands down for
+          everyone else rather than showing an empty heading. */}
+      {person.bio && (
+        <div className="border-t border-[var(--line-light)] pt-4 mb-6">
+          <div className="text-label text-[var(--ink-mute)] mb-2 font-mono font-bold">
+            BIOGRAPHY
+          </div>
+          <p className="text-sm text-[var(--ink)] leading-relaxed">
+            {person.bio}
+          </p>
         </div>
-        <p className="text-sm text-[var(--ink)] leading-relaxed">
-          {person.bio}
-        </p>
-      </div>
+      )}
 
       {/* Disciplines Chips */}
       <div className="border-t border-[var(--line-light)] pt-4 mb-6">

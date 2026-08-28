@@ -9,27 +9,30 @@ import { SpatialBackground } from '@/components/ui/SpatialBackground';
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Careers & Open Plots | Smobler',
-  description: 'Join Smobler as an AI systems engineer, voxel artist, or spatial producer. Build persistent virtual worlds across Singapore, Austin, São Paulo, and London.',
+  title: 'Careers | Smobler',
+  description:
+    'Work with Smobler across educational gaming, AI for food security, blockchain for maritime trade and phygital events — from Singapore, Honolulu and São Paulo.',
 };
 
 export default function CareersPage() {
+  /* Drawn from the studio's stated positions in the Smobler Global Master Deck
+     and the NUTRA deck's ethical AI commitments. */
   const values = [
     {
-      title: 'Judgment over hype',
-      description: 'We test generative AI pipelines under real multiplayer server physics before recommending them to clients. We value empirical evidence over abstract capability claims.',
+      title: 'Do good, do well',
+      description: 'The studio’s founding premise, and still the filter: work that is commercially serious and does something worth doing. Accessibility, food security, cultural preservation and financial literacy are the brief, not the CSR slide.',
     },
     {
-      title: 'Global by design',
-      description: 'Distributed teams across 4 continents. We work asynchronously with high autonomy, clear deliverables, and respectful overlap hours.',
+      title: 'Technology with purpose',
+      description: 'Smobler was founded on three fault lines the pandemic exposed — creators deemed non-essential, businesses forced to digitise, and consumers wanting engagement they could trust. Every pillar traces back to one of them.',
     },
     {
-      title: 'Craft and rigor',
-      description: 'Voxel constraints require mathematical precision. We balance strict polygon budgets with artistic beauty and responsive animation curves.',
+      title: 'Ethical AI, in writing',
+      description: 'Every AI decision traceable and explained. Bias actively monitored. Users able to supervise, review and override any suggestion. Open architecture rather than a black box. These are commitments we publish, not aspirations.',
     },
     {
-      title: 'Shared upside',
-      description: 'Transparent equity, competitive compensation, and direct performance distributions tied to our proprietary IP and ecosystem milestones.',
+      title: 'Female-founded, globally distributed',
+      description: 'An all-female leadership team running a studio across Singapore, Honolulu and São Paulo, guided by a board of advisors in blockchain, GameFi, digital bunkering and CPG AI.',
     },
   ];
 
@@ -54,11 +57,11 @@ export default function CareersPage() {
           </div>
 
           <h1 className="text-h1 font-display font-bold text-[var(--ink)] max-w-4xl mb-4">
-            Build the next generation of thinking worlds.
+            Join us in shaping the future of ethical, immersive phygital tech.
           </h1>
 
           <p className="text-lede text-[var(--ink-mute)] max-w-2xl text-lg">
-            We are hiring builders who thrive at the intersection of neural intelligence, spatial geometry, and high-performance game engineering.
+            We build across educational gaming, AI for food security, blockchain for maritime trade, and phygital events — from Singapore, Honolulu and São Paulo.
           </p>
         </div>
       </section>
@@ -69,9 +72,21 @@ export default function CareersPage() {
           <SectionHeader
             eyebrow="AVAILABLE VACANCIES"
             title="Open plots"
-            dek="Explore available positions across our Singapore HQ and international remote hubs."
+            dek="Roles across the Singapore HQ and our Honolulu and São Paulo presence."
             theme="snowfield"
           />
+
+          {openRoles.length === 0 && (
+            <div className="py-16 text-center">
+              <p className="font-mono text-sm text-[var(--ink-mute)] mb-6">
+                No plots are open right now. Speculative applications are still welcome.
+              </p>
+              <Button href="mailto:hello@smobler.io" variant="primary" size="lg">
+                <span>Write to hello@smobler.io</span>
+                <ArrowRight size={16} className="ml-2" />
+              </Button>
+            </div>
+          )}
 
           <div className="space-y-6">
             {openRoles.map((role) => (
@@ -141,7 +156,7 @@ export default function CareersPage() {
           <SectionHeader
             eyebrow="HOW WE WORK"
             title="Studio principles"
-            dek="The operational values that keep our distributed collective aligned."
+            dek="The positions the studio has committed to publicly, and works to."
             theme="white"
           />
 

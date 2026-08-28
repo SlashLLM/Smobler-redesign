@@ -89,12 +89,16 @@ h4.font-display.font-display { letter-spacing: var(--track-h3); }
 }
 
 /* Mono utility & metadata labels */
-.text-label, .font-mono {
+.text-label {
   font-family: var(--font-mono);
   font-size: var(--t-label);
   line-height: 1.4;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
 }
 
 .tabular-nums {
