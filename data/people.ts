@@ -5,8 +5,8 @@ import { Person } from '@/types';
  * (30 Dec 2025), cross-checked against smobler.io/team and smobler.io/leadership.
  * Portraits are extracted from that slide by scripts/extract-deck-assets.py.
  *
- * Only Dr. Loretta Chen has a published biography, so `bio` is omitted for
- * everyone else rather than filled with invented copy. Advisors are external and
+ * Only Dr. Loretta Chen and Mridhul Pax have published biographies, so `bio` is
+ * omitted for everyone else rather than filled with invented copy. Advisors are external and
  * carry no hub assignment except where the deck states one.
  */
 export const people: Person[] = [
@@ -36,10 +36,15 @@ export const people: Person[] = [
     role: 'Co-Founder & Chief Technology Officer',
     office: 'SG',
     officeName: 'Singapore HQ',
-    disciplines: ['Leadership', 'Technology'],
+    disciplines: ['Technology'],
     portrait: '/team/mridhul-pax.jpg',
     portraitAlt: 'Mridhul Pax, Co-Founder & Chief Technology Officer of Smobler',
+    bio: 'Mridhul Pax is an enterprise AI architect who has spent close to two decades building the infrastructure that large-scale software actually runs on. He has held long engineering and architecture tenures at enterprise technology companies including Cisco, VMware and Intuit, working across Linux systems, multi-cloud platforms, DevOps practice and enterprise software architecture for organisations operating at global scale. That foundation now underpins his work in applied AI: designing and shipping enterprise-grade AI systems, from production LLM platforms to the fine-tuning of small, purpose-built language models that give teams real capability without surrendering control of their data or their costs. At Smobler, Pax leads the technology behind the company’s products, translating ambitious creative ideas into architecture that holds up under real users. He believes the next wave of AI belongs to the people who can make it reliable, affordable and genuinely useful, and he builds accordingly.',
     projects: ['nutra', 'digital-bunkering'],
+    links: [
+      { label: 'Book a meeting', url: 'https://cal.com/mridhul-pax-opsf3c/30min' },
+      { label: 'Email', url: 'mailto:mridhul@smobler.io' }
+    ],
     isLeadership: true,
     order: 2,
   },
