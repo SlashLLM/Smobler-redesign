@@ -15,7 +15,7 @@ export const StudioPreview: React.FC = () => {
         <SectionHeader
           eyebrow="SMOBLER GLOBAL TEAM"
           title="The studio"
-          dek="An all-female leadership team and a board of advisors in blockchain, GameFi, digital bunkering and CPG AI."
+          dek="An all-female leadership team and a board of advisors in AI systems, blockchain, digital bunkering and CPG AI."
           actionLink={{
             label: 'Meet the full team',
             href: '/studio',

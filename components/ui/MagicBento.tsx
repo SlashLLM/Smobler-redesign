@@ -16,6 +16,7 @@ export interface MagicBentoCardItem {
   badge?: string;
   icon?: React.ReactNode;
   chips?: { label: string; variant?: string }[];
+  content?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
   colSpan?: number;
@@ -48,10 +49,10 @@ const MOBILE_BREAKPOINT = 768;
 const defaultCardData: MagicBentoCardItem[] = [
   {
     color: '#141A23',
-    title: 'Educational Gaming',
-    description: 'On-chain and off-chain worlds across The Sandbox and Roblox, where the lesson is the gameplay.',
-    label: '01 / EDUCATIONAL GAMING',
-    meta: 'THE SANDBOX · ROBLOX'
+    title: 'AI Cost Optimisation',
+    description: 'Slashboard multi-model analytics and enterprise spend management to cut what your AI costs to run.',
+    label: '01 / AI COST OPTIMISATION',
+    meta: 'SLASHBOARD · MULTI-MODEL ANALYTICS'
   },
   {
     color: '#141A23',
@@ -62,14 +63,14 @@ const defaultCardData: MagicBentoCardItem[] = [
   },
   {
     color: '#141A23',
-    title: 'Digital Humans',
-    description: 'Twinity — photorealistic avatars with authentic lip-sync in 40+ languages.',
+    title: 'Digital Humans & Avatars',
+    description: 'Photorealistic AI avatars with authentic lip-sync in 40+ languages for enterprise broadcast.',
     label: '03 / DIGITAL HUMANS',
     meta: '40+ LANGUAGES · BROADCAST QUALITY'
   },
   {
     color: '#141A23',
-    title: 'Phygital',
+    title: 'Phygital & Enterprise Activations',
     description: 'NOVA and 60+ activations, run in sync with the events the audience is already at.',
     label: '04 / PHYGITAL',
     meta: 'NOVA · NYSE · TOKEN2049 · SXSW'
@@ -83,8 +84,8 @@ const defaultCardData: MagicBentoCardItem[] = [
   },
   {
     color: '#141A23',
-    title: 'Ethical AI',
-    description: 'Traceable decisions, monitored bias, and a human override on every suggestion.',
+    title: 'Ethical AI Practice',
+    description: 'Traceable decisions, monitored bias, and a human override on every enterprise model output.',
     label: '06 / ETHICAL AI',
     meta: 'TRACEABLE · AUDITED · HUMAN OVERRIDE'
   }
@@ -634,6 +635,7 @@ export const MagicBento: React.FC<MagicBentoProps> = ({
                       {card.href && <ArrowUpRight size={18} className="text-[var(--sun-500)] shrink-0" />}
                     </h3>
                     {card.description && <p className="magic-bento-card__description">{card.description}</p>}
+                    {card.content}
                     {card.meta && <div className="magic-bento-card__meta">{card.meta}</div>}
                   </div>
                 </>

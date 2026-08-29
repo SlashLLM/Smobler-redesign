@@ -34,7 +34,7 @@ export interface NewsItem {
   pullQuote?: PullQuote;
 }
 
-export type OfficeCode = 'SG' | 'NA' | 'LATAM';
+export type OfficeCode = 'SG' | 'NA';
 export type Discipline =
   | 'Leadership'
   | 'Technology'
@@ -127,6 +127,7 @@ export interface Project {
   /** Screenshots published on the project's own page, in the order it sets them. */
   gallery?: { src: string; alt?: string }[];
   pullQuote?: PullQuote;
+  projectHighlights?: { id: string; highlight: string }[];
   credits?: string[]; // Person slugs
   links?: { label: string; url: string }[];
   isFeatured: boolean;

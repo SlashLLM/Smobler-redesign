@@ -3,10 +3,9 @@ import { HeroSection } from '@/components/home/HeroSection';
 import { LogoWall } from '@/components/home/LogoWall';
 import { CapabilitiesGrid } from '@/components/home/CapabilitiesGrid';
 import { FeaturedWork } from '@/components/home/FeaturedWork';
-import { WorldsStrip } from '@/components/home/WorldsStrip';
+import { FlagshipPlatformsStrip } from '@/components/home/FlagshipPlatformsStrip';
 import { ProvenanceBand } from '@/components/home/ProvenanceBand';
 import { NewsroomPreview } from '@/components/home/NewsroomPreview';
-import { StudioPreview } from '@/components/home/StudioPreview';
 import { SunlightCtaBand } from '@/components/home/SunlightCtaBand';
 
 export default function HomePage() {
@@ -24,8 +23,8 @@ export default function HomePage() {
       {/* 4. Glacier: Featured Work (1x12 lead + 2x6) */}
       <FeaturedWork />
 
-      {/* 5. Snowfield: Our Worlds (IP Strip) */}
-      <WorldsStrip />
+      {/* 5. Snowfield: Flagship Platforms */}
+      <FlagshipPlatformsStrip />
 
       {/* 6. Glacier: Provenance Band (with Ice-400 Signal) */}
       <ProvenanceBand />
@@ -33,10 +32,7 @@ export default function HomePage() {
       {/* 7. Snowfield: From the Newsroom (3 Plots + View All) */}
       <NewsroomPreview />
 
-      {/* 8. Glacier: The Studio (8 Faces Preview) */}
-      <StudioPreview />
-
-      {/* 9. Sunlight Band: CTA */}
+      {/* 8. Sunlight Band: CTA */}
       <SunlightCtaBand />
     </>
   );

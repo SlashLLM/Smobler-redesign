@@ -31,7 +31,6 @@ export const TeamRoster: React.FC = () => {
     { label: 'ALL HUBS', value: 'all' },
     { label: 'SG (SINGAPORE)', value: 'SG' },
     { label: 'NA (HONOLULU)', value: 'NA' },
-    { label: 'LATAM (SÃO PAULO)', value: 'LATAM' },
   ];
 
   const filteredPeople = people.filter((person) => {

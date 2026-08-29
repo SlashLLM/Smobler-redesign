@@ -11,7 +11,7 @@ import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Careers | Smobler',
   description:
-    'Work with Smobler across educational gaming, AI for food security, blockchain for maritime trade and phygital events — from Singapore, Honolulu and São Paulo.',
+    'Work with Smobler across AI products, Slashboard cost optimization, AI for food security, blockchain for maritime trade and phygital events — from Singapore and Honolulu.',
 };
 
 export default function CareersPage() {
@@ -32,7 +32,7 @@ export default function CareersPage() {
     },
     {
       title: 'Female-founded, globally distributed',
-      description: 'An all-female leadership team running a studio across Singapore, Honolulu and São Paulo, guided by a board of advisors in blockchain, GameFi, digital bunkering and CPG AI.',
+      description: 'An all-female leadership team running a studio across Singapore and Honolulu, guided by a board of advisors in AI systems, enterprise blockchain, digital bunkering and CPG AI.',
     },
   ];
 
@@ -61,7 +61,7 @@ export default function CareersPage() {
           </h1>
 
           <p className="text-lede text-[var(--ink-mute)] max-w-2xl text-lg">
-            We build across educational gaming, AI for food security, blockchain for maritime trade, and phygital events — from Singapore, Honolulu and São Paulo.
+            We build across AI products, food security compliance, business automation, blockchain for maritime trade, and phygital events — from Singapore and Honolulu.
           </p>
         </div>
       </section>
@@ -72,7 +72,7 @@ export default function CareersPage() {
           <SectionHeader
             eyebrow="AVAILABLE VACANCIES"
             title="Open plots"
-            dek="Roles across the Singapore HQ and our Honolulu and São Paulo presence."
+            dek="Roles across the Singapore HQ and our Honolulu presence."
             theme="snowfield"
           />
 

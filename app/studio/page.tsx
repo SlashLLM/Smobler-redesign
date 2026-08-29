@@ -11,7 +11,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About & Team | Smobler',
-  description: 'The origin story, leadership and board of directors behind Smobler — Singapore HQ, with presence in Honolulu and São Paulo.',
+  description: 'The origin story, leadership and board of directors behind Smobler — Singapore HQ, with presence in Honolulu.',
 };
 
 export default function StudioPage() {
@@ -37,7 +37,7 @@ export default function StudioPage() {
           </h1>
 
           <p className="text-lede text-[var(--ink-mute)] max-w-3xl text-lg mb-12">
-            Our story began during the pandemic, when three fault lines were exposed: creators were deemed non-essential, businesses had to digitise or risk obsolescence, and consumers wanted engagement they could actually trust. Out of that, Smobler — founded by Dr. Loretta Chen — emerged as a metaverse architect, and has since become a game studio and technology solutions provider working across blockchain, AI and immersive storytelling. Backed by Animoca Brands, The Sandbox, Brinc, Enterprise Singapore and IMDA.
+            Our story began during the pandemic, when three fault lines were exposed: creators were deemed non-essential, businesses had to digitise or risk obsolescence, and consumers wanted engagement they could actually trust. Out of that, Smobler — founded by Dr. Loretta Chen — emerged as an AI-first digital agency and technology solutions provider working across AI, blockchain and intelligent digital experiences. Backed by Enterprise Singapore, IMDA, Brinc and Animoca Brands.
           </p>
 
           {/* Global World Clocks */}
@@ -51,7 +51,7 @@ export default function StudioPage() {
           <SectionHeader
             eyebrow="STUDIO DIRECTION"
             title="Leadership"
-            dek="Driven by visionary leadership and cutting-edge technology, guided by our board of directors in blockchain, GameFi, digital bunkering and CPG AI."
+            dek="Driven by visionary leadership and cutting-edge technology, guided by our board of directors in AI systems, blockchain, digital bunkering and CPG AI."
             theme="snowfield"
           />
 
@@ -129,7 +129,7 @@ export default function StudioPage() {
           <SectionHeader
             eyebrow="ADVISORY BOARD"
             title="Board of Directors"
-            dek="We are guided by industry leaders in blockchain, GameFi, and immersive tech."
+            dek="We are guided by industry leaders in AI systems, enterprise blockchain, and digital infrastructure."
             theme="white"
           />
 
@@ -189,7 +189,7 @@ export default function StudioPage() {
               Claim a plot on our roster.
             </h2>
             <p className="text-sm text-[var(--ink)] mt-2 opacity-90 max-w-xl">
-              Game design, AI engineering, studio production and communications — across the Singapore HQ and our Honolulu and São Paulo presence.
+              AI engineering, product design, systems architecture and enterprise strategy — across the Singapore HQ and our Honolulu presence.
             </p>
           </div>
 

@@ -6,6 +6,34 @@ import { SpatialBackground } from '../ui/SpatialBackground';
 import { MagicBento, MagicBentoCardItem } from '../ui/MagicBento';
 import { Gauge, Sparkles, Workflow, Zap, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
+const automationWorkflows = [
+  {
+    num: '01',
+    title: 'Lead qualification & automated follow-up',
+    action: 'Score and enrich inbound prospects, sync CRM records automatically, and schedule calls with high-value leads.',
+  },
+  {
+    num: '02',
+    title: 'Customer support resolution & guardrails',
+    action: 'Resolve tickets using verified knowledge bases, execute safe routine tasks, and hand off complex cases with full context.',
+  },
+  {
+    num: '03',
+    title: 'Voice reception & appointment booking',
+    action: 'Capture missed phone calls, evaluate caller intent, and book calendar appointments around the clock.',
+  },
+  {
+    num: '04',
+    title: 'Document processing & data validation',
+    action: 'Parse and validate complex documents, flag discrepancies, and generate pre-filled drafts for supervisor sign-off.',
+  },
+  {
+    num: '05',
+    title: 'Employee onboarding & HR services',
+    action: 'Streamline access permissions, route manager approvals, assign equipment and training, and highlight pending tasks.',
+  },
+];
+
 export const CapabilitiesGrid: React.FC = () => {
   const capabilities: MagicBentoCardItem[] = [
     {
@@ -29,20 +57,43 @@ export const CapabilitiesGrid: React.FC = () => {
       color: '#121720',
     },
     {
-      label: '03 / AI FOR BUSINESS AUTOMATION',
-      title: 'Put AI on the work you repeat',
-      description: 'Support queues, back-office processing, reporting, content operations — we build agents into the workflows your teams run every day, and we keep them running in production.',
-      meta: 'AGENTS · WORKFLOW INTEGRATION · HUMAN-IN-THE-LOOP',
+      label: '03 / AI BUSINESS WORKFLOWS',
+      title: 'Automate the work your teams repeat',
+      description: 'From inbound lead scoring to customer support, voice booking, document extraction, and employee onboarding — we embed autonomous AI agents directly into your daily operations with human-in-the-loop guardrails.',
+      content: (
+        <div className="mt-4 space-y-2.5">
+          {automationWorkflows.map((item) => (
+            <div
+              key={item.num}
+              className="p-3 rounded-lg bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,209,0,0.3)] transition-colors"
+            >
+              <div className="flex items-center gap-2.5 mb-1.5">
+                <span className="font-mono text-[11px] font-bold text-[var(--sun-400)] px-2 py-0.5 rounded bg-[rgba(255,209,0,0.1)] border border-[rgba(255,209,0,0.25)]">
+                  {item.num}
+                </span>
+                <h4 className="text-sm md:text-[15px] font-bold text-white font-display tracking-tight">
+                  {item.title}
+                </h4>
+              </div>
+              <p className="text-[13px] md:text-sm text-[var(--bento-text-muted)] leading-relaxed">
+                <span className="text-[var(--sun-500)] mr-1.5 font-bold">→</span>
+                {item.action}
+              </p>
+            </div>
+          ))}
+        </div>
+      ),
+      meta: 'AUTONOMOUS AGENTS · ENTERPRISE WORKFLOWS · HUMAN OVERRIDE',
       icon: <Workflow size={20} />,
       badge: 'SERVICE',
       href: '/what-we-build#business-automation',
       color: '#161E28',
     },
     {
-      label: '04 / PHYGITAL & GAMING',
+      label: '04 / PHYGITAL & ENTERPRISE ACTIVATIONS',
       title: 'Where Wall Street meets Art Row',
-      description: 'On-chain and off-chain worlds across The Sandbox and Roblox, and IRL activations — NOVA, Pop Toy Show, IMDA’s Digital for Life Festival — run in sync with the events the audience is already at.',
-      meta: 'THE SANDBOX · ROBLOX · NYSE · TOKEN2049',
+      description: 'Phygital experiences and IRL activations — NOVA, Pop Toy Show, IMDA’s Digital for Life Festival — run in sync with the events the audience is already attending.',
+      meta: 'NOVA · NYSE · TOKEN2049 · SXSW',
       icon: <Zap size={20} />,
       badge: 'HERITAGE',
       href: '/what-we-build#phygital',

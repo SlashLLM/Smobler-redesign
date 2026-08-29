@@ -118,14 +118,14 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             />
           ) : (
             project.heroMedia && (
-              <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] card-lift-snow">
+              <div className="relative aspect-[16/9] max-w-4xl mx-auto w-full overflow-hidden bg-white border border-[var(--line-light)] card-lift-snow rounded-xl shadow-sm">
                 <Image
                   src={project.heroMedia}
                   alt={project.title}
                   fill
                   priority
-                  sizes="100vw"
-                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 896px"
+                  className="object-contain p-2"
                 />
               </div>
             )
@@ -137,17 +137,22 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       {hasNarrative && (
         <section className="py-16 md:py-24 border-b border-[var(--line-light)]">
           <div className="buildplate-container">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
               {/* The Problem Statement */}
               {project.problem && (
-                <div className="lg:col-span-4 border-l-3 border-[var(--sun-500)] pl-6">
+                <div
+                  className={`p-8 bg-white border border-[var(--line-light)] card-lift-snow ${
+                    project.solution ? 'lg:col-span-6' : 'lg:col-span-12'
+                  }`}
+                  style={{ borderTop: '3px solid var(--sun-500)' }}
+                >
                   <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-3">
                     01 / THE CHALLENGE
                   </div>
                   <h2 className="text-h3 font-display font-bold text-[var(--ink)] mb-4">
                     The problem
                   </h2>
-                  <p className="text-body text-[var(--ink-mute)] text-sm leading-relaxed">
+                  <p className="text-body text-[var(--ink-mute)] text-sm leading-relaxed max-w-none">
                     {project.problem}
                   </p>
                 </div>
@@ -155,14 +160,19 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
               {/* The Solution & Architecture */}
               {project.solution && (
-                <div className="lg:col-span-8">
+                <div
+                  className={`p-8 bg-white border border-[var(--line-light)] card-lift-snow ${
+                    project.problem ? 'lg:col-span-6' : 'lg:col-span-12'
+                  }`}
+                  style={{ borderTop: '3px solid var(--ice-400)' }}
+                >
                   <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-3">
                     02 / ARCHITECTURAL APPROACH
                   </div>
                   <h2 className="text-h3 font-display font-bold text-[var(--ink)] mb-4">
                     The solution
                   </h2>
-                  <p className="text-lede text-[var(--ink)] text-base leading-relaxed">
+                  <p className="text-body text-[var(--ink)] text-sm md:text-base leading-relaxed max-w-none">
                     {project.solution}
                   </p>
                 </div>
@@ -217,6 +227,35 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 )}
               </figure>
             )}
+          </div>
+        </section>
+      )}
+
+      {/* Project Highlights Table */}
+      {project.projectHighlights && project.projectHighlights.length > 0 && (
+        <section className="py-16 md:py-24 border-b border-[var(--line-light)] bg-white">
+          <div className="buildplate-container">
+            <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-6">
+              PROJECT HIGHLIGHTS
+            </div>
+            <div className="overflow-x-auto border border-[var(--line-light)] rounded-lg">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-[var(--snowfield-2)] border-b border-[var(--line-light)]">
+                    <th className="py-3 px-4 font-mono text-xs text-[var(--ink-mute)] font-bold w-16">#</th>
+                    <th className="py-3 px-4 font-mono text-xs text-[var(--ink-mute)] font-bold">Highlight</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[var(--line-light)]">
+                  {project.projectHighlights.map((item) => (
+                    <tr key={item.id} className="hover:bg-[var(--snowfield)] transition-colors">
+                      <td className="py-3 px-4 font-mono text-sm text-[var(--sun-700)] font-bold">{item.id}</td>
+                      <td className="py-3 px-4 text-sm text-[var(--ink)] font-medium">{item.highlight}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
       )}

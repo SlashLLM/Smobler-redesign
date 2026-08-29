@@ -61,17 +61,17 @@ export const worlds: World[] = [
     stats: [],
     links: [
       { label: 'Read the case study', url: '/work/sephia' },
-      { label: 'Play on Roblox', url: 'https://www.roblox.com/games/16814401402/SEPHIA-PvP-Shooting-Battle#!/' }
+      { label: 'Explore on Roblox', url: 'https://www.roblox.com/games/16814401402/SEPHIA-PvP-Shooting-Battle#!/' }
     ]
   },
   {
     id: 'yeti-realm',
     slug: 'yeti-realm',
     name: 'Yeti Realm',
-    tagline: 'A proprietary Smobler GameFi property.',
+    tagline: 'A proprietary Smobler digital world property.',
     status: 'In Production',
     description:
-      'One of Smobler’s proprietary GameFi properties, developed alongside 3VEREST and Cobbleland as the studio moved from client commissions into owned IP.',
+      'One of Smobler’s proprietary digital world properties, developed alongside 3VEREST and Cobbleland as the studio moved from client commissions into owned IP.',
     mechanics: [],
     stats: [],
     links: []
@@ -80,10 +80,10 @@ export const worlds: World[] = [
     id: 'cobbleland',
     slug: 'cobbleland',
     name: 'Cobbleland',
-    tagline: 'A proprietary Smobler GameFi property.',
+    tagline: 'A proprietary Smobler digital world property.',
     status: 'In Production',
     description:
-      'One of Smobler’s proprietary GameFi properties, developed alongside 3VEREST and Yeti Realm as the studio moved from client commissions into owned IP.',
+      'One of Smobler’s proprietary digital world properties, developed alongside 3VEREST and Yeti Realm as the studio moved from client commissions into owned IP.',
     mechanics: [],
     stats: [],
     links: []

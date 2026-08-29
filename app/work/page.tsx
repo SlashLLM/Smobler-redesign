@@ -37,7 +37,7 @@ export default function WorkPage() {
             Proof of work.
           </h1>
           <p className="text-lede text-[var(--ink-mute)] max-w-2xl text-lg">
-            Every engagement across the four pillars — worlds in The Sandbox and Roblox, AI compliance platforms, blockchain settlement for maritime fuel, and the phygital activations in between.
+            Every engagement across our flagship areas — AI compliance platforms, services marketplaces, custom e-commerce engines, statewide career navigation systems, blockchain settlement networks, and phygital activations.
           </p>
         </div>
       </section>

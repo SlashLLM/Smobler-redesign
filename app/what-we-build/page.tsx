@@ -3,32 +3,32 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { SpatialBackground } from '@/components/ui/SpatialBackground';
-import { CheckCircle2, Cpu, ShieldCheck, Sparkles, Workflow, Zap } from 'lucide-react';
+import { CheckCircle2, Cpu, Gauge, ShieldCheck, Sparkles, Workflow, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'What We Do — Four Pillars | Smobler',
+  title: 'What We Do — Capabilities & AI Solutions | Smobler',
   description:
-    'Smobler’s four pillars: educational gaming on The Sandbox and Roblox, AI for food security with NUTRA and Robin AI, blockchain for maritime bunkering on Sui, and phygital activations led by NOVA.',
+    'Smobler’s AI-first capabilities: AI cost optimization with Slashboard, AI for food security with NUTRA and Robin AI, autonomous AI workflow automation, blockchain for maritime bunkering on Sui, and phygital activations led by NOVA.',
 };
 
 export default function WhatWeBuildPage() {
   const capabilities = [
     {
-      id: 'educational-gaming',
+      id: 'slashboard',
       number: '01',
-      title: 'Educational gaming',
-      tagline: 'Building future gamechangers. On-chain and off-chain worlds across The Sandbox and Roblox, where the lesson is the gameplay rather than a quiz bolted onto it.',
-      icon: Cpu,
-      mediaUrl: '/pillars/educational-gaming.jpg',
-      modelRole: 'Gaming is more than mechanics — it is storytelling, strategy and scalability in action. Smobler builds immersive, interactive experiences designed for sustained community engagement.',
-      humanRole: 'Narrative design, voxel art direction, QA and the cultural research that keeps a build faithful to the people it represents.',
+      title: 'AI cost optimisation',
+      tagline: 'Slashboard: total control over model spend and performance. See what every prompt, API call and agent actually costs, and cut waste without giving up quality.',
+      icon: Gauge,
+      mediaUrl: '/products/slashboard.png',
+      modelRole: 'Multi-model usage analytics, latency monitoring, tokens-per-dollar efficiency benchmarks, automated prompt routing, and spend control guardrails across Meta Llama, OpenAI, Anthropic and custom fine-tunes.',
+      humanRole: 'Engineering governance: team quota policies, production oversight, model failover rules, and financial architecture alignment.',
       specs: [
-        'The Sandbox and Roblox, on-chain and off-chain',
-        'Meta Quest and Smobler XR for 3D commerce',
-        'Financial literacy: Bright Futures, Mimi’s Dream Builders',
-        'Accessibility-first design, as in the disability-led A11Y Park',
+        'Real-time multi-model spend and token telemetry',
+        'Automated fallback and intelligent prompt routing',
+        'Granular API key rate limiting and team budgets',
+        'Enterprise cost-per-task optimization dashboards',
       ],
-      clientUse: 'Teletubbies: Custard Chaos with WildBrain, BHUTANVERSE with Druk Holding & Investments, 3VEREST, EQUAL-verse with StarHub, and A11Y Park with SG Enable.',
+      clientUse: 'Slashboard platform deployed across enterprise AI workloads and multi-agent operations.',
     },
     {
       id: 'ai-food-security',
@@ -48,21 +48,22 @@ export default function WhatWeBuildPage() {
       clientUse: 'NUTRA, Smobler’s Food AI Operating System, and Robin AI with the Wahiawā Value-Added Product Development Center, Leeward Community College and the State of Hawai‘i.',
     },
     {
-      id: 'digital-humans',
+      id: 'business-automation',
       number: '03',
-      title: 'Digital humans',
-      tagline: 'Twinity — photorealistic digital avatars for teams that need to be in more places, and more languages, than a person can be.',
+      title: 'AI business workflows',
+      tagline: 'Automate the work your teams repeat — from lead scoring and customer support to 24/7 voice booking, document extraction, and employee onboarding — with human-in-the-loop guardrails.',
       icon: Workflow,
-      mediaUrl: '/products/nutra-2.jpg',
-      modelRole: 'Generates broadcast-quality video with authentic lip-sync across more than forty languages, available around the clock.',
-      humanRole: 'Scripting, brand voice, and the editorial judgement about what should be said by a synthetic presenter and what should not.',
+      mediaUrl: '/products/ai-workflows.jpg',
+      modelRole: 'Autonomous AI agents embedded into core operations: instant lead qualification, zero-reopen support resolution, 24/7 voice receptionist scheduling, automated document validation, and streamlined HR onboarding.',
+      humanRole: 'Human override and safety controls: strict validation rules, safe action boundaries, automated exception routing, and zero-compromise audit logging.',
       specs: [
-        'Authentic lip-sync in 40+ languages',
-        'Broadcast-quality video output',
-        '24/7 engagement for marketing, training and support',
-        'Built for a digital human market accelerating toward $527B',
+        'Lead Qualification: Siemens case study — 2,800 weekly leads processed across 50 validation rules',
+        'Customer Support: Knowledge base answers with zero-reopen resolution metrics',
+        'Voice Reception: 24/7 missed-call recovery & calendar appointment booking',
+        'Document Processing: Microsoft benchmark — 40h/wk saved alongside a 99% error reduction',
+        'Employee Onboarding: FranklinCovey HR workflow slashed from 30 days to 2 hours',
       ],
-      clientUse: 'Deployed with enterprise teams across marketing, training and customer support.',
+      clientUse: 'Enterprise organizations embedding autonomous workflow agents into CRM, support ticketing, voice systems, document extraction, and HR management.',
     },
     {
       id: 'phygital',
@@ -124,13 +125,13 @@ export default function WhatWeBuildPage() {
         <SpatialBackground variant="header" />
         <div className="buildplate-container relative z-10">
           <div className="text-label text-[var(--sun-700)] mb-4 font-mono font-bold">
-            ▸ FOUR PILLARS & THE STANDARDS BEHIND THEM
+            ▸ CORE CAPABILITIES & AI SOLUTIONS
           </div>
           <h1 className="text-h1 font-display font-bold text-[var(--ink)] max-w-4xl mb-6">
             Doing great while doing good.
           </h1>
           <p className="text-lede text-[var(--ink-mute)] max-w-2xl">
-            Today, Smobler is a digital-first agency working with brands, IPs and communities across educational gaming, AI for food security, blockchain for maritime trade, and phygital events — 35 published experiences and 300K+ plays behind us.
+            Smobler is an AI-first digital agency building intelligent products, AI cost optimization (Slashboard), food security AI (NUTRA), enterprise workflow automation, and verified blockchain infrastructure.
           </p>
         </div>
       </section>

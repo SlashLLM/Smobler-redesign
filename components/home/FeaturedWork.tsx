@@ -15,10 +15,6 @@ export const FeaturedWork: React.FC = () => {
           eyebrow="SELECTED WORK"
           title="Featured work"
           dek="Global IP, national governments, a food AI operating system and a blockchain for maritime fuel — 35 published experiences and counting."
-          actionLink={{
-            label: 'Full portfolio',
-            href: '/work',
-          }}
           theme="white"
         />
 

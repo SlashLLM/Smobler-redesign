@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { offices } from '@/data/offices';
 import { Button } from '../ui/Button';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Loader2 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [times, setTimes] = useState<Record<string, string>>({});
@@ -37,11 +37,28 @@ export const Footer: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (newsletterEmail.trim()) {
-      setNewsletterSubscribed(true);
-      setNewsletterEmail('');
+    if (!newsletterEmail.trim()) return;
+
+    setNewsletterSubmitting(true);
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+
+      if (res.ok) {
+        setNewsletterSubscribed(true);
+        setNewsletterEmail('');
+      }
+    } catch (err) {
+      console.error('Newsletter subscription error:', err);
+    } finally {
+      setNewsletterSubmitting(false);
     }
   };
 
@@ -109,7 +126,7 @@ export const Footer: React.FC = () => {
               </p>
             </div>
             <div className="text-xs font-mono text-[var(--ink-mute)]">
-              SINGAPORE · HONOLULU · SÃO PAULO
+              SINGAPORE · HONOLULU
             </div>
           </div>
 
@@ -123,16 +140,6 @@ export const Footer: React.FC = () => {
                 <li>
                   <Link href="/what-we-build" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors">
                     What we do
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/work" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors">
-                    Portfolio
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/worlds" className="text-[var(--ink-mute)] hover:text-[var(--ink)] transition-colors">
-                    Games
                   </Link>
                 </li>
                 <li>
@@ -203,7 +210,7 @@ export const Footer: React.FC = () => {
               THE DISPATCH
             </div>
             <p className="text-xs text-[var(--ink-mute)] leading-relaxed mb-4">
-              Notes from the studio on educational gaming, AI for food security, digital bunkering and NOVA. Published to Medium first.
+              Notes from the studio on AI innovation, food security compliance, Slashboard, and enterprise digital solutions. Published to Medium first.
             </p>
 
             {newsletterSubscribed ? (
@@ -220,8 +227,12 @@ export const Footer: React.FC = () => {
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   className="bg-white border border-[var(--line-light)] px-3.5 py-2.5 text-sm text-[var(--ink)] placeholder-[var(--ink-mute)] focus:border-[var(--sun-500)] outline-none flex-grow"
                 />
-                <Button type="submit" variant="primary" size="md">
-                  Subscribe
+                <Button type="submit" variant="primary" size="md" disabled={newsletterSubmitting}>
+                  {newsletterSubmitting ? (
+                    <Loader2 size={14} className="animate-spin" />
+                  ) : (
+                    'Subscribe'
+                  )}
                 </Button>
               </form>
             )}

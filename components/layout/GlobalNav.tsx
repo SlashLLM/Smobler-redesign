@@ -8,8 +8,6 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'What we do', href: '/what-we-build' },
-  { label: 'Portfolio', href: '/work' },
-  { label: 'Games', href: '/worlds' },
   { label: 'About', href: '/studio' },
   { label: 'News', href: '/newsroom' },
 ];

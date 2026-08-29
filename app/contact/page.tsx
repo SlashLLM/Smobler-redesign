@@ -5,14 +5,14 @@ import { Button } from '@/components/ui/Button';
 import { Chip } from '@/components/ui/Chip';
 import { SpatialBackground } from '@/components/ui/SpatialBackground';
 import { offices } from '@/data/offices';
-import { CheckCircle2, Send } from 'lucide-react';
+import { CheckCircle2, Send, Loader2, AlertCircle } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
-    projectType: 'educational-gaming',
+    projectType: 'ai-products',
     budget: '$50k-$150k',
     timeline: '1-3 months',
     message: '',
@@ -20,20 +20,49 @@ export default function ContactPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const projectTypes = [
-    { label: 'EDUCATIONAL GAMING', value: 'educational-gaming' },
-    { label: 'AI FOR FOOD SECURITY', value: 'ai-food-security' },
+    { label: 'AI PRODUCTS & OPTIMIZATION (SLASHBOARD)', value: 'ai-products' },
+    { label: 'AI FOR FOOD SECURITY (NUTRA)', value: 'ai-food-security' },
+    { label: 'AI ENTERPRISE AUTOMATION', value: 'ai-automation' },
     { label: 'BLOCKCHAIN & DIGITAL BUNKERING', value: 'blockchain-bunkering' },
     { label: 'PHYGITAL ACTIVATIONS', value: 'phygital' },
     { label: 'NOVA PARTNERSHIP', value: 'nova-partnership' },
     { label: 'CAREERS / HIRING INQUIRY', value: 'careers' },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email) {
+    if (!formData.name || !formData.email || !formData.message) {
+      setError('Please fill in all required fields.');
+      return;
+    }
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok || result.error) {
+        throw new Error(result.error || 'Failed to transmit project scope dossier.');
+      }
+
       setSubmitted(true);
+    } catch (err: any) {
+      setError(err?.message || 'An error occurred while transmitting scope. Please try again.');
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -187,9 +216,25 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <Button type="submit" variant="primary" size="lg" className="w-full">
-                    <span>Transmit project scope</span>
-                    <Send size={16} className="ml-2" />
+                  {error && (
+                    <div className="p-4 bg-red-50 border border-red-200 text-red-700 text-xs font-mono flex items-start gap-2">
+                      <AlertCircle size={16} className="shrink-0 mt-0.5" />
+                      <div>{error}</div>
+                    </div>
+                  )}
+
+                  <Button type="submit" variant="primary" size="lg" className="w-full" disabled={submitting}>
+                    {submitting ? (
+                      <>
+                        <span>Transmitting scope dossier...</span>
+                        <Loader2 size={16} className="ml-2 animate-spin" />
+                      </>
+                    ) : (
+                      <>
+                        <span>Transmit project scope</span>
+                        <Send size={16} className="ml-2" />
+                      </>
+                    )}
                   </Button>
                 </form>
               )}

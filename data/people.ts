@@ -33,12 +33,12 @@ export const people: Person[] = [
     id: 'mridhul-pax',
     slug: 'mridhul-pax',
     name: 'Mridhul Pax',
-    role: 'Chief Technology Officer',
+    role: 'Co-Founder & Chief Technology Officer',
     office: 'SG',
     officeName: 'Singapore HQ',
     disciplines: ['Leadership', 'Technology'],
     portrait: '/team/mridhul-pax.jpg',
-    portraitAlt: 'Mridhul Pax, Chief Technology Officer of Smobler',
+    portraitAlt: 'Mridhul Pax, Co-Founder & Chief Technology Officer of Smobler',
     projects: ['nutra', 'digital-bunkering'],
     isLeadership: true,
     order: 2,
@@ -120,16 +120,16 @@ export const people: Person[] = [
     order: 8,
   },
 
-  /* Board of Advisors — "We are guided by industry leaders in blockchain,
-     GameFi, and immersive tech" (smobler.io/team). */
+  /* Board of Advisors — "We are guided by industry leaders in AI,
+     blockchain, and immersive tech" (smobler.io/team). */
   {
     id: 'sebastien-borget',
     slug: 'sebastien-borget',
     name: 'Sebastien Borget',
-    role: 'Advisor, GameFi',
+    role: 'Advisor, Digital Worlds',
     disciplines: ['Advisory'],
     portrait: '/team/sebastien-borget.jpg',
-    portraitAlt: 'Sebastien Borget, GameFi advisor to Smobler',
+    portraitAlt: 'Sebastien Borget, Digital Worlds advisor to Smobler',
     order: 9,
   },
   {

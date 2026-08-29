@@ -101,7 +101,7 @@ export const HeroSection: React.FC = () => {
             className="font-mono"
             style={{ fontSize: '11px', fontWeight: 700, color: 'var(--ink-on-sun)' }}
           >
-            AI-First · Singapore · Built for Enterprise
+            AI-First · Singapore & USA · Built for Enterprise
           </span>
         </div>
 

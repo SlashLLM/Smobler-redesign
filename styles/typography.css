@@ -74,7 +74,7 @@ h4.font-display.font-display { letter-spacing: var(--track-h3); }
 .text-lede {
   font-size: var(--t-body-lg);
   line-height: 1.6;
-  max-width: 34ch;
+  max-width: 68ch;
 }
 
 .text-body {
