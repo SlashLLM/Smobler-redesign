@@ -1,75 +1,113 @@
 import React from 'react';
 
-export const LogoWall: React.FC = () => {
-  const logoTiers = [
-    {
-      category: 'BACKED BY',
-      logos: [
-        { name: 'ANIMOCA BRANDS', url: 'https://www.animocabrands.com' },
-        { name: 'THE SANDBOX', url: 'https://www.sandbox.game' },
-        { name: 'BRINC', url: 'https://www.brinc.io' },
-        { name: 'ENTERPRISE SINGAPORE', url: 'https://www.enterprisesg.gov.sg' },
-        { name: 'IMDA', url: 'https://www.imda.gov.sg' },
-      ],
-    },
-    {
-      category: 'PARTNERED WITH',
-      logos: [
-        { name: 'WILDBRAIN', url: 'https://www.wildbrain.com' },
-        { name: 'MEDIACORP', url: 'https://www.mediacorp.sg' },
-        { name: 'SINGAPORE AIRLINES', url: 'https://www.singaporeair.com' },
-        { name: 'NTUC INCOME', url: 'https://www.income.com.sg' },
-        { name: 'STARHUB', url: 'https://www.starhub.com' },
-        { name: 'SG ENABLE', url: 'https://sgenable.sg' },
-        { name: 'DHI BHUTAN', url: 'https://www.dhi.bt' },
-        { name: 'NYSE', url: 'https://www.nyse.com' },
-        { name: 'MYSTEN LABS / SUI', url: 'https://mystenlabs.com' },
-        { name: 'THE SINGAPORE MINT', url: 'https://www.singaporemint.com' },
-        { name: 'CLAY NATION', url: 'https://www.claynation.io' },
-        { name: 'CITY OF AUSTIN', url: 'https://www.austintexas.gov' },
-      ],
-    },
-    {
-      category: 'FEATURED IN',
-      logos: [
-        { name: 'FORBES', url: 'https://www.forbes.com' },
-        { name: 'THE STRAITS TIMES', url: 'https://www.straitstimes.com' },
-        { name: 'CNA', url: 'https://www.channelnewsasia.com' },
-        { name: 'LIANHE ZAOBAO', url: 'https://www.zaobao.com.sg' },
-        { name: 'VOGUE', url: 'https://www.vogue.sg' },
-        { name: 'HER WORLD', url: 'https://www.herworld.com' },
-      ],
-    },
-  ];
+const investedLogos = [
+  {
+    name: 'Brinc',
+    url: 'https://www.brinc.io',
+    src: '/logos/brinc.svg',
+    height: 'h-8 md:h-9',
+  },
+  {
+    name: 'The Sandbox',
+    url: 'https://www.sandbox.game',
+    src: '/logos/sandbox.svg',
+    height: 'h-8 md:h-9',
+  },
+];
 
+const supportedLogos = [
+  {
+    name: 'BLOCK71',
+    url: 'https://block71.co',
+    src: '/logos/block71.svg',
+    height: 'h-9 md:h-11',
+  },
+  {
+    name: 'Enterprise Singapore',
+    url: 'https://www.enterprisesg.gov.sg',
+    src: '/logos/enterprise-singapore.svg',
+    height: 'h-8 md:h-10',
+  },
+  {
+    name: 'IMDA',
+    url: 'https://www.imda.gov.sg',
+    src: '/logos/imda.svg',
+    height: 'h-8 md:h-10',
+  },
+  {
+    name: 'Plug and Play',
+    url: 'https://www.plugandplaytechcenter.com',
+    src: '/logos/plugandplay.svg',
+    height: 'h-8 md:h-9',
+  },
+  {
+    name: 'ScaleUp inBrazil',
+    url: 'https://scaleupinbrazil.com',
+    src: '/logos/scaleup-brazil.svg',
+    height: 'h-8 md:h-10',
+  },
+];
+
+export const LogoWall: React.FC = () => {
   return (
-    <section className="bg-[var(--snowfield)] py-12 border-b border-[var(--line-light)]">
-      <div className="buildplate-container">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-[var(--line-light)]">
-          {logoTiers.map((tier, idx) => (
-            <div key={idx} className={`${idx > 0 ? 'pt-8 lg:pt-0 lg:pl-8' : ''}`}>
-              <div className="text-label text-[var(--sun-700)] mb-4 font-mono font-bold">
-                ▸ {tier.category}
-              </div>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                {tier.logos.map((logo, lIdx) => (
-                  <a
-                    key={lIdx}
-                    href={logo.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-xs tracking-wider text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-b-2 hover:border-[var(--sun-500)] transition-all cursor-pointer py-1 font-semibold inline-flex items-center gap-1 group"
-                  >
-                    <span>{logo.name}</span>
-                    <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity text-[var(--sun-700)] font-bold">↗</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          ))}
+    <section className="bg-[var(--snowfield)] py-10 md:py-12 border-b border-[var(--line-light)]">
+      <div className="buildplate-container flex flex-col gap-8 md:gap-10">
+        {/* Row 1: Invested in by */}
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+          <div className="w-40 shrink-0 font-sans text-sm md:text-base font-semibold text-[var(--ink-mute)]">
+            Invested in by
+          </div>
+          <div className="flex flex-wrap items-center gap-8 md:gap-14">
+            {investedLogos.map((logo) => (
+              <a
+                key={logo.name}
+                href={logo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform duration-200 hover:scale-105 opacity-90 hover:opacity-100 focus:outline-none flex items-center shrink-0"
+                title={logo.name}
+              >
+                <img
+                  src={logo.src}
+                  alt={`${logo.name} Logo`}
+                  className={`${logo.height} w-auto object-contain block`}
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="h-[1px] w-full bg-[var(--line-light)] opacity-60" />
+
+        {/* Row 2: Supported by */}
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+          <div className="w-40 shrink-0 font-sans text-sm md:text-base font-semibold text-[var(--ink-mute)]">
+            Supported by
+          </div>
+          <div className="flex flex-wrap items-center gap-8 md:gap-12">
+            {supportedLogos.map((logo) => (
+              <a
+                key={logo.name}
+                href={logo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform duration-200 hover:scale-105 opacity-90 hover:opacity-100 focus:outline-none flex items-center shrink-0"
+                title={logo.name}
+              >
+                <img
+                  src={logo.src}
+                  alt={`${logo.name} Logo`}
+                  className={`${logo.height} w-auto object-contain block`}
+                />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
+
+
 

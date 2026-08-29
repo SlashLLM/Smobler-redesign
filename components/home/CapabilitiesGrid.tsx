@@ -67,17 +67,17 @@ export const CapabilitiesGrid: React.FC = () => {
               key={item.num}
               className="p-3 rounded-lg bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,209,0,0.3)] transition-colors"
             >
-              <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="font-mono text-[11px] font-bold text-[var(--sun-400)] px-2 py-0.5 rounded bg-[rgba(255,209,0,0.1)] border border-[rgba(255,209,0,0.25)]">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="inline-flex items-center justify-center font-mono text-[11px] font-bold text-[var(--sun-400)] px-2 py-0.5 rounded bg-[rgba(255,209,0,0.1)] border border-[rgba(255,209,0,0.25)] shrink-0">
                   {item.num}
                 </span>
-                <h4 className="text-sm md:text-[15px] font-bold text-white font-display tracking-tight">
+                <h4 className="text-sm md:text-[15px] font-bold text-white font-display tracking-tight uppercase">
                   {item.title}
                 </h4>
               </div>
-              <p className="text-[13px] md:text-sm text-[var(--bento-text-muted)] leading-relaxed">
-                <span className="text-[var(--sun-500)] mr-1.5 font-bold">→</span>
-                {item.action}
+              <p className="text-[13px] md:text-sm text-[var(--bento-text-muted)] leading-relaxed flex items-start">
+                <span className="text-[var(--sun-500)] mr-2 font-bold shrink-0">→</span>
+                <span>{item.action}</span>
               </p>
             </div>
           ))}

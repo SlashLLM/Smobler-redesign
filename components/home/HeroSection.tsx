@@ -10,17 +10,17 @@ const offerings = [
   {
     value: '01',
     title: 'AI products',
-    label: 'We design and ship AI products end to end — from the first prototype to the thing your customers use every day.',
+    label: 'We design and ship AI products end to end, from the first prototype to the thing your customers use every day.',
   },
   {
     value: '02',
     title: 'AI automation',
-    label: 'We automate the operations your teams repeat — support, back office, content, reporting — with agents that hold up in production.',
+    label: 'We automate the operations your teams repeat, support, back office, content, reporting, with agents that hold up in production.',
   },
   {
     value: '03',
     title: 'AI cost optimisation',
-    label: 'We audit what your AI actually costs and cut it — models, infrastructure, orchestration — without giving up quality.',
+    label: 'We audit what your AI actually costs and cut it, models, infrastructure, orchestration, without giving up quality.',
   },
 ];
 
