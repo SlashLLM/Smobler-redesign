@@ -158,6 +158,29 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
               <React.Fragment key={pIdx}>
                 <p className={pIdx === 0 ? 'text-lg leading-relaxed' : undefined}>{p}</p>
 
+                {(item.figures ?? [])
+                  .filter((figure) => figure.afterParagraph === pIdx)
+                  .map((figure) => (
+                    <figure
+                      key={figure.src}
+                      className={`my-10 ${figure.height > figure.width ? 'max-w-sm mx-auto' : ''}`}
+                    >
+                      <div className="overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well">
+                        <Image
+                          src={figure.src}
+                          alt={figure.alt}
+                          width={figure.width}
+                          height={figure.height}
+                          sizes="(max-width: 768px) 100vw, 720px"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                      <figcaption className="text-[11px] font-mono text-[var(--ink-mute)] mt-2 font-medium">
+                        ▸ {figure.caption}
+                      </figcaption>
+                    </figure>
+                  ))}
+
                 {pIdx === quoteAfterIndex && item.pullQuote && (
                   <div
                     className="my-10 p-8 border-l-4 border-[var(--sun-500)] text-[var(--ink)]"

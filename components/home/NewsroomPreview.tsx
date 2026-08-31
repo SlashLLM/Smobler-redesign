@@ -33,7 +33,12 @@ export const NewsroomPreview: React.FC = () => {
               mediaUrl={item.heroImage}
               aspectRatio="16:10"
               href={`/newsroom/${item.slug}`}
-              chips={[{ label: item.type.toUpperCase(), variant: 'default' }]}
+              chips={[
+                ...(item.weight === 'featured'
+                  ? [{ label: 'FEATURED', variant: 'status-sun' as const }]
+                  : []),
+                { label: item.type.toUpperCase(), variant: 'default' as const },
+              ]}
               theme="snowfield"
               colSpan={4}
             />

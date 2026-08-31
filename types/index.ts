@@ -14,6 +14,22 @@ export interface PullQuote {
   logo?: string;
 }
 
+/**
+ * A photo the source runs alongside its copy, dropped in after the body
+ * paragraph at `afterParagraph` (0-based). Intrinsic `width`/`height` are held
+ * so the figure keeps its own aspect — the press photos include portraits, and
+ * a fixed landscape well would crop the subjects out of them.
+ */
+export interface NewsFigure {
+  src: string;
+  alt: string;
+  /** The caption as the source writes it. */
+  caption: string;
+  width: number;
+  height: number;
+  afterParagraph: number;
+}
+
 export interface NewsItem {
   id: string;
   slug: string;
@@ -32,6 +48,8 @@ export interface NewsItem {
   tags: string[];
   readTime?: string;
   pullQuote?: PullQuote;
+  /** Absent for everything the archive links out to; set where we hold the photos. */
+  figures?: NewsFigure[];
 }
 
 export type OfficeCode = 'SG' | 'NA';
