@@ -1,0 +1,43 @@
+# Smobler
+
+> An AI-first digital agency and technology solutions provider working across AI,
+> blockchain and intelligent digital experiences. Founded by Dr. Loretta Chen,
+> headquartered in Singapore with a presence in Honolulu, Hawai'i. Backed by
+> Enterprise Singapore, IMDA, Brinc and Animoca Brands.
+
+Smobler's founding premise is "do good, do well" — work that is commercially
+serious and does something worth doing. The studio operates across four
+capability pillars, and also builds and operates its own game IP.
+
+## Capabilities
+
+- AI cost optimisation — Slashboard, for multi-model spend, latency and token telemetry
+- AI for food security — NUTRA and Robin AI, generating FDA-compliant nutrition labels and HACCP plans
+- AI business workflows — autonomous agents for lead qualification, support, voice booking and document extraction
+- Blockchain for maritime trade — digital bunkering settlement on Sui
+- Phygital activations — led by NOVA
+
+## Pages
+
+- [Home](https://smobler.io/): The studio, its thesis, and selected work
+- [What We Do](https://smobler.io/what-we-build): Capabilities and AI solutions in detail
+- [Work](https://smobler.io/work): The full portfolio, filterable by sector and platform
+- [Games](https://smobler.io/worlds): Proprietary IP — 3VEREST, Sephia, Yeti Realm, Cobbleland
+- [About & Team](https://smobler.io/studio): Origin story, leadership and board of directors
+- [Careers](https://smobler.io/studio/careers): Open roles and how the studio works
+- [Newsroom](https://smobler.io/newsroom): Press releases, media coverage and field notes
+- [Contact](https://smobler.io/contact): Project enquiries; offices in Singapore and Honolulu
+
+## Selected work
+
+- [NUTRA — Robin](https://smobler.io/work/nutra): AI food-compliance platform for Hawai'i food entrepreneurs, with Leeward Community College and WVAPDC
+- [Digital Bunkering](https://smobler.io/work/digital-bunkering): Blockchain settlement for maritime bunkering on Sui
+- [NOVA](https://smobler.io/work/nova): Makers. Meets. Metaverse. — the studio's phygital event platform
+- [Aloha Pathways](https://smobler.io/work/aloha-pathways): Statewide career navigation system
+- [Sage](https://smobler.io/work/sage): FinTech platform
+- [Twinity](https://smobler.io/work/twinity): AI platform
+
+## Optional
+
+- [Sitemap](https://smobler.io/sitemap.xml): All 45 indexable URLs
+- [Robots](https://smobler.io/robots.txt): Crawl policy, including AI crawlers

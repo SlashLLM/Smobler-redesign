@@ -9,9 +9,19 @@ import { SpatialBackground } from '@/components/ui/SpatialBackground';
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Careers | Smobler',
+  title: 'Careers',
   description:
-    'Work with Smobler across AI products, Slashboard cost optimization, AI for food security, blockchain for maritime trade and phygital events — from Singapore and Honolulu.',
+    'Work with Smobler across AI products, cost optimization, food security, blockchain for maritime trade and phygital events — Singapore and Honolulu.',
+  alternates: {
+    canonical: '/studio/careers',
+  },
+  openGraph: {
+    title: 'Careers | Smobler',
+    description:
+      'Work with Smobler across AI products, cost optimization, food security, blockchain for maritime trade and phygital events — Singapore and Honolulu.',
+    url: '/studio/careers',
+    type: 'website',
+  },
 };
 
 export default function CareersPage() {

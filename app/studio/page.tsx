@@ -10,8 +10,17 @@ import { people } from '@/data/people';
 import { ArrowUpRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About & Team | Smobler',
+  title: 'About & Team',
   description: 'The origin story, leadership and board of directors behind Smobler — Singapore HQ, with presence in Honolulu.',
+  alternates: {
+    canonical: '/studio',
+  },
+  openGraph: {
+    title: 'About & Team | Smobler',
+    description: 'The origin story, leadership and board of directors behind Smobler — Singapore HQ, with presence in Honolulu.',
+    url: '/studio',
+    type: 'website',
+  },
 };
 
 export default function StudioPage() {

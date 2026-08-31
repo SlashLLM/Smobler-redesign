@@ -1,9 +1,12 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { projects } from '@/data/projects';
 import { people } from '@/data/people';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { breadcrumbSchema, caseStudySchema } from '@/lib/schema';
 import { StatBlock } from '@/components/ui/StatBlock';
 import { Chip } from '@/components/ui/Chip';
 import { Button } from '@/components/ui/Button';
@@ -20,6 +23,42 @@ export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
   }));
+}
+
+/**
+ * Without this every case study served the root layout's title and description,
+ * so all twelve looked like the same page to a crawler. `oneLineOutcome` is
+ * required on the Project type, which makes it the one description field that
+ * is always present.
+ */
+export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) return {};
+
+  const path = `/work/${project.slug}`;
+
+  return {
+    title: project.title,
+    description: project.oneLineOutcome,
+    alternates: {
+      canonical: path,
+    },
+    openGraph: {
+      type: 'article',
+      title: project.title,
+      description: project.oneLineOutcome,
+      url: path,
+      images: project.heroMedia ? [project.heroMedia] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description: project.oneLineOutcome,
+      images: project.heroMedia ? [project.heroMedia] : undefined,
+    },
+  };
 }
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
@@ -46,6 +85,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   return (
     <article className="surface-snowfield">
+      <JsonLd data={caseStudySchema(project)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Work', path: '/work' },
+          { name: project.title, path: `/work/${project.slug}` },
+        ])}
+      />
+
       {/* 1. Full-Bleed Hero Media Header with Yellow Spatial Background */}
       <header className="relative pt-12 pb-20 border-b border-[var(--line-light)] overflow-hidden">
         <SpatialBackground variant="header" />

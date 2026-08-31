@@ -6,9 +6,19 @@ import { SpatialBackground } from '@/components/ui/SpatialBackground';
 import { CheckCircle2, Cpu, Gauge, ShieldCheck, Sparkles, Workflow, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'What We Do — Capabilities & AI Solutions | Smobler',
+  title: 'What We Do — Capabilities & AI Solutions',
   description:
-    'Smobler’s AI-first capabilities: AI cost optimization with Slashboard, AI for food security with NUTRA and Robin AI, autonomous AI workflow automation, blockchain for maritime bunkering on Sui, and phygital activations led by NOVA.',
+    'AI cost optimization with Slashboard, food security with NUTRA and Robin AI, autonomous workflow automation, maritime bunkering on Sui, and NOVA activations.',
+  alternates: {
+    canonical: '/what-we-build',
+  },
+  openGraph: {
+    title: 'What We Do — Capabilities & AI Solutions | Smobler',
+    description:
+      'AI cost optimization with Slashboard, food security with NUTRA and Robin AI, autonomous workflow automation, maritime bunkering on Sui, and NOVA activations.',
+    url: '/what-we-build',
+    type: 'website',
+  },
 };
 
 export default function WhatWeBuildPage() {
