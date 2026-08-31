@@ -20,6 +20,7 @@ const HOST_NAMES: Record<string, string> = {
   'einpresswire.com': 'EIN Presswire',
   'youtube.com': 'YouTube',
   'youtu.be': 'YouTube',
+  'finance.yahoo.com': 'Yahoo Finance',
 };
 
 const CTA_VERBS: Record<SourceKind, string> = {
