@@ -28,15 +28,15 @@ export const NewsWall: React.FC<NewsWallProps> = ({ items }) => {
   }
 
   return (
-    <div className="space-y-16 py-12">
+    <div className="space-y-12 md:space-y-16 py-6 md:py-12">
       {monthKeys.map((monthKey) => {
         const monthItems = groupedByMonth[monthKey];
         const [month, year] = monthKey.split(' ');
 
         return (
-          <div key={monthKey} className="relative grid grid-cols-12 gap-6 items-start">
+          <div key={monthKey} className="relative grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
             {/* Left Gutter: Sticky Vertical Month Marker */}
-            <div className="col-span-12 md:col-span-2 sticky sticky-under-subnav z-20 pb-4 md:pb-0">
+            <div className="md:col-span-2 md:sticky sticky-under-subnav z-20 pb-0 md:pb-4">
               <div className="flex md:flex-col items-center md:items-start gap-2 border-b md:border-b-0 md:border-l-2 border-[var(--sun-500)] pb-2 md:pb-0 md:pl-4">
                 <span className="font-display font-bold text-2xl md:text-3xl text-[var(--ink)] tracking-tight">
                   {month}
@@ -51,7 +51,7 @@ export const NewsWall: React.FC<NewsWallProps> = ({ items }) => {
             </div>
 
             {/* Right plot area: uniform half-width cells */}
-            <div className="col-span-12 md:col-span-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div className="md:col-span-10 grid grid-cols-1 md:grid-cols-12 gap-6">
               {monthItems.map((item) => {
                 /* Every entry on the wall gets the same cell. The `featured`
                    weight used to span all twelve columns, which made one card
@@ -66,7 +66,7 @@ export const NewsWall: React.FC<NewsWallProps> = ({ items }) => {
                 };
 
                 return (
-                  <div key={item.id} className="col-span-1 md:col-span-6">
+                  <div key={item.id} className="md:col-span-6">
                     <PlotCard
                       kicker={`${typeLabels[item.type]} · ${item.publishedAt}`}
                       title={item.title}

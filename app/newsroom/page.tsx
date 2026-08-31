@@ -31,7 +31,7 @@ export default function NewsroomPage() {
 
       {/* 2. Lead Story with Yellow Spatial Background */}
       {leadItem && (
-        <section className="relative py-16 md:py-24 border-b border-[var(--line-light)] overflow-hidden">
+        <section className="relative py-10 md:py-24 border-b border-[var(--line-light)] overflow-hidden">
           <SpatialBackground variant="header" />
           <div className="buildplate-container relative z-10">
             <div className="text-label text-[var(--sun-700)] mb-4 font-mono font-bold">
@@ -39,7 +39,7 @@ export default function NewsroomPage() {
             </div>
 
             <div
-              className="p-8 md:p-12 bg-[var(--snowfield)] border border-[var(--line-light)] grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center card-lift-snow"
+              className="p-5 sm:p-8 md:p-12 bg-[var(--snowfield)] border border-[var(--line-light)] grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center card-lift-snow"
               style={{
                 borderTop: '3px solid var(--sun-500)',
               }}
