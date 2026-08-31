@@ -89,6 +89,8 @@ Pax will be in Riyadh throughout LEAP 2026, from 31 August to 3 September. Smobl
         afterParagraph: 13,
       },
     ],
+    sourceUrl:
+      'https://finance.yahoo.com/technology/ai/articles/haccp-halal-smobler-takes-vertical-125600248.html',
     weight: 'featured',
     onWire: true,
     tags: ['LEAP 2026', 'Vertical AI', 'Robin AI', 'Halal'],

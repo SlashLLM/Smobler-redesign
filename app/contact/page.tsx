@@ -69,7 +69,7 @@ export default function ContactPage() {
   return (
     <div className="surface-snowfield">
       {/* Header with Yellow Spatial Background */}
-      <section className="relative py-20 border-b border-[var(--line-light)] overflow-hidden">
+      <section className="relative py-12 md:py-20 border-b border-[var(--line-light)] overflow-hidden">
         <SpatialBackground variant="header" />
         <div className="buildplate-container relative z-10">
           <div className="text-label text-[var(--sun-700)] mb-4 font-mono font-bold">
@@ -85,14 +85,14 @@ export default function ContactPage() {
       </section>
 
       {/* Main Scoping Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-24">
         <div className="buildplate-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Scoping Form (7 Col) */}
             <div className="lg:col-span-7">
               {submitted ? (
                 <div
-                  className="p-10 bg-white border-2 border-[var(--sun-500)] card-lift-snow"
+                  className="p-6 sm:p-10 bg-white border-2 border-[var(--sun-500)] card-lift-snow"
                 >
                   <div className="flex items-center gap-3 text-[var(--sun-700)] font-mono font-bold mb-4">
                     <CheckCircle2 size={24} />
@@ -115,14 +115,14 @@ export default function ContactPage() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="p-8 md:p-12 bg-white border border-[var(--line-light)] card-lift-snow space-y-8"
+                  className="contact-form p-5 sm:p-8 md:p-12 bg-white border border-[var(--line-light)] card-lift-snow space-y-8"
                 >
                   {/* Project Type Selection */}
                   <div>
                     <label className="block text-label text-[var(--ink)] font-mono font-bold mb-3">
                       01 / WHAT WOULD YOU LIKE TO BUILD?
                     </label>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="choice-stack flex flex-wrap gap-2">
                       {projectTypes.map((pt) => (
                         <Chip
                           key={pt.value}

@@ -28,10 +28,10 @@ export const NewsFilterBar: React.FC<NewsFilterBarProps> = ({
   ];
 
   return (
-    <div className="sticky sticky-under-nav z-30 surface-snowfield border-y border-[var(--line-light)] py-4 backdrop-blur-md">
+    <div className="news-filter-bar sticky sticky-under-nav z-30 surface-snowfield border-y border-[var(--line-light)] py-4 backdrop-blur-md">
       <div className="buildplate-container flex flex-wrap items-center justify-between gap-4">
         {/* Post Type Filters */}
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="news-filter-rail flex flex-wrap items-center gap-2">
           {filterTypes.map((f) => (
             <Chip
               key={f.value}
@@ -46,7 +46,7 @@ export const NewsFilterBar: React.FC<NewsFilterBarProps> = ({
         </div>
 
         {/* Year Dropdown Filter */}
-        <div className="flex items-center gap-2 font-mono text-xs text-[var(--ink-mute)]">
+        <div className="flex items-center gap-2 shrink-0 font-mono text-xs text-[var(--ink-mute)]">
           <span>YEAR:</span>
           <select
             value={selectedYear}

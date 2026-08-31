@@ -534,6 +534,7 @@ img, video {
 .pt-16 { padding-top: 64px; }
 .pt-20 { padding-top: 80px; }
 .pt-36 { padding-top: 144px; }
+.pb-0 { padding-bottom: 0; }
 .pb-2 { padding-bottom: 8px; }
 .pb-4 { padding-bottom: 16px; }
 .pb-6 { padding-bottom: 24px; }
@@ -592,9 +593,12 @@ img, video {
   .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .sm\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .sm\:col-span-2 { grid-column: span 2; }
+  .sm\:p-8 { padding: 32px; }
+  .sm\:p-10 { padding: 40px; }
 }
 
 @media (min-width: 768px) {
+  .md\:sticky { position: sticky; }
   .md\:block { display: block; }
   .md\:hidden { display: none; }
   .md\:flex { display: flex; }
@@ -616,10 +620,13 @@ img, video {
   .md\:pb-28 { padding-bottom: 112px; }
   .md\:p-12 { padding: 48px; }
   .md\:py-24 { padding-top: 96px; padding-bottom: 96px; }
+  .md\:py-20 { padding-top: 80px; padding-bottom: 80px; }
   .md\:gap-10 { gap: 40px; }
   .md\:gap-12 { gap: 48px; }
   .md\:gap-14 { gap: 56px; }
   .md\:py-12 { padding-top: 48px; padding-bottom: 48px; }
+  .md\:pb-4 { padding-bottom: 16px; }
+  .md\:space-y-16 > * + * { margin-top: 64px; }
   .md\:text-sm { font-size: 0.875rem; }
 }
 
@@ -653,6 +660,7 @@ img, video {
 
 /* Text & Visual Modifiers */
 .text-center { text-align: center; }
+.text-left { text-align: left; }
 .text-xs { font-size: 0.75rem; }
 .text-sm { font-size: 0.875rem; }
 .text-base { font-size: 1rem; }
@@ -686,6 +694,7 @@ img, video {
 }
 
 .whitespace-nowrap { white-space: nowrap; }
+.resize-none { resize: none; }
 
 .select-none { user-select: none; }
 .cursor-pointer { cursor: pointer; }
@@ -818,3 +827,97 @@ img, video {
 [class~="focus:text-[var(--sun-700)]"]:focus { color: var(--sun-700); }
 .group:hover [class~="group-hover:text-[var(--sun-700)]"] { color: var(--sun-700); }
 .group:hover [class~="group-hover:translate-x-1"] { transform: translateX(4px); }
+
+/* ---------------------------------------------------------------------------
+   Newsroom — phone layout
+
+   The filter bar's five type chips wrap to three lines on a 360px screen, and
+   because the bar is sticky under the nav that stack ate roughly a quarter of
+   the viewport before a single story showed. Below `md` the chips become one
+   horizontally scrolling rail that bleeds to the container edge — so a
+   half-visible chip signals there is more to swipe — and the year select drops
+   to its own line beneath it. Placed at the end of the file so it out-orders
+   the plain `.py-4` on the bar.
+   --------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .news-filter-bar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .news-filter-rail {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: calc(100% + var(--margin-mobile) * 2);
+    margin-left: calc(var(--margin-mobile) * -1);
+    margin-right: calc(var(--margin-mobile) * -1);
+    padding-left: var(--margin-mobile);
+    padding-right: var(--margin-mobile);
+  }
+
+  .news-filter-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Chips must keep their intrinsic width once the rail stops wrapping,
+     otherwise flex shrinks "PRESS RELEASES" into an ellipsis. */
+  .news-filter-rail > * {
+    flex: 0 0 auto;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Contact — phone layout
+
+   A Chip carries `whitespace-nowrap`, and a flex item cannot shrink below its
+   min-content width, so "AI PRODUCTS & OPTIMIZATION (SLASHBOARD)" measured
+   ~390px against the ~256px the form card leaves on a 360px screen — the pill
+   ran off the card and took the page's horizontal scroll with it. Below `md`
+   the choices become a stacked list instead: one full-width row each, text
+   allowed to wrap, and a 44px minimum so every option is a real tap target.
+   --------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .choice-stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .choice-stack > * {
+    width: 100%;
+    min-height: 44px;
+    justify-content: flex-start;
+    text-align: left;
+    white-space: normal;
+    line-height: 1.35;
+    padding: 10px 16px;
+  }
+
+  /* iOS Safari zooms the viewport whenever a focused control's text measures
+     under 16px, and it never zooms back out — the `text-sm` inputs here left
+     the form scrolled sideways after the first tap. */
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    font-size: 16px;
+  }
+}
+
+/* The error banner and the submit spinner. `bg-red-50`, `border-red-200`,
+   `text-red-700` and `animate-spin` were declared in the markup but never
+   defined here, so a failed submit rendered as unstyled ink-on-white with a
+   currentColor hairline and a frozen loader. */
+[class~="bg-red-50"] { background-color: #FEF2F2; }
+[class~="border-red-200"] { border-color: #FECACA; }
+[class~="text-red-700"] { color: #B91C1C; }
+[class~="mt-0.5"] { margin-top: 2px; }
+
+.animate-spin { animation: spin 1s linear infinite; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

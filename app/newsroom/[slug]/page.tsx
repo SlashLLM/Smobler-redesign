@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { newsItems } from '@/data/news';
 import { getSourceMeta, getYouTubeId, getRelatedItems, toIsoDate } from '@/lib/newsSource';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { breadcrumbSchema, newsArticleSchema } from '@/lib/schema';
 import { Button } from '@/components/ui/Button';
 import { Chip } from '@/components/ui/Chip';
 import { PlotCard } from '@/components/ui/PlotCard';
@@ -27,14 +29,36 @@ export async function generateMetadata({ params }: NewsArticlePageProps): Promis
 
   if (!item) return {};
 
+  const path = `/newsroom/${item.slug}`;
+  const published = toIsoDate(item.publishedAt);
+
   return {
-    title: `${item.title} · Smobler Newsroom`,
+    /* `absolute` because the title already names the studio — the segment
+       template would otherwise append a second "| Smobler". */
+    title: { absolute: `${item.title} · Smobler Newsroom` },
     description: item.excerpt,
+    alternates: {
+      canonical: path,
+    },
+    /* Coverage was bylined by the publication that ran it; releases are ours. */
+    authors:
+      item.type === 'coverage' && item.publication
+        ? [{ name: item.publication }]
+        : [{ name: 'Smobler' }],
     openGraph: {
       type: 'article',
       title: item.title,
       description: item.excerpt,
-      publishedTime: toIsoDate(item.publishedAt),
+      url: path,
+      publishedTime: published,
+      modifiedTime: published,
+      tags: item.tags,
+      images: item.heroImage ? [item.heroImage] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: item.title,
+      description: item.excerpt,
       images: item.heroImage ? [item.heroImage] : undefined,
     },
   };
@@ -59,6 +83,15 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
 
   return (
     <article className="surface-snowfield">
+      <JsonLd data={newsArticleSchema(item)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Newsroom', path: '/newsroom' },
+          { name: item.title, path: `/newsroom/${item.slug}` },
+        ])}
+      />
+
       {/* Article Header with Yellow Spatial Background */}
       <header className="relative py-16 md:py-24 border-b border-[var(--line-light)] overflow-hidden">
         <SpatialBackground variant="header" />

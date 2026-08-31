@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { HeroSection } from '@/components/home/HeroSection';
 import { LogoWall } from '@/components/home/LogoWall';
 import { ThesisBand } from '@/components/home/ThesisBand';
@@ -10,6 +11,23 @@ import { NewsroomPreview } from '@/components/home/NewsroomPreview';
 import { AboutBand } from '@/components/home/AboutBand';
 import { ProvenanceBand } from '@/components/home/ProvenanceBand';
 import { SunlightCtaBand } from '@/components/home/SunlightCtaBand';
+
+/**
+ * The homepage previously carried no metadata of its own, so it and the three
+ * client-rendered pages all served the root layout's title verbatim. `title`
+ * is set absolutely — the brand name is already in it, and the layout template
+ * would otherwise append a second "| Smobler".
+ */
+export const metadata: Metadata = {
+  title: {
+    absolute: 'Smobler — AI-First Digital Agency | Building Worlds Together',
+  },
+  description:
+    'Smobler builds AI products, cost-optimization tooling, food-security platforms and blockchain systems for maritime trade. Singapore-born, globally built.',
+  alternates: {
+    canonical: '/',
+  },
+};
 
 export default function HomePage() {
   return (

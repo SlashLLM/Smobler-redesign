@@ -8,8 +8,17 @@ import { Button } from '@/components/ui/Button';
 import { SpatialBackground } from '@/components/ui/SpatialBackground';
 
 export const metadata: Metadata = {
-  title: 'Games — Proprietary IP | Smobler',
+  title: 'Games — Proprietary IP',
   description: 'Smobler’s own properties — 3VEREST, Sephia, Yeti Realm and Cobbleland — built and operated by the studio rather than commissioned.',
+  alternates: {
+    canonical: '/worlds',
+  },
+  openGraph: {
+    title: 'Games — Proprietary IP | Smobler',
+    description: 'Smobler’s own properties — 3VEREST, Sephia, Yeti Realm and Cobbleland — built and operated by the studio rather than commissioned.',
+    url: '/worlds',
+    type: 'website',
+  },
 };
 
 export default function WorldsPage() {
