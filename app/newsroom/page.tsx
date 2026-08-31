@@ -82,8 +82,10 @@ export default function NewsroomPage() {
                       alt={leadItem.title}
                       fill
                       priority
+                      quality={95}
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover"
+                      style={leadItem.heroImagePosition ? { objectPosition: leadItem.heroImagePosition } : undefined}
                     />
                   )}
                 </div>

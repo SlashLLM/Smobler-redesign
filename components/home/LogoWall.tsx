@@ -16,10 +16,23 @@ const investedLogos: LogoItem[] = [
     heightPx: 36,
   },
   {
-    name: 'The Sandbox',
-    url: 'https://www.sandbox.game',
-    src: '/logos/sandbox.svg',
-    heightPx: 32,
+    name: 'Animoca Brands',
+    url: 'https://www.animocabrands.com',
+    src: '/logos/animoca.svg',
+    heightPx: 34,
+  },
+  {
+    name: 'Sui Foundation',
+    url: 'https://sui.io',
+    src: '/logos/sui-foundation.svg',
+    heightPx: 30,
+  },
+  {
+    name: 'Mysten Labs',
+    url: 'https://mystenlabs.com',
+    src: '/logos/mystenlabs.webp',
+    heightPx: 34,
+    className: 'rounded-md',
   },
 ];
 
@@ -65,14 +78,14 @@ export const LogoWall: React.FC = () => {
           <div className="w-40 shrink-0 font-sans text-xs md:text-sm font-semibold text-[var(--ink-mute)] uppercase tracking-wider">
             Invested in by
           </div>
-          <div className="flex flex-wrap items-center gap-8 md:gap-14">
+          <div className="logo-row flex-grow">
             {investedLogos.map((logo) => (
               <a
                 key={logo.name}
                 href={logo.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-transform duration-200 hover:scale-105 opacity-90 hover:opacity-100 focus:outline-none flex items-center shrink-0"
+                className="transition-transform duration-200 hover:scale-105 opacity-90 hover:opacity-100 focus:outline-none flex items-center"
                 title={logo.name}
               >
                 <img
@@ -94,14 +107,14 @@ export const LogoWall: React.FC = () => {
           <div className="w-40 shrink-0 font-sans text-xs md:text-sm font-semibold text-[var(--ink-mute)] uppercase tracking-wider">
             Supported by
           </div>
-          <div className="flex flex-wrap items-center gap-8 md:gap-12">
+          <div className="logo-row flex-grow">
             {supportedLogos.map((logo) => (
               <a
                 key={logo.name}
                 href={logo.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-transform duration-200 hover:scale-105 opacity-90 hover:opacity-100 focus:outline-none flex items-center shrink-0"
+                className="transition-transform duration-200 hover:scale-105 opacity-90 hover:opacity-100 focus:outline-none flex items-center"
                 title={logo.name}
               >
                 <img

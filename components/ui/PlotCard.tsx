@@ -18,6 +18,7 @@ interface PlotCardProps {
   stats?: { value: string; label: string }[];
   mediaUrl?: string;
   mediaAlt?: string;
+  mediaPosition?: string;
   aspectRatio?: '16:10' | '4:5' | '16:9' | '1:1';
   href?: string;
   chips?: { label: string; variant?: 'default' | 'status-ice' | 'status-sun' | 'office' }[];
@@ -42,6 +43,7 @@ export const PlotCard: React.FC<PlotCardProps> = ({
   stats = [],
   mediaUrl,
   mediaAlt = '',
+  mediaPosition,
   aspectRatio = '16:10',
   href,
   chips = [],
@@ -81,13 +83,17 @@ export const PlotCard: React.FC<PlotCardProps> = ({
         src={mediaUrl}
         alt={mediaAlt || title}
         fill
+        quality={95}
         sizes={
           isSplit
             ? '(max-width: 768px) 100vw, 55vw'
             : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         }
         className="object-cover transition-transform duration-500 group-hover:scale-105"
-        style={{ borderRadius: isSplit ? 0 : 'var(--radius-media)' }}
+        style={{
+          borderRadius: isSplit ? 0 : 'var(--radius-media)',
+          ...(mediaPosition ? { objectPosition: mediaPosition } : {}),
+        }}
       />
       {badge && (
         <div className="absolute top-3 left-3 z-10">

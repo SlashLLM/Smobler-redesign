@@ -41,6 +41,7 @@ export interface NewsItem {
   excerpt: string;
   body: string;
   heroImage?: string;
+  heroImagePosition?: string;
   publication?: string; // coverage only (e.g. "Forbes", "The Straits Times")
   sourceUrl?: string;
   weight: NewsWeight; // drives 3-col vs 6-col span
