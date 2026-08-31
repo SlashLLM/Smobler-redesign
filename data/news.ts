@@ -7,11 +7,95 @@ import { NewsItem } from '@/types';
  * Every `publishedAt` was read from the source itself — Medium's RSS feed and
  * article metadata, EIN Presswire's `datePublished`, and the publishers' own
  * schema markup — rather than estimated. The two exceptions are noted inline.
- * Bodies summarise what the linked source states; `sourceUrl` always points at
- * the original so nothing here has to be taken on trust.
+ * Bodies summarise what the linked source states; `sourceUrl` points at the
+ * original so nothing here has to be taken on trust, and is only left unset for
+ * the lead release below, which has no public URL yet.
  */
 export const newsItems: NewsItem[] = [
-  /* ────────────────────────────── 2025 / FEATURED ─────────────────────── */
+  /* ────────────────────────────── 2026 / LEAD ─────────────────────────── */
+  /*
+   * The one entry not drawn from a published URL: the source is the press
+   * release itself, dated 31 August 2026 and issued for LEAP 2026 in Riyadh.
+   * Quotes and details below are transcribed from that document, so `sourceUrl`
+   * stays unset and the article page's source CTA stands down until the wire
+   * copy is live. `featured` is held by this item alone — it is what the wall,
+   * the home preview and the newsroom lead all read as the current lead story.
+   */
+  {
+    id: 'smobler-leap-2026-haccp-to-halal',
+    slug: 'smobler-leap-2026-haccp-to-halal',
+    title:
+      'From HACCP to Halal: Smobler bets on vertical AI to take food compliance across borders',
+    type: 'press',
+    publishedAt: '31 AUG 2026',
+    month: 'AUG',
+    year: 2026,
+    excerpt:
+      'Smobler heads to LEAP 2026 in Riyadh, seeking partners as it explores extending Robin AI’s food-compliance workflows toward Halal certification across ASEAN and MENA.',
+    body: `Singapore-founded technology company Smobler is preparing to extend the capabilities of an AI platform originally developed to help Hawaiʻi food entrepreneurs navigate U.S. food-safety requirements toward Halal compliance workflows across Southeast Asia and the Middle East, as the company begins seeking partners in Saudi Arabia and the wider Gulf.
+
+Smobler’s co-founder and chief technology officer, Mridhul Pax, is in Riyadh for LEAP 2026 from 31 August to 3 September, where he will meet potential partners across food technology, enterprise AI and digital trade.
+
+The move reflects a broader bet by Smobler: as access to increasingly capable AI models becomes ubiquitous, more value will shift toward specialised applications built around expensive, persistent and industry-specific problems.
+
+Smobler launched Robin AI in Hawaiʻi in June 2026 to address a problem familiar to small food producers — turning a recipe into a market-ready product requires navigating complex regulatory and food-safety requirements. Developed with the Wahiawā Value-Added Product Development Center and Leeward Community College, Robin helps early-stage food and beverage entrepreneurs generate draft nutrition labels and Hazard Analysis and Critical Control Point (HACCP) food-safety plans. Rather than replacing food-safety specialists or regulatory authorities, the platform is designed to help entrepreneurs navigate some of the documentation and technical complexity involved in preparing products for market.
+
+The company now sees an opportunity to apply the same principle to other regulatory environments. Its product roadmap includes exploring AI-assisted workflows around Halal compliance across ASEAN and the Middle East and North Africa — regions linked by significant flows of food, trade and Muslim consumer demand. Any such system would be designed to support, rather than replace, recognised Halal certification authorities, qualified auditors and human decision-makers.
+
+“The interesting question is no longer how impressive a model can be,” said Dr. Loretta Chen, Smobler’s founder and CEO. “It is what we can make possible with it. Can we help a small producer navigate compliance more efficiently? Can we reduce some of the friction between creating a product and reaching a market? Can we make cross-border trade easier to navigate while preserving the human judgement and regulatory authority that matter? The most interesting technologies scale globally because the underlying problem is widespread and travels.”
+
+Food compliance is one example of a larger shift underway at Smobler. The company, which previously built across immersive technology, gaming and blockchain, is concentrating increasingly on vertical AI and digital infrastructure designed around specific industry workflows, with current work spanning food systems, enterprise workflow automation, AI cost intelligence and digital trade. Alongside Robin, Smobler is developing Forage AI, focused on business-to-business food trade through AI-enabled workflows, verified networks and embedded financial infrastructure, and is working on digital maritime infrastructure — blockchain-enabled approaches to bunkering, documentation and transactions in an industry where verification and settlement can remain fragmented and manual.
+
+These areas give Smobler a particular reason to look toward the Gulf. Saudi Arabia is investing heavily in artificial intelligence and digital infrastructure while simultaneously expanding its logistics and trade capabilities. For Smobler, that intersection creates an opportunity for specialised technology built around real operational constraints rather than general-purpose AI.
+
+For Pax, the engineering challenge begins where the demonstration ends. “Everyone can build an AI demo now,” he said. “The difficult part starts afterwards. Can the system be trusted? Is it economical to operate? Does it integrate into the way an industry actually works? Can you deploy it at scale without creating three new problems for every one you solve? That last mile between an impressive prototype and reliable infrastructure is where we spend much of our time.”
+
+Pax said Smobler will use LEAP to identify potential regional partners around defined business problems rather than pursue AI deployments for their own sake. “We always start with the constraint and engineer backwards,” he said. “At LEAP, I want to meet organisations thinking seriously about AI in production, particularly across food, enterprise operations and trade. If there is a genuine problem we are equipped to solve, that is where the conversation becomes interesting.”
+
+Smobler’s interest in Saudi Arabia forms part of a larger opportunity the company sees emerging between Southeast Asia and the Gulf. Singapore sits at the intersection of technology, finance, maritime trade and Southeast Asian commerce; Saudi Arabia is investing in technology and infrastructure as it builds new industries and strengthens its position across international trade and logistics. Smobler believes some of the most interesting opportunities will come from adapting technologies and operating knowledge between these markets rather than simply exporting software from one to the other.
+
+Food illustrates the potential. A producer in Hawaiʻi, Singapore or Riyadh operates within a different regulatory environment, but often encounters variations of the same problems: documentation, compliance, specialist knowledge, market access, cost and cross-border complexity. Halal requirements add another layer when producers seek access to Muslim consumer markets. Smobler believes AI could eventually help businesses navigate portions of that complexity while keeping recognised certification bodies and qualified human experts firmly within the process.
+
+“For us, the Middle East opportunity isn’t interesting simply because AI investment is booming,” Chen said. “It is interesting because there are real problems at the intersection of food, trade, logistics and technology where our experience across Asia-Pacific may be useful and where we have a great deal to learn from regional partners.”
+
+Smobler’s shift toward applied AI follows several years building at successive technology frontiers. Founded in Singapore, the company has worked across immersive environments, gaming, blockchain, artificial intelligence and digital infrastructure, including projects for international brands and institutions, and has participated in technology ecosystems including the Meta Llama APAC Incubator, the inaugural INSEAD AI Venture Lab and NVIDIA Inception. Chen said the growing emphasis on applied AI does not represent a rejection of those earlier technologies, but a more demanding test of what the company builds: “Being early to technology is exciting. Being useful is harder. We want Smobler to be known for building and shipping products that are useful and make our lives easier.”
+
+Pax will be in Riyadh throughout LEAP 2026, from 31 August to 3 September. Smobler is seeking potential pilot, technology and commercial partners across food technology and trade, AI infrastructure and enterprise automation, logistics and maritime technology, as well as investment and innovation ecosystems. Organisations interested in meeting Pax in Riyadh or discussing a potential pilot or regional collaboration can contact hello@smobler.io.`,
+    heroImage: '/news/leap-2026-llama-incubator.jpg',
+    pullQuote: {
+      text: 'The next competitive advantage will not come from having access to AI. It will come from knowing how to apply it.',
+      attribution: 'Dr. Loretta Chen, founder & CEO, Smobler',
+    },
+    /* The other two photos filed with the release, kept where it runs them:
+       the NOVA group shot beside Chen's quotes, the incubator booth beside the
+       paragraph naming the Meta Llama APAC Incubator. */
+    figures: [
+      {
+        src: '/news/leap-2026-nova-nyse.jpg',
+        alt: 'Smobler’s team and guests on stage at NOVA Singapore 2025, in front of a NYSE-presented NOVA backdrop.',
+        caption:
+          'Smobler CEO Dr Loretta Chen (centre, in pink) and CTO Mridhul Pax (extreme right) at NOVA Singapore 2025, in collaboration with the New York Stock Exchange.',
+        width: 1600,
+        height: 880,
+        afterParagraph: 5,
+      },
+      {
+        src: '/news/leap-2026-smobler-booth.jpg',
+        alt: 'Dr Loretta Chen and Mridhul Pax behind a Smobler booth at the Llama Incubator Program, Singapore 2025.',
+        caption:
+          'Smobler CEO Dr Loretta Chen and CTO Mridhul Pax at the Llama Incubator Program, Singapore 2025.',
+        width: 734,
+        height: 978,
+        afterParagraph: 13,
+      },
+    ],
+    weight: 'featured',
+    onWire: true,
+    tags: ['LEAP 2026', 'Vertical AI', 'Robin AI', 'Halal'],
+    readTime: '4 min read',
+  },
+
+  /* ────────────────────────────── 2025 ─────────────────────────────────── */
   {
     id: 'smobler-nyse-singapore-60th',
     slug: 'smobler-nyse-singapore-60th',
@@ -34,13 +118,34 @@ The edition’s key visual was designed by local lifestyle brand Binary Style ar
     heroImage: '/events/nova-2025-singapore.jpg',
     sourceUrl:
       'https://medium.com/@smobler.io/smobler-joins-forces-with-nyse-to-celebrate-singapores-60th-birthday-02f7b16f4348',
-    weight: 'featured',
+    weight: 'standard',
     onWire: true,
     tags: ['NYSE', 'SG60', 'NOVA'],
     readTime: '2 min read',
   },
+  {
+    id: 'smobler-ceo-storytelling-phygital-worlds',
+    slug: 'smobler-ceo-storytelling-phygital-worlds',
+    title: 'Smobler CEO discusses the power of storytelling and the future of ‘phygital’ worlds',
+    type: 'coverage',
+    publishedAt: '10 NOV 2025',
+    month: 'NOV',
+    year: 2025,
+    excerpt:
+      'Dr. Loretta Chen on why storytelling, not technology, is the thing that makes a virtual world worth entering.',
+    body: `Smobler founder and CEO Dr. Loretta Chen was filmed by the New York Stock Exchange at NYSE International Day, in conversation with Ashley Mastronardi, content creator at ICE.
 
-  /* ────────────────────────────── 2025 ─────────────────────────────────── */
+The subject is the one the studio keeps returning to: that the phygital frontier is a storytelling problem before it is a technical one, and that technology is the means rather than the point.
+
+Chen appeared at NYSE International Day alongside NBA legend Yao Ming, CNBC’s Jim Cramer and JP Morgan’s Anu Aiyengar. NYSE was title sponsor of NOVA 2025: SG60 Edition, whose artwork lit the exchange’s trading floor cubes at 11 Wall Street.`,
+    heroImage: '/events/nyse-floor-talk.jpg',
+    publication: 'NYSE',
+    sourceUrl: 'https://www.youtube.com/watch?v=89okF0jMb68',
+    weight: 'standard',
+    onWire: false,
+    tags: ['Interview', 'Phygital', 'Leadership'],
+    readTime: '1 min read',
+  },
   {
     id: 'thank-you-for-an-extraordinary-2025',
     slug: 'thank-you-for-an-extraordinary-2025',
@@ -68,29 +173,6 @@ Every milestone was made possible by the trust of partners, clients, collaborato
     onWire: true,
     tags: ['Year in Review', 'NOVA', 'AI', 'Blockchain'],
     readTime: '2 min read',
-  },
-  {
-    id: 'smobler-ceo-storytelling-phygital-worlds',
-    slug: 'smobler-ceo-storytelling-phygital-worlds',
-    title: 'Smobler CEO discusses the power of storytelling and the future of ‘phygital’ worlds',
-    type: 'coverage',
-    publishedAt: '10 NOV 2025',
-    month: 'NOV',
-    year: 2025,
-    excerpt:
-      'Dr. Loretta Chen on why storytelling, not technology, is the thing that makes a virtual world worth entering.',
-    body: `Smobler founder and CEO Dr. Loretta Chen was filmed by the New York Stock Exchange at NYSE International Day, in conversation with Ashley Mastronardi, content creator at ICE.
-
-The subject is the one the studio keeps returning to: that the phygital frontier is a storytelling problem before it is a technical one, and that technology is the means rather than the point.
-
-Chen appeared at NYSE International Day alongside NBA legend Yao Ming, CNBC’s Jim Cramer and JP Morgan’s Anu Aiyengar. NYSE was title sponsor of NOVA 2025: SG60 Edition, whose artwork lit the exchange’s trading floor cubes at 11 Wall Street.`,
-    heroImage: '/events/nyse-floor-talk.jpg',
-    publication: 'NYSE',
-    sourceUrl: 'https://www.youtube.com/watch?v=89okF0jMb68',
-    weight: 'standard',
-    onWire: false,
-    tags: ['Interview', 'Phygital', 'Leadership'],
-    readTime: '1 min read',
   },
   {
     id: 'insignia-boons-and-banes-storytelling-technology',

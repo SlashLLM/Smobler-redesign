@@ -76,6 +76,9 @@ export const NewsWall: React.FC<NewsWallProps> = ({ items }) => {
                       aspectRatio="16:10"
                       href={`/newsroom/${item.slug}`}
                       chips={[
+                        ...(item.weight === 'featured'
+                          ? [{ label: 'FEATURED', variant: 'status-sun' as const }]
+                          : []),
                         {
                           label: item.type.toUpperCase(),
                           variant: item.type === 'press' ? 'status-sun' : item.type === 'product' ? 'status-ice' : 'default',
