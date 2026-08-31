@@ -125,7 +125,7 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
           hero image; items with neither render no well at all. */}
       {(youTubeId || item.heroImage) && (
         <div className="buildplate-container pt-12">
-          <div className="max-w-4xl mx-auto relative aspect-[16/9] w-full overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] card-lift-snow">
+          <div className="max-w-2xl mx-auto relative aspect-[16/10] w-full overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] card-lift-snow">
             {youTubeId ? (
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${youTubeId}`}
@@ -142,8 +142,10 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
                 alt={item.title}
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 800px"
+                quality={95}
+                sizes="(max-width: 768px) 100vw, 672px"
                 className="object-cover"
+                style={item.heroImagePosition ? { objectPosition: item.heroImagePosition } : undefined}
               />
             )}
           </div>
@@ -163,7 +165,7 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
                   .map((figure) => (
                     <figure
                       key={figure.src}
-                      className={`my-10 ${figure.height > figure.width ? 'max-w-sm mx-auto' : ''}`}
+                      className={`my-10 ${figure.height > figure.width ? 'w-[min(60%,260px)] mx-auto' : ''}`}
                     >
                       <div className="overflow-hidden bg-[var(--snowfield-2)] border border-[var(--line-light)] media-well">
                         <Image
@@ -171,7 +173,8 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
                           alt={figure.alt}
                           width={figure.width}
                           height={figure.height}
-                          sizes="(max-width: 768px) 100vw, 720px"
+                          quality={95}
+                          sizes={figure.height > figure.width ? "260px" : "(max-width: 768px) 100vw, 720px"}
                           className="w-full h-auto"
                         />
                       </div>
@@ -234,6 +237,7 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
                 dek={rel.excerpt}
                 meta={rel.readTime || '3 min read'}
                 mediaUrl={rel.heroImage}
+                mediaPosition={rel.heroImagePosition}
                 aspectRatio="16:10"
                 href={`/newsroom/${rel.slug}`}
                 chips={[{ label: rel.type.toUpperCase(), variant: 'default' }]}

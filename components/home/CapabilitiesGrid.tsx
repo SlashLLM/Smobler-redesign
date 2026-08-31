@@ -4,120 +4,56 @@ import React from 'react';
 import { SectionHeader } from '../ui/SectionHeader';
 import { SpatialBackground } from '../ui/SpatialBackground';
 import { MagicBento, MagicBentoCardItem } from '../ui/MagicBento';
-import { Gauge, Sparkles, Workflow, Zap, ShieldCheck, CheckCircle2 } from 'lucide-react';
-
-const automationWorkflows = [
-  {
-    num: '01',
-    title: 'Lead qualification & automated follow-up',
-    action: 'Score and enrich inbound prospects, sync CRM records automatically, and schedule calls with high-value leads.',
-  },
-  {
-    num: '02',
-    title: 'Customer support resolution & guardrails',
-    action: 'Resolve tickets using verified knowledge bases, execute safe routine tasks, and hand off complex cases with full context.',
-  },
-  {
-    num: '03',
-    title: 'Voice reception & appointment booking',
-    action: 'Capture missed phone calls, evaluate caller intent, and book calendar appointments around the clock.',
-  },
-  {
-    num: '04',
-    title: 'Document processing & data validation',
-    action: 'Parse and validate complex documents, flag discrepancies, and generate pre-filled drafts for supervisor sign-off.',
-  },
-  {
-    num: '05',
-    title: 'Employee onboarding & HR services',
-    action: 'Streamline access permissions, route manager approvals, assign equipment and training, and highlight pending tasks.',
-  },
-];
+import { Gauge, Sparkles, Workflow, ShieldCheck } from 'lucide-react';
 
 export const CapabilitiesGrid: React.FC = () => {
+  /* Four pillars on a 2x2. MagicBento.css hardcodes nth-child spans for a
+     six-card wall, including a row span on the third — colSpan/rowSpan are
+     written as inline style, so they are what evens the grid back out. */
   const capabilities: MagicBentoCardItem[] = [
     {
-      label: '01 / AI COST OPTIMISATION',
-      title: 'Slashboard',
-      description: 'Our platform for the AI bill. See what every model, prompt and workload actually costs, find the spend that returns nothing, and cut it — without giving up output quality.',
-      meta: 'MULTI-MODEL · USAGE ANALYTICS · SPEND CONTROLS',
-      icon: <Gauge size={20} />,
-      badge: 'PRODUCT',
-      href: '/what-we-build#slashboard',
-      color: '#121720',
-    },
-    {
-      label: '02 / AI FOR FOOD COMPLIANCE',
-      title: 'NUTRA',
-      description: 'A year of HACCP plans and nutrition labelling compressed into hours. NUTRA takes a food business from recipe to shelf-ready compliance while the capital is still in the bank.',
-      meta: 'HACCP · FDA LABELS · RAG · SUPPLIER INTELLIGENCE',
+      label: '01 / APPLIED AI',
+      title: 'Build intelligence around the problem, not the model.',
+      description: 'We design and deploy production AI for complex, domain-specific environments — from food compliance and product development to enterprise decision support. Our systems combine language models, proprietary data, retrieval, automation and human oversight to create AI people can actually use.',
+      meta: 'AI PRODUCTS · DOMAIN INTELLIGENCE · RAG · HUMAN-IN-THE-LOOP',
       icon: <Sparkles size={20} />,
-      badge: 'PRODUCT',
-      href: '/what-we-build#ai-food-compliance',
+      href: '/what-we-build#ai-food-security',
       color: '#121720',
+      colSpan: 2,
+      rowSpan: 1,
     },
     {
-      label: '03 / AI BUSINESS WORKFLOWS',
-      title: 'Automate the work your teams repeat',
-      description: 'From inbound lead scoring to customer support, voice booking, document extraction, and employee onboarding — we embed autonomous AI agents directly into your daily operations with human-in-the-loop guardrails.',
-      content: (
-        <div className="mt-4 space-y-2.5">
-          {automationWorkflows.map((item) => (
-            <div
-              key={item.num}
-              className="p-3 rounded-lg bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,209,0,0.3)] transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <span className="inline-flex items-center justify-center font-mono text-[11px] font-bold text-[var(--sun-400)] px-2 py-0.5 rounded bg-[rgba(255,209,0,0.1)] border border-[rgba(255,209,0,0.25)] shrink-0">
-                  {item.num}
-                </span>
-                <h4 className="text-sm md:text-[15px] font-bold text-white font-display tracking-tight uppercase">
-                  {item.title}
-                </h4>
-              </div>
-              <p className="text-[13px] md:text-sm text-[var(--bento-text-muted)] leading-relaxed flex items-start">
-                <span className="text-[var(--sun-500)] mr-2 font-bold shrink-0">→</span>
-                <span>{item.action}</span>
-              </p>
-            </div>
-          ))}
-        </div>
-      ),
-      meta: 'AUTONOMOUS AGENTS · ENTERPRISE WORKFLOWS · HUMAN OVERRIDE',
+      label: '02 / INTELLIGENT OPERATIONS',
+      title: 'Turn repetitive work into intelligent infrastructure.',
+      description: 'We redesign workflows around AI agents and automation, connecting information, systems and people rather than adding another layer of software. From customer operations and document processing to qualification, reporting and internal services, we build automation around measurable business outcomes.',
+      meta: 'AI AGENTS · WORKFLOW AUTOMATION · ENTERPRISE INTEGRATION · GOVERNANCE',
       icon: <Workflow size={20} />,
-      badge: 'SERVICE',
       href: '/what-we-build#business-automation',
       color: '#161E28',
+      colSpan: 2,
+      rowSpan: 1,
     },
     {
-      label: '04 / PHYGITAL & ENTERPRISE ACTIVATIONS',
-      title: 'Where Wall Street meets Art Row',
-      description: 'Phygital experiences and IRL activations — NOVA, Pop Toy Show, IMDA’s Digital for Life Festival — run in sync with the events the audience is already attending.',
-      meta: 'NOVA · NYSE · TOKEN2049 · SXSW',
-      icon: <Zap size={20} />,
-      badge: 'HERITAGE',
-      href: '/what-we-build#phygital',
+      label: '03 / AI ECONOMICS',
+      title: 'Make every AI dollar accountable.',
+      description: 'As AI adoption scales, so does its hidden cost. Slashboard gives organisations visibility across models, prompts, workloads and teams so leaders can understand what their AI is costing, what it is producing and where economics can improve.',
+      meta: 'MODEL INTELLIGENCE · USAGE ANALYTICS · COST OPTIMISATION · SPEND GOVERNANCE',
+      icon: <Gauge size={20} />,
+      href: '/what-we-build#slashboard',
       color: '#161E28',
+      colSpan: 2,
+      rowSpan: 1,
     },
     {
-      label: '05 / BLOCKCHAIN',
-      title: 'Trustancy',
-      description: 'Digital bunkering on Sui: smart contracts and NFT-based verification replacing paper in a $120B maritime fuel industry, built to Singapore’s 2025 mandate.',
-      meta: 'SUI · SMART CONTRACTS · ESG TRACKING',
+      label: '04 / TRUSTED DIGITAL INFRASTRUCTURE',
+      title: 'When trust matters, architecture matters.',
+      description: 'We build blockchain and digital infrastructure where verification, provenance, settlement and auditability solve genuine operational problems. From maritime trade to supply chains, we use distributed systems selectively — where the technology creates a better system, not simply a different one.',
+      meta: 'DIGITAL TRADE · VERIFICATION · SETTLEMENT · TRACEABILITY',
       icon: <ShieldCheck size={20} />,
-      badge: 'PRODUCT',
       href: '/what-we-build#blockchain-bunkering',
       color: '#121720',
-    },
-    {
-      label: '06 / FARM TO FORK',
-      title: 'Halal Chain',
-      description: 'Blockchain-enabled traceability for the halal supply chain — every step from farm to fork recorded, verifiable and auditable by the people who have to trust it.',
-      meta: 'ON-CHAIN PROVENANCE · CERTIFICATION · AUDIT TRAIL',
-      icon: <CheckCircle2 size={20} />,
-      badge: 'PRODUCT',
-      href: '/what-we-build#halal-chain',
-      color: '#121720',
+      colSpan: 2,
+      rowSpan: 1,
     },
   ];
 
@@ -126,9 +62,8 @@ export const CapabilitiesGrid: React.FC = () => {
       <SpatialBackground variant="ambient" />
       <div className="buildplate-container relative z-10">
         <SectionHeader
-          eyebrow="THREE SERVICES, THREE PRODUCTS"
-          title="What we do"
-          dek="We cut what AI costs to run, we build AI products like Slashboard and NUTRA, and we automate the operations that slow a business down — with a decade of shipped work behind it."
+          eyebrow="WHAT WE BUILD"
+          title="What we build"
           actionLink={{
             label: 'All capabilities',
             href: '/what-we-build',

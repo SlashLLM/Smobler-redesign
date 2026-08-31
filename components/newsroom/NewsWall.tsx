@@ -73,6 +73,7 @@ export const NewsWall: React.FC<NewsWallProps> = ({ items }) => {
                       dek={item.excerpt}
                       meta={`${item.readTime || '3 min read'} · ${item.tags.join(' · ')}`}
                       mediaUrl={item.heroImage}
+                      mediaPosition={item.heroImagePosition}
                       aspectRatio="16:10"
                       href={`/newsroom/${item.slug}`}
                       chips={[

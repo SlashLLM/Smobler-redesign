@@ -5,22 +5,23 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { SpatialBackground } from '../ui/SpatialBackground';
 
-/* The three offerings, stated in the order a client buys them. */
+/* The first three pillars, previewed here and stated in full in "What we build".
+   The rail is a three-column grid — Trusted Digital Infrastructure lands there. */
 const offerings = [
   {
     value: '01',
-    title: 'AI products',
-    label: 'We design and ship AI products end to end, from the first prototype to the thing your customers use every day.',
+    title: 'Applied AI',
+    label: 'Production AI for complex, domain-specific environments — built around the problem, not the model.',
   },
   {
     value: '02',
-    title: 'AI automation',
-    label: 'We automate the operations your teams repeat, support, back office, content, reporting, with agents that hold up in production.',
+    title: 'Intelligent operations',
+    label: 'Workflows redesigned around AI agents and automation, connecting information, systems and people.',
   },
   {
     value: '03',
-    title: 'AI cost optimisation',
-    label: 'We audit what your AI actually costs and cut it, models, infrastructure, orchestration, without giving up quality.',
+    title: 'AI economics',
+    label: 'Visibility across models, prompts, workloads and teams, so every AI dollar is accountable.',
   },
 ];
 
@@ -101,7 +102,7 @@ export const HeroSection: React.FC = () => {
             className="font-mono"
             style={{ fontSize: '11px', fontWeight: 700, color: 'var(--ink-on-sun)' }}
           >
-            AI-First · Singapore & USA · Built for Enterprise
+            Applied AI · Intelligent Infrastructure · Singapore + United States
           </span>
         </div>
 
@@ -116,7 +117,7 @@ export const HeroSection: React.FC = () => {
             margin: 0,
           }}
         >
-          We build AI that earns its keep.
+          Intelligence, applied.
         </h1>
 
         {/* Lede and actions share a baseline on desktop, stack on mobile */}
@@ -124,19 +125,34 @@ export const HeroSection: React.FC = () => {
           className="flex flex-col md:flex-row md:items-end justify-between gap-8"
           style={{ marginTop: '34px' }}
         >
-          <p
-            style={{
-              fontSize: 'var(--t-body-lg)',
-              lineHeight: 1.55,
-              color: 'var(--ink-on-sun)',
-              maxWidth: '44ch',
-              margin: 0,
-            }}
-          >
-            Three ways in: we build your AI products, we automate the operations that
-            slow your business down, and we cut what your AI costs to run. One team,
-            enterprise-grade, from first prototype to production bill.
-          </p>
+          <div className="flex flex-col gap-4">
+            <p
+              style={{
+                fontSize: 'var(--t-body-lg)',
+                lineHeight: 1.55,
+                color: 'var(--ink-on-sun)',
+                maxWidth: '44ch',
+                margin: 0,
+              }}
+            >
+              Smobler builds AI products, intelligent workflows and trusted digital
+              infrastructure for industries where technology has to work in the real
+              world.
+            </p>
+            <p
+              style={{
+                fontSize: 'var(--t-body-lg)',
+                lineHeight: 1.55,
+                color: 'var(--ink-on-sun)',
+                maxWidth: '44ch',
+                margin: 0,
+              }}
+            >
+              We partner with enterprises, governments and ambitious founders to turn
+              emerging technology into measurable operating advantage — from first
+              principle to production.
+            </p>
+          </div>
 
           <div className="flex flex-wrap items-center gap-4 shrink-0">
             <Link
@@ -154,7 +170,7 @@ export const HeroSection: React.FC = () => {
                   'transform var(--dur-ui) var(--ease-ui), box-shadow var(--dur-ui) var(--ease-ui)',
               }}
             >
-              Talk to us
+              Partner with Smobler
               <ArrowRight size={17} color="var(--sun-500)" strokeWidth={2.4} />
             </Link>
 
@@ -172,7 +188,7 @@ export const HeroSection: React.FC = () => {
                 transition: 'transform var(--dur-ui) var(--ease-ui)',
               }}
             >
-              See what we build
+              Explore our work
               <ArrowRight size={17} strokeWidth={2.2} />
             </Link>
           </div>

@@ -22,23 +22,23 @@ export const IdealsSunflower: React.FC = () => {
             {/* Header Tag */}
             <div className="flex items-center gap-2 mb-4">
               <span className="text-label font-mono text-[var(--sun-700)] font-bold px-2.5 py-1 bg-[var(--sun-100)] border border-[rgba(255,209,0,0.4)] rounded-full">
-                OUR CORE VALUES
+                OUR PRINCIPLE
               </span>
             </div>
 
             {/* Main Headline */}
             <h2 className="text-h1 font-display text-[var(--ink)] font-bold mb-4 tracking-tight leading-tight uppercase">
-              WE ARE AN AI-FIRST AGENCY
+              Technology should expand human possibility.
             </h2>
 
             {/* Subtitle */}
             <p className="text-lg md:text-xl font-medium text-[var(--ink)] mb-4 leading-snug">
-              Doing great while doing good with brands, IPs, and communities.
+              We believe intelligence and responsibility belong together.
             </p>
 
             {/* Extended Paragraph */}
             <p className="text-body text-[var(--ink-mute)] mb-8 leading-relaxed">
-              At Smobler, intelligence and responsibility walk hand in hand. We deploy cutting-edge AI workflows, human-in-the-loop safeguards, and immersive spatial design to empower creators, streamline business operations, and elevate brand experiences across physical and digital frontiers.
+              Our systems are designed with human oversight, transparency and practical usefulness in mind. Not technology for technology’s sake. Technology that improves how people work, build, trade, learn and create.
             </p>
 
             {/* Action Buttons */}
@@ -47,14 +47,14 @@ export const IdealsSunflower: React.FC = () => {
                 href="/studio"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-[var(--ink)] text-[var(--ink)] font-bold text-sm hover:bg-[var(--ink)] hover:text-white transition-all shadow-[4px_4px_0_rgba(11,14,18,0.15)]"
               >
-                Origin Story
+                About the studio
               </Link>
 
               <Link
                 href="/what-we-build"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[var(--sun-500)] text-[var(--ink)] font-bold text-sm hover:bg-[var(--sun-400)] transition-all shadow-[4px_4px_0_rgba(11,14,18,0.15)] gap-2 group"
               >
-                What We Do
+                What we build
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
