@@ -12,15 +12,40 @@ import { NewsItem } from '@/types';
  * the lead release below, which has no public URL yet.
  */
 export const newsItems: NewsItem[] = [
-  /* ────────────────────────────── 2026 / LEAD ─────────────────────────── */
-  /*
-   * The one entry not drawn from a published URL: the source is the press
-   * release itself, dated 31 August 2026 and issued for LEAP 2026 in Riyadh.
-   * Quotes and details below are transcribed from that document, so `sourceUrl`
-   * stays unset and the article page's source CTA stands down until the wire
-   * copy is live. `featured` is held by this item alone — it is what the wall,
-   * the home preview and the newsroom lead all read as the current lead story.
-   */
+  /* ────────────────────────────── 2026 ─────────────────────────────────── */
+  {
+    id: 'seanews-blockchain-powered-bunkering',
+    slug: 'blockchain-powered-bunkering-more-powerful-when-info-flows-automatically',
+    title:
+      'Blockchain-powered bunkering: more powerful when info flows automatically',
+    type: 'coverage',
+    publishedAt: '08 SEP 2026',
+    month: 'SEP',
+    year: 2026,
+    excerpt:
+      'SeaNews speaks with Smobler CEO Dr. Loretta Chen on transforming maritime bunkering into a connected, verifiable digital transaction using Sui, Walrus, and Nautilus.',
+    body: `Bunkering sounds simple on paper — one vessel transferring marine fuel to another. In reality, a single custody transfer can involve over a dozen commercial parties, from shipowners, charterers and bunker traders to physical suppliers, testing laboratories, surveyors, insurers and port authorities. Speaking with SeaNews, Smobler founder and CEO Dr. Loretta Chen highlighted how the friction of reconciling paper forms, PDFs, emails and isolated enterprise databases leaves maritime trade vulnerable to delays, transcription errors and disputes.
+
+To address this fragmentation, Smobler is pioneering blockchain-enabled maritime infrastructure designed around Singapore’s digital bunkering initiative, which the Maritime and Port Authority of Singapore (MPA) estimates can save the industry close to 40,000 man-days annually. Anchored by the SS 648:2024 Mass Flow Metering standard, the approach creates an immutable verification layer where meter readings, e-BDNs (electronic Bunker Delivery Notes) and operational checklists are cryptographically hashed and linked to verified participant identities.
+
+Chen drew a sharp operational distinction between artificial intelligence and distributed ledgers. While Smobler builds AI solutions across sectors like food compliance, Chen emphasised that bunkering’s chief challenge is not raw intelligence, but multi-party trust. “If two companies disagree about the quantity of fuel supplied, asking an AI system what it ‘thinks’ happened isn’t necessarily useful,” Chen explained. “Blockchain establishes what happened, while AI helps us understand what it means.” Smobler’s architecture pairs Sui for programmable coordination with Walrus for decentralised file storage, while Nautilus enables confidential computation inside Trusted Execution Environments.
+
+The initiative has already progressed beyond the drawing board into a functional MVP developed in partnership with Mysten Labs and bunker supplier KenOil. Rather than demanding that shipping operators abandon existing enterprise stacks, Smobler advocates an interoperability-first, regulation-first framework aligned with MARPOL Annex VI and MPA standards — turning bunkering from a fragmented sequence of 15 forms into an automated end-to-end digital transaction.
+
+Read the full in-depth interview and ten-stage blockchain workflow on SeaNews.`,
+    pullQuote: {
+      text: 'Our philosophy is that blockchain establishes what happened while AI helps us understand what it means.',
+      attribution: 'Dr. Loretta Chen to SeaNews',
+    },
+    publication: 'SeaNews',
+    heroImage: '/news/seanews-bunkering-blockchain.jpg',
+    sourceUrl:
+      'https://www.seanews.co.uk/technology/blockchain-powered-bunkering-more-powerful-when-info-flows-automatically',
+    weight: 'standard',
+    onWire: true,
+    tags: ['Maritime', 'Blockchain', 'Digital Bunkering', 'Sui', 'Interview'],
+    readTime: '2 min read',
+  },
   {
     id: 'smobler-leap-2026-haccp-to-halal',
     slug: 'smobler-leap-2026-haccp-to-halal',

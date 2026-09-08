@@ -21,6 +21,7 @@ const HOST_NAMES: Record<string, string> = {
   'youtube.com': 'YouTube',
   'youtu.be': 'YouTube',
   'finance.yahoo.com': 'Yahoo Finance',
+  'seanews.co.uk': 'SeaNews',
 };
 
 const CTA_VERBS: Record<SourceKind, string> = {

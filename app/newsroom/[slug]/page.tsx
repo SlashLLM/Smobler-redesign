@@ -238,6 +238,27 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
             ))}
           </div>
 
+          {/* External Source Callout */}
+          {source && (
+            <div className="mt-12 p-6 md:p-8 bg-white border border-[var(--line-light)] flex flex-col sm:flex-row sm:items-center justify-between gap-6 card-lift-snow">
+              <div>
+                <div className="text-label text-[var(--sun-700)] font-mono font-bold mb-1">
+                  ▸ ORIGINAL PUBLICATION
+                </div>
+                <h3 className="text-h3 font-display font-bold text-[var(--ink)]">
+                  Read the full story on {source.publisher}
+                </h3>
+                <p className="text-xs text-[var(--ink-mute)] font-mono mt-1">
+                  This dispatch is a condensed overview. Explore the complete publication at {source.host}.
+                </p>
+              </div>
+              <Button href={source.href} external variant="primary" size="md" className="shrink-0">
+                <span>{source.ctaLabel}</span>
+                <ArrowUpRight size={16} className="ml-2" />
+              </Button>
+            </div>
+          )}
+
           {/* Tags & Topics */}
           <div className="mt-12 pt-8 border-t border-[var(--line-light)]">
             <div className="text-label text-[var(--ink-mute)] font-mono mb-3 font-bold">

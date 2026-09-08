@@ -15,7 +15,7 @@ export default function NewsroomPage() {
   const [selectedType, setSelectedType] = useState<string>('all');
   const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
 
-  const leadItem = newsItems[0];
+  const leadItem = newsItems.find((n) => n.weight === 'featured') || newsItems[0];
   const allYears = Array.from(new Set(newsItems.map((n) => n.year)));
 
   const filteredItems = newsItems.filter((item) => {
